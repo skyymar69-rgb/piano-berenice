@@ -5,6 +5,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import { CookieBanner } from "@/components/CookieBanner";
+import { ThemeInit } from "@/components/ThemeInit";
+import { AccessibilityWidget } from "@/components/AccessibilityWidget";
 import { school } from "@/lib/school";
 
 const inter = Inter({
@@ -53,11 +55,15 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <ThemeInit />
+      </head>
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-[var(--primary)] focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-[var(--primary)] focus:px-4 focus:py-2 focus:text-[var(--primary-contrast)]"
         >
           Aller au contenu
         </a>
@@ -67,6 +73,7 @@ export default function RootLayout({
         </main>
         <SiteFooter />
         <CookieBanner />
+        <AccessibilityWidget />
         <OrganizationJsonLd />
       </body>
     </html>

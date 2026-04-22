@@ -70,7 +70,7 @@ export function EnrollmentForm() {
         </label>
       </div>
 
-      <fieldset className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+      <fieldset className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
         <legend className="px-2 font-serif text-xl text-[var(--primary)]">
           Discipline(s) souhaitée(s)
         </legend>
@@ -94,7 +94,7 @@ export function EnrollmentForm() {
         </div>
       </fieldset>
 
-      <fieldset className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+      <fieldset className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
         <legend className="px-2 font-serif text-xl text-[var(--primary)]">
           Informations sur l'élève
         </legend>
@@ -151,7 +151,7 @@ export function EnrollmentForm() {
         )}
       </fieldset>
 
-      <fieldset className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+      <fieldset className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
         <legend className="px-2 font-serif text-xl text-[var(--primary)]">
           Vos coordonnées
         </legend>
@@ -161,7 +161,7 @@ export function EnrollmentForm() {
         </div>
       </fieldset>
 
-      <fieldset className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+      <fieldset className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
         <legend className="px-2 font-serif text-xl text-[var(--primary)]">
           Disponibilités & motivations
         </legend>
@@ -211,7 +211,7 @@ export function EnrollmentForm() {
         </div>
       </fieldset>
 
-      <div className="space-y-3 rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+      <div className="space-y-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
         <label className="flex gap-3 text-sm text-[var(--ink)]/85">
           <input
             type="checkbox"

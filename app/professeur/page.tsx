@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { school } from "@/lib/school";
+import { Picture } from "@/components/Picture";
 
 export const metadata: Metadata = {
   title: "Bérénice Lecardeur — Professeure de piano à Nice",
@@ -26,12 +27,13 @@ export default function ProfesseurPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-5 lg:px-8 lg:py-16">
         <div className="lg:col-span-2">
-          <div className="sticky top-28 aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--primary)]/15 via-[var(--accent)]/15 to-[var(--primary)]/10">
-            <div className="flex h-full items-center justify-center px-6 text-center text-sm text-[var(--muted)]">
-              Photo du professeur
-              <br />
-              (à fournir)
-            </div>
+          <div className="sticky top-28 space-y-5">
+            <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <Picture image="bereniceNappe" priority sizes="(min-width:1024px) 400px, 100vw" />
+            </figure>
+            <figure className="hidden overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)] lg:block">
+              <Picture image="berenicePortrait" sizes="400px" />
+            </figure>
           </div>
         </div>
 

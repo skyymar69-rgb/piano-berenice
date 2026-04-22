@@ -2,19 +2,92 @@
 
 :root {
   --background: #fbf7ef;
+  --surface: #ffffff;
   --foreground: #1a1d29;
   --primary: #1a2540;
   --primary-hover: #233255;
+  --primary-contrast: #ffffff;
   --accent: #b8894a;
   --accent-hover: #a57835;
   --muted: #6b6f7a;
   --muted-bg: #f3ece0;
   --border: #e4dac5;
   --ink: #1a1d29;
+  --shadow: 0 8px 30px rgba(26, 37, 64, 0.08);
+  --a11y-font-scale: 1;
+  --a11y-letter-spacing: 0em;
+}
+
+html[data-theme="dark"] {
+  --background: #0f1320;
+  --surface: #171c2e;
+  --foreground: #eceef5;
+  --primary: #d5b07c;
+  --primary-hover: #e6c193;
+  --primary-contrast: #0f1320;
+  --accent: #d5b07c;
+  --accent-hover: #e6c193;
+  --muted: #9da3b5;
+  --muted-bg: #1d2338;
+  --border: #29304a;
+  --ink: #eceef5;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+html[data-contrast="high"] {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --foreground: #000000;
+  --primary: #000000;
+  --primary-hover: #222222;
+  --primary-contrast: #ffffff;
+  --accent: #7a4a00;
+  --accent-hover: #5c3700;
+  --muted: #222222;
+  --muted-bg: #f2f2f2;
+  --border: #000000;
+  --ink: #000000;
+}
+
+html[data-theme="dark"][data-contrast="high"] {
+  --background: #000000;
+  --surface: #000000;
+  --foreground: #ffffff;
+  --primary: #ffd580;
+  --primary-hover: #ffe1a0;
+  --primary-contrast: #000000;
+  --accent: #ffd580;
+  --accent-hover: #ffe1a0;
+  --muted: #ffffff;
+  --muted-bg: #111111;
+  --border: #ffffff;
+  --ink: #ffffff;
+}
+
+html[data-underline-links="on"] a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+html[data-dyslexia="on"] body {
+  font-family:
+    "Atkinson Hyperlegible", "OpenDyslexic", "Comic Sans MS", Verdana,
+    system-ui, sans-serif !important;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+}
+
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
@@ -28,13 +101,19 @@
   --font-serif: var(--font-fraunces);
 }
 
+html {
+  font-size: calc(100% * var(--a11y-font-scale));
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
+  letter-spacing: var(--a11y-letter-spacing);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -48,7 +127,13 @@ h5 {
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--primary-contrast);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -69,4 +154,26 @@ h5 {
 
 .prose-warm p + p {
   margin-top: 1rem;
+}
+
+/* Blur-up transition for lazy images */
+picture img {
+  transition: opacity 0.4s ease;
+}
+
+picture img[loading="lazy"] {
+  background: linear-gradient(
+    135deg,
+    var(--muted-bg) 0%,
+    var(--border) 100%
+  );
+}
+
+/* Mix-blend overlays for hero decorations */
+.hero-mix {
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="dark"] .hero-mix {
+  mix-blend-mode: screen;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CourseJsonLd } from "@/components/JsonLd";
+import { Picture } from "@/components/Picture";
 
 export const metadata: Metadata = {
   title: "Éveil musical et instrumental à Nice — dès 5 ans",
@@ -32,8 +33,18 @@ export default function EveilPage() {
         </p>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+        <figure className="aspect-[16/9] overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
+          <Picture
+            image="salleAudition"
+            priority
+            sizes="(min-width:1024px) 1100px, 100vw"
+          />
+        </figure>
+      </section>
+
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-16">
-        <article className="rounded-2xl border border-[var(--border)] bg-white/60 p-7">
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-7">
           <h2 className="font-serif text-2xl text-[var(--primary)]">
             Éveil musical — dès 5 ans
           </h2>
@@ -65,7 +76,7 @@ export default function EveilPage() {
 
         <article
           id="eveil-instrumental"
-          className="rounded-2xl border border-[var(--border)] bg-white/60 p-7"
+          className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-7"
         >
           <h2 className="font-serif text-2xl text-[var(--primary)]">
             Éveil instrumental

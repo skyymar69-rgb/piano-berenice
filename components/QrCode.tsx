@@ -16,7 +16,7 @@ export async function QrCode({ value, label, caption, size = 180 }: Props) {
   });
 
   return (
-    <figure className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--border)] bg-white/80 p-5 text-center">
+    <figure className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-5 text-center">
       <img
         src={dataUrl}
         alt={`QR code — ${label}`}

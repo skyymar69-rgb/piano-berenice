@@ -45,7 +45,7 @@ export default function TarifsPage() {
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-[var(--border)] bg-white/70 px-6 py-3 text-sm font-medium text-[var(--primary)] transition hover:border-[var(--accent)]"
+              className="rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-6 py-3 text-sm font-medium text-[var(--primary)] transition hover:border-[var(--accent)]"
             >
               Nous contacter
             </Link>

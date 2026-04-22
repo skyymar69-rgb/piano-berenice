@@ -32,7 +32,14 @@
       "Bash(npm run *)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git -c user.email=\"noreply@anthropic.com\" -c user.name=\"Claude\" commit -m \"Initial commit — site vitrine Académie de piano Bérénice\")"
+      "Bash(git -c user.email=\"noreply@anthropic.com\" -c user.name=\"Claude\" commit -m \"Initial commit — site vitrine Académie de piano Bérénice\")",
+      "Bash(gh repo *)",
+      "Bash(vercel --prod --yes --name piano-berenice)",
+      "Bash(curl -sI https://piano-berenice.vercel.app)",
+      "Bash(node -e \"console.log\\(require\\('sharp/package.json'\\).version\\)\")",
+      "Bash(node scripts/optimize-images.mjs)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: photos, dark theme, logo clé de sol, a11y widget, share menu, vCard dropdown, landline *)",
+      "Bash(git push *)"
     ]
   }
 }

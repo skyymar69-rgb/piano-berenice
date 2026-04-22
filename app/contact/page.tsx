@@ -28,7 +28,7 @@ export default function ContactPage() {
 
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-16">
         <div className="space-y-5">
-          <div className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               Téléphone
             </p>
@@ -36,14 +36,20 @@ export default function ContactPage() {
               href={`tel:${school.contact.phone.replace(/\s+/g, "")}`}
               className="mt-2 block font-serif text-2xl text-[var(--primary)] hover:text-[var(--accent)]"
             >
-              {school.contact.phoneDisplay}
+              Mobile — {school.contact.phoneDisplay}
             </a>
-            <p className="mt-1 text-xs text-[var(--muted)]">
+            <a
+              href={`tel:${school.contact.phoneLandline.replace(/\s+/g, "")}`}
+              className="mt-1 block font-serif text-lg text-[var(--primary)] hover:text-[var(--accent)]"
+            >
+              Fixe — {school.contact.phoneLandline}
+            </a>
+            <p className="mt-2 text-xs text-[var(--muted)]">
               {school.contact.hours.inscription}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               Email
             </p>
@@ -55,7 +61,7 @@ export default function ContactPage() {
             </a>
           </div>
 
-          <div className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               Sur place
             </p>
@@ -75,7 +81,7 @@ export default function ContactPage() {
             </Link>
           </div>
 
-          <div className="rounded-2xl border border-[var(--border)] bg-white/70 p-6">
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               Réseaux
             </p>
@@ -90,7 +96,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[var(--border)] bg-white/70 p-7">
+        <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-7">
           <h2 className="font-serif text-2xl text-[var(--primary)]">
             Formulaire
           </h2>

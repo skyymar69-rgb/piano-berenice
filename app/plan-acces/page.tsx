@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { school } from "@/lib/school";
+import { Picture } from "@/components/Picture";
 
 export const metadata: Metadata = {
   title: "Plan d'accès — 59 boulevard de Cimiez, Nice",
@@ -27,7 +28,7 @@ export default function PlanAccesPage() {
 
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-16">
         <div>
-          <address className="rounded-2xl border border-[var(--border)] bg-white/70 p-7 not-italic">
+          <address className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-7 not-italic">
             <p className="font-serif text-2xl text-[var(--primary)]">
               {school.brand.name}
             </p>
@@ -46,7 +47,13 @@ export default function PlanAccesPage() {
                 href={`tel:${school.contact.phone.replace(/\s+/g, "")}`}
                 className="font-medium text-[var(--primary)] hover:text-[var(--accent)]"
               >
-                Téléphone : {school.contact.phoneDisplay}
+                Mobile : {school.contact.phoneDisplay}
+              </a>
+              <a
+                href={`tel:${school.contact.phoneLandline.replace(/\s+/g, "")}`}
+                className="font-medium text-[var(--primary)] hover:text-[var(--accent)]"
+              >
+                Fixe : {school.contact.phoneLandline}
               </a>
               <a
                 href={`mailto:${school.contact.email}`}
@@ -65,7 +72,7 @@ export default function PlanAccesPage() {
             </a>
           </address>
 
-          <div className="mt-8 rounded-2xl border border-[var(--border)] bg-white/70 p-7">
+          <div className="mt-8 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/70 p-7">
             <h2 className="font-serif text-xl text-[var(--primary)]">
               En bus
             </h2>
@@ -84,18 +91,31 @@ export default function PlanAccesPage() {
           </div>
         </div>
 
-        <div className="aspect-square overflow-hidden rounded-2xl border border-[var(--border)] lg:aspect-auto lg:h-full">
-          <iframe
-            title="Carte OpenStreetMap — 59 boulevard de Cimiez"
-            src={`https://www.openstreetmap.org/export/embed.html?bbox=${
-              longitude - 0.006
-            }%2C${latitude - 0.004}%2C${longitude + 0.006}%2C${
-              latitude + 0.004
-            }&layer=mapnik&marker=${latitude}%2C${longitude}`}
-            className="h-full w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        <div className="space-y-5">
+          <div className="aspect-square overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <iframe
+              title="Carte OpenStreetMap — 59 boulevard de Cimiez, Nice"
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${
+                longitude - 0.006
+              }%2C${latitude - 0.004}%2C${longitude + 0.006}%2C${
+                latitude + 0.004
+              }&layer=mapnik&marker=${latitude}%2C${longitude}`}
+              className="h-full w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <div className="aspect-[4/3]">
+              <Picture
+                image="couloirAccueil"
+                sizes="(min-width:1024px) 500px, 100vw"
+              />
+            </div>
+            <figcaption className="bg-[var(--surface)] px-4 py-3 text-xs text-[var(--muted)]">
+              Le couloir d'accueil à l'intérieur de l'Académie.
+            </figcaption>
+          </figure>
         </div>
       </section>
     </>

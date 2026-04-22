@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CourseJsonLd } from "@/components/JsonLd";
+import { Picture } from "@/components/Picture";
 
 export const metadata: Metadata = {
   title: "Cours de piano à Nice (enfants, ados, adultes) — Académie Bérénice",
@@ -32,8 +33,18 @@ export default function PianoPage() {
         </p>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+        <figure className="aspect-[16/7] overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
+          <Picture
+            image="pianoYamahaPartition"
+            priority
+            sizes="(min-width:1024px) 1100px, 100vw"
+          />
+        </figure>
+      </section>
+
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8 lg:py-16">
-        <article className="rounded-2xl border border-[var(--border)] bg-white/60 p-7">
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-7">
           <h2 id="enfants" className="font-serif text-2xl text-[var(--primary)]">
             Enfants
           </h2>
@@ -45,7 +56,7 @@ export default function PianoPage() {
           </p>
         </article>
 
-        <article className="rounded-2xl border border-[var(--border)] bg-white/60 p-7">
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-7">
           <h2 id="ados" className="font-serif text-2xl text-[var(--primary)]">
             Adolescents
           </h2>
@@ -57,7 +68,7 @@ export default function PianoPage() {
           </p>
         </article>
 
-        <article className="rounded-2xl border border-[var(--border)] bg-white/60 p-7">
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-7">
           <h2 id="adultes" className="font-serif text-2xl text-[var(--primary)]">
             Adultes
           </h2>

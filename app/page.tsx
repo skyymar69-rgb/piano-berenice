@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { school } from "@/lib/school";
+import { Picture } from "@/components/Picture";
 
 const offers = [
   {
@@ -50,61 +51,80 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--muted-bg)] via-[var(--background)] to-[var(--background)]" />
-        <div className="mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-            Depuis {school.brand.foundedYear} · Nice · Cimiez
-          </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.05] text-[var(--primary)] sm:text-5xl lg:text-6xl">
-            Le piano s'apprend avec méthode,
-            <br />
-            <span className="text-[var(--accent)]">et avec plaisir.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-[var(--ink)]/80">
-            L'Académie de piano Bérénice accueille enfants, adolescents et
-            adultes à Nice Cimiez pour des cours de piano, de solfège et d'éveil
-            musical. Une école à taille humaine, tenue depuis plus de trente
-            ans par {school.teacher.fullName}.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
-              href="/inscription"
-              className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
-            >
-              Demander un cours d'essai
-            </Link>
-            <Link
-              href="/cours/piano"
-              className="rounded-full border border-[var(--border)] bg-white/60 px-6 py-3 text-sm font-medium text-[var(--primary)] transition hover:border-[var(--accent)]"
-            >
-              Découvrir les cours
-            </Link>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[3fr,2fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+              Depuis {school.brand.foundedYear} · Nice · Cimiez
+            </p>
+            <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.05] text-[var(--primary)] sm:text-5xl lg:text-6xl">
+              Le piano s'apprend avec méthode,
+              <br />
+              <span className="text-[var(--accent)]">et avec plaisir.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-[var(--ink)]/80">
+              L'Académie de piano Bérénice accueille enfants, adolescents et
+              adultes à Nice Cimiez pour des cours de piano, de solfège et
+              d'éveil musical. Une école à taille humaine, tenue depuis plus
+              de trente ans par {school.teacher.fullName}.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="/inscription"
+                className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
+              >
+                Demander un cours d'essai
+              </Link>
+              <Link
+                href="/cours/piano"
+                className="rounded-full border border-[var(--border)] bg-[var(--surface)]/60 px-6 py-3 text-sm font-medium text-[var(--primary)] transition hover:border-[var(--accent)]"
+              >
+                Découvrir les cours
+              </Link>
+            </div>
+            <dl className="mt-12 grid grid-cols-2 gap-6 text-sm sm:grid-cols-4">
+              <div>
+                <dt className="text-[var(--muted)]">Ouverte depuis</dt>
+                <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
+                  {school.brand.foundedYear}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[var(--muted)]">Disciplines</dt>
+                <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
+                  3
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[var(--muted)]">Âge minimum</dt>
+                <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
+                  5 ans
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[var(--muted)]">Quartier</dt>
+                <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
+                  Cimiez
+                </dd>
+              </div>
+            </dl>
           </div>
-          <dl className="mt-14 grid grid-cols-2 gap-6 text-sm sm:grid-cols-4">
-            <div>
-              <dt className="text-[var(--muted)]">Ouverte depuis</dt>
-              <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                {school.brand.foundedYear}
-              </dd>
+          <div className="relative">
+            <div className="aspect-[3/4] overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <Picture
+                image="berenicePortrait"
+                priority
+                sizes="(min-width: 1024px) 480px, 100vw"
+              />
             </div>
-            <div>
-              <dt className="text-[var(--muted)]">Disciplines</dt>
-              <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                3
-              </dd>
+            <div className="absolute -bottom-6 -left-6 hidden w-56 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)] lg:block">
+              <div className="aspect-[4/3]">
+                <Picture
+                  image="partitionRose"
+                  sizes="220px"
+                />
+              </div>
             </div>
-            <div>
-              <dt className="text-[var(--muted)]">Âge minimum</dt>
-              <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                5 ans
-              </dd>
-            </div>
-            <div>
-              <dt className="text-[var(--muted)]">Quartier</dt>
-              <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                Cimiez
-              </dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </section>
 
@@ -149,7 +169,7 @@ export default function HomePage() {
             <Link
               key={o.href}
               href={o.href}
-              className="group flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-white/60 p-6 transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10"
+              className="group flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-6 transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
                 {o.tag}
@@ -172,10 +192,11 @@ export default function HomePage() {
       <section className="bg-[var(--muted-bg)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-5 lg:px-8 lg:py-24">
           <div className="lg:col-span-2">
-            <div className="aspect-[4/5] w-full rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--primary)]/15 via-[var(--accent)]/15 to-[var(--primary)]/10">
-              <div className="flex h-full items-center justify-center px-6 text-center text-sm text-[var(--muted)]">
-                Photo du professeur — à venir
-              </div>
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <Picture
+                image="berenicePiano"
+                sizes="(min-width: 1024px) 400px, 100vw"
+              />
             </div>
           </div>
           <div className="lg:col-span-3">
@@ -223,7 +244,7 @@ export default function HomePage() {
           {steps.map((s, i) => (
             <li
               key={s.title}
-              className="relative rounded-2xl border border-[var(--border)] bg-white/50 p-6"
+              className="relative rounded-2xl border border-[var(--border)] bg-[var(--surface)]/50 p-6"
             >
               <span className="font-serif text-5xl text-[var(--accent)]/30">
                 {String(i + 1).padStart(2, "0")}
@@ -239,8 +260,51 @@ export default function HomePage() {
         </ol>
       </section>
 
+      {/* GALERIE LIEUX */}
+      <section className="bg-[var(--muted-bg)]/60">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+            Le lieu
+          </p>
+          <h2 className="mt-3 max-w-3xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+            Trois salles dédiées, au cœur de Cimiez
+          </h2>
+          <p className="mt-4 max-w-2xl text-[var(--ink)]/80">
+            Une salle de piano principale avec piano à queue, une salle
+            d'éveil musical et d'audition, et une salle de solfège en groupe.
+            Tout se passe dans le même lieu, au 59 boulevard de Cimiez.
+          </p>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <figure className="group overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <div className="aspect-[4/3] transition duration-500 group-hover:scale-105">
+                <Picture image="sallePianoDecor" sizes="(min-width:1024px) 380px, 100vw" />
+              </div>
+              <figcaption className="bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)]/85">
+                Salle de cours de piano avec piano à queue
+              </figcaption>
+            </figure>
+            <figure className="group overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <div className="aspect-[4/3] transition duration-500 group-hover:scale-105">
+                <Picture image="salleAudition" sizes="(min-width:1024px) 380px, 100vw" />
+              </div>
+              <figcaption className="bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)]/85">
+                Salle d'éveil musical et d'audition
+              </figcaption>
+            </figure>
+            <figure className="group overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <div className="aspect-[4/3] transition duration-500 group-hover:scale-105">
+                <Picture image="salleSolfege" sizes="(min-width:1024px) 380px, 100vw" />
+              </div>
+              <figcaption className="bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)]/85">
+                Salle de solfège en groupe
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       {/* LOCALISATION */}
-      <section className="bg-[var(--primary)] text-white">
+      <section className="bg-[var(--primary)] text-[var(--primary-contrast)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">

@@ -33,7 +33,7 @@ export function CookieBanner() {
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-desc"
-      className="fixed inset-x-3 bottom-3 z-50 rounded-2xl border border-[var(--border)] bg-white/95 p-5 shadow-2xl backdrop-blur sm:inset-x-auto sm:bottom-6 sm:left-6 sm:max-w-md"
+      className="fixed inset-x-3 bottom-3 z-50 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/95 p-5 shadow-2xl backdrop-blur sm:inset-x-auto sm:bottom-6 sm:left-6 sm:max-w-md"
     >
       <p id="cookie-title" className="font-serif text-lg text-[var(--primary)]">
         Respect de votre vie privée
