@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 
 export const metadata: Metadata = {
   title: "Politique de gestion des cookies",
@@ -53,12 +54,20 @@ export default function CookiesPage() {
 
         <section>
           <h2 className="font-serif text-2xl text-[var(--primary)]">
-            Gérer les cookies
+            Gérer vos préférences
           </h2>
           <p>
-            Vous pouvez à tout moment configurer votre navigateur pour
-            accepter, refuser ou supprimer les cookies. Consultez l'aide de
-            votre navigateur pour les modalités précises :
+            Vous pouvez modifier votre consentement à tout moment — il est
+            enregistré dans votre navigateur et vous sera redemandé après
+            suppression.
+          </p>
+          <CookiePreferencesButton />
+
+
+          <p className="mt-6">
+            Vous pouvez aussi configurer votre navigateur pour accepter,
+            refuser ou supprimer les cookies. Consultez l'aide de votre
+            navigateur pour les modalités précises :
           </p>
           <ul className="ml-5 list-disc space-y-1">
             <li>Firefox : Préférences → Vie privée et sécurité → Cookies</li>
