@@ -67,7 +67,9 @@
       "Bash(unzip -l \"/c/Users/Maison/Downloads/marketingskills-main.zip\")",
       "Bash(mkdir -p /tmp/skills)",
       "Bash(unzip -q \"/c/Users/Maison/Downloads/marketingskills-main.zip\")",
-      "Bash(\"/c/Program Files/7-Zip/7z.exe\" x -y \"D:\\\\1x\\\\seo-geo-claude-skills-main.rar\" -o\"/tmp/skills/\")"
+      "Bash(\"/c/Program Files/7-Zip/7z.exe\" x -y \"D:\\\\1x\\\\seo-geo-claude-skills-main.rar\" -o\"/tmp/skills/\")",
+      "Bash(curl -sI https://piano-berenice.vercel.app/faq)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: embed partition Flat.io de L'\\\\''Alba in Sol maggiore sur home *)"
     ]
   }
 }

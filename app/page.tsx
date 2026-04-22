@@ -322,6 +322,65 @@ export default function HomePage() {
         </ol>
       </section>
 
+      {/* PARTITION FLAT.IO — L'Alba in Sol maggiore */}
+      <section
+        aria-labelledby="partition-title"
+        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
+      >
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+              Un hommage musical
+            </p>
+            <h2
+              id="partition-title"
+              className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl"
+            >
+              L'Alba in Sol maggiore
+            </h2>
+            <p className="mt-2 max-w-2xl text-[var(--ink)]/80">
+              Pièce pour piano composée par{" "}
+              <strong>Victoria Sol</strong> et dédiée à sa mère Bérénice —
+              un matin en sol majeur. Suivez la partition, elle est jouée en
+              arrière-plan par le lecteur en bas à droite de votre écran.
+            </p>
+          </div>
+          <a
+            href="https://flat.io/score/69e86f75b81e95150a74c5fd?sharingKey=dade953a0b0ce773847ed90c3f9f95be7319e9da36b00ebbb5ac70613f7d83ec9a34d58446d996c877dd832f588e279676e6dd8aff5492a1de473e7d9335555d"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-4 py-2 text-sm font-medium text-[var(--primary)] transition hover:border-[var(--accent)]"
+          >
+            Ouvrir sur Flat.io ↗
+          </a>
+        </div>
+        <div className="mt-8 overflow-hidden rounded-3xl border border-[var(--border)] bg-white shadow-[var(--shadow)]">
+          <iframe
+            title="Partition — L'Alba in Sol maggiore par Victoria Sol, dédié à Bérénice Lecardeur"
+            src="https://flat.io/embed/69e86f75b81e95150a74c5fd?_l=true&sharingKey=dade953a0b0ce773847ed90c3f9f95be7319e9da36b00ebbb5ac70613f7d83ec9a34d58446d996c877dd832f588e279676e6dd8aff5492a1de473e7d9335555d&layout=responsive&parts=f0195fc6-fe3e-5d0d-8cf3-11057ac39610"
+            width="100%"
+            height="480"
+            frameBorder="0"
+            allowFullScreen
+            allow="autoplay; midi"
+            loading="lazy"
+            className="block w-full"
+          />
+        </div>
+        <p className="mt-3 text-xs text-[var(--muted)]">
+          Partition hébergée sur{" "}
+          <a
+            href="https://flat.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium hover:text-[var(--accent)]"
+          >
+            Flat.io
+          </a>{" "}
+          — Music notation software.
+        </p>
+      </section>
+
       {/* GALERIE LIEUX */}
       <section className="bg-[var(--muted-bg)]/60">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
