@@ -73,7 +73,14 @@
       "Bash(curl -s https://piano-berenice.vercel.app/.well-known/security.txt)",
       "Bash(curl -sI https://piano-berenice.vercel.app/manifest.webmanifest)",
       "Bash(node scripts/optimize-favicons.mjs)",
-      "Bash(node scripts/optimize-og.mjs)"
+      "Bash(node scripts/optimize-og.mjs)",
+      "Bash(curl -s https://piano-berenice.vercel.app/llms.txt)",
+      "Bash(curl -sI https://piano-berenice.vercel.app/llms-full.txt)",
+      "Bash(curl -sI https://piano-berenice.vercel.app/favicon.ico)",
+      "Bash(curl -sI https://piano-berenice.vercel.app/partitions)",
+      "Bash(curl -sI https://piano-berenice.vercel.app/og-image.png)",
+      "Bash(node scripts/generate-notice-pdf.mjs)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'docs: notice technique livrée à la cliente \\(PDF + Markdown\\) *)"
     ]
   }
 }
