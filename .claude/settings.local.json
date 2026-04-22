@@ -58,7 +58,8 @@
       "Bash(rm concert-stage.jpg notes-book.jpg metronome.jpg child-playing-piano.jpg)",
       "Read(//d/tmp/**)",
       "Bash(node scripts/optimize-stock.mjs)",
-      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: mega-menu, mini-lecteur autoplay, footer sitemap, 5 photos libres de droit *)"
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: mega-menu, mini-lecteur autoplay, footer sitemap, 5 photos libres de droit *)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: page 404 custom avec clé de sol, plan du site et retour accueil *)"
     ]
   }
 }
