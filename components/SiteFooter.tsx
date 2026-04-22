@@ -60,7 +60,11 @@ const sitemap: {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 bg-[var(--primary)] text-white">
+    <footer
+      id="footer"
+      role="contentinfo"
+      className="mt-24 bg-[var(--primary)] text-white"
+    >
       {/* Bandeau contact */}
       <div className="border-b border-white/10">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-4 sm:px-6 lg:px-8">

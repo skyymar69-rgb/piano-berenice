@@ -8,6 +8,9 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { ThemeInit } from "@/components/ThemeInit";
 import { AccessibilityWidget } from "@/components/AccessibilityWidget";
 import { MiniPlayer } from "@/components/MiniPlayer";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
+import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { school } from "@/lib/school";
 
 const inter = Inter({
@@ -23,6 +26,18 @@ const fraunces = Fraunces({
   axes: ["opsz", "SOFT"],
 });
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbf7ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1320" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  colorScheme: "light dark" as const,
+};
+
 export const metadata: Metadata = {
   title: {
     default: school.seo.defaultTitle,
@@ -31,6 +46,18 @@ export const metadata: Metadata = {
   description: school.seo.defaultDescription,
   keywords: [...school.seo.keywords],
   metadataBase: new URL("https://piano-berenice.com"),
+  manifest: "/manifest.webmanifest",
+  applicationName: school.brand.name,
+  appleWebApp: {
+    capable: true,
+    title: school.brand.shortName,
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: true,
+    address: true,
+    email: true,
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -74,6 +101,22 @@ export default function RootLayout({
     >
       <head>
         <ThemeInit />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://flat.io" />
+        <link rel="dns-prefetch" href="https://prod.flat-cdn.com" />
+        <link rel="dns-prefetch" href="https://www.openstreetmap.org" />
+        <link
+          rel="preload"
+          as="image"
+          href="/logo.webp"
+          fetchPriority="high"
+        />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body className="flex min-h-full flex-col">
         <a
@@ -82,6 +125,13 @@ export default function RootLayout({
         >
           Aller au contenu
         </a>
+        <a
+          href="#footer"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-44 focus:top-4 focus:z-50 focus:rounded focus:bg-[var(--primary)] focus:px-4 focus:py-2 focus:text-[var(--primary-contrast)]"
+        >
+          Aller au pied de page
+        </a>
+        <ScrollProgress />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}
@@ -90,6 +140,8 @@ export default function RootLayout({
         <CookieBanner />
         <AccessibilityWidget />
         <MiniPlayer />
+        <BackToTop />
+        <WhatsAppFab />
         <OrganizationJsonLd />
       </body>
     </html>

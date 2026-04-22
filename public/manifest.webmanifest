@@ -1,0 +1,17 @@
+{
+  "name": "Académie de piano Bérénice",
+  "short_name": "Académie Bérénice",
+  "description": "École de piano, solfège et éveil musical à Nice Cimiez depuis 1994.",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf7ef",
+  "theme_color": "#1a2540",
+  "icons": [
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/apple-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "categories": ["education", "music", "lifestyle"]
+}

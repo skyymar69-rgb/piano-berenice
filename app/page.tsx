@@ -4,6 +4,11 @@ import { Picture } from "@/components/Picture";
 import { QuoteCard } from "@/components/QuoteCard";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { WebSiteJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { FlatPartition } from "@/components/FlatPartition";
+import { StatusBadge } from "@/components/StatusBadge";
+import { SocialProof } from "@/components/SocialProof";
+import { Counter } from "@/components/Counter";
+import { Reveal } from "@/components/Reveal";
 
 const homeFaqs = [
   {
@@ -91,7 +96,8 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--muted-bg)] via-[var(--background)] to-[var(--background)]" />
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.3fr,1fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
           <div className="flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+            <StatusBadge />
+            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               Depuis {school.brand.foundedYear} · Nice · Cimiez
             </p>
             <h1 className="mt-4 font-serif text-4xl leading-[1.05] text-[var(--primary)] sm:text-5xl lg:text-6xl">
@@ -121,27 +127,27 @@ export default function HomePage() {
             </div>
             <dl className="mt-12 grid grid-cols-2 gap-6 text-sm sm:grid-cols-4">
               <div>
-                <dt className="text-[var(--muted)]">Ouverte depuis</dt>
+                <dt className="text-[var(--muted)]">Depuis</dt>
                 <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                  {school.brand.foundedYear}
+                  <Counter to={school.brand.foundedYear} duration={1200} />
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[var(--muted)]">Années d'école</dt>
+                <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
+                  <Counter to={new Date().getFullYear() - school.brand.foundedYear} suffix=" ans" />
                 </dd>
               </div>
               <div>
                 <dt className="text-[var(--muted)]">Disciplines</dt>
                 <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                  3
+                  <Counter to={3} />
                 </dd>
               </div>
               <div>
-                <dt className="text-[var(--muted)]">Âge minimum</dt>
+                <dt className="text-[var(--muted)]">Âge min.</dt>
                 <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                  5 ans
-                </dd>
-              </div>
-              <div>
-                <dt className="text-[var(--muted)]">Quartier</dt>
-                <dd className="mt-1 font-serif text-2xl text-[var(--primary)]">
-                  Cimiez
+                  <Counter to={5} suffix=" ans" />
                 </dd>
               </div>
             </dl>
@@ -345,40 +351,19 @@ export default function HomePage() {
               arrière-plan par le lecteur en bas à droite de votre écran.
             </p>
           </div>
-          <a
-            href="https://flat.io/score/69e86f75b81e95150a74c5fd?sharingKey=dade953a0b0ce773847ed90c3f9f95be7319e9da36b00ebbb5ac70613f7d83ec9a34d58446d996c877dd832f588e279676e6dd8aff5492a1de473e7d9335555d"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-4 py-2 text-sm font-medium text-[var(--primary)] transition hover:border-[var(--accent)]"
-          >
-            Ouvrir sur Flat.io ↗
-          </a>
+          <p className="rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-4 py-2 text-xs text-[var(--muted)]">
+            Tempo ralenti à 50 % pour faciliter la lecture
+          </p>
         </div>
         <div className="mt-8 overflow-hidden rounded-3xl border border-[var(--border)] bg-white shadow-[var(--shadow)]">
-          <iframe
+          <FlatPartition
+            scoreId="69e86f75b81e95150a74c5fd"
+            sharingKey="dade953a0b0ce773847ed90c3f9f95be7319e9da36b00ebbb5ac70613f7d83ec9a34d58446d996c877dd832f588e279676e6dd8aff5492a1de473e7d9335555d"
+            parts="f0195fc6-fe3e-5d0d-8cf3-11057ac39610"
+            playbackSpeed={0.5}
             title="Partition — L'Alba in Sol maggiore par Victoria Sol, dédié à Bérénice Lecardeur"
-            src="https://flat.io/embed/69e86f75b81e95150a74c5fd?_l=true&sharingKey=dade953a0b0ce773847ed90c3f9f95be7319e9da36b00ebbb5ac70613f7d83ec9a34d58446d996c877dd832f588e279676e6dd8aff5492a1de473e7d9335555d&layout=responsive&parts=f0195fc6-fe3e-5d0d-8cf3-11057ac39610"
-            width="100%"
-            height="480"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; midi"
-            loading="lazy"
-            className="block w-full"
           />
         </div>
-        <p className="mt-3 text-xs text-[var(--muted)]">
-          Partition hébergée sur{" "}
-          <a
-            href="https://flat.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium hover:text-[var(--accent)]"
-          >
-            Flat.io
-          </a>{" "}
-          — Music notation software.
-        </p>
       </section>
 
       {/* GALERIE LIEUX */}
@@ -510,6 +495,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* PROOF — présence sur annuaires externes */}
+      <SocialProof />
 
       {/* RELATED — maillage interne */}
       <RelatedLinks

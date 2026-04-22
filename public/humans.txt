@@ -1,0 +1,28 @@
+/* TEAM */
+
+Conception & développement : Kayzen Web
+Site : https://internet.kayzen-lyon.fr
+Contact : contact@kayzen-lyon.fr
+Location : Lyon, France
+
+/* CLIENT */
+
+Éditrice : Bérénice Lecardeur
+Académie de piano Bérénice
+59 boulevard de Cimiez, 06000 Nice
+Depuis 1994
+
+/* THANKS */
+
+Photos libres de droits : Pexels
+Fontes : Inter & Fraunces via Google Fonts
+Hébergeur : Vercel
+
+/* SITE */
+
+Last update: 2026/04/22
+Standards : HTML5, CSS3, TypeScript, Next.js 16, Tailwind CSS v4
+Components : Server Components, Server Actions
+Structured Data : Schema.org JSON-LD (Organization, Person, Course, FAQ, BreadcrumbList, WebSite, MusicRecording)
+Languages : fr-FR
+Tools : Visual Studio Code, GitHub, Vercel
