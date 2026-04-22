@@ -1,7 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CourseJsonLd } from "@/components/JsonLd";
+import { CourseJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { Picture } from "@/components/Picture";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
+
+const pianoFaqs = [
+  {
+    question: "À partir de quel âge peut-on prendre des cours de piano ?",
+    answer:
+      "Dès 5 ans via l'éveil instrumental, puis les cours de piano classiques à mesure que l'enfant mûrit. Aucun âge maximum : nous accueillons des adultes débutants.",
+  },
+  {
+    question: "Les cours de piano sont-ils individuels ou collectifs ?",
+    answer:
+      "Individuels ou en binôme pour les enfants et adolescents selon le profil. Individuels pour les adultes. Le solfège, lui, se travaille en petit groupe.",
+  },
+  {
+    question: "Préparez-vous à l'épreuve piano du bac option musique ?",
+    answer:
+      "Oui, avec un travail technique et interprétatif adapté au programme officiel de l'épreuve piano du baccalauréat option musique.",
+  },
+  {
+    question: "Faut-il avoir un piano à la maison ?",
+    answer:
+      "Ce n'est pas obligatoire pour démarrer. Pour progresser sérieusement, un piano droit d'occasion ou un clavier électrique à toucher lourd devient recommandé.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Cours de piano à Nice (enfants, ados, adultes) — Académie Bérénice",
@@ -14,11 +39,19 @@ export default function PianoPage() {
   return (
     <>
       <CourseJsonLd
+        slug="/cours/piano"
         name="Cours de piano à Nice"
         description="Cours de piano individuels ou en binôme pour enfants, adolescents et adultes à Nice Cimiez."
         audience="enfants, adolescents, adultes"
       />
-      <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
+      <FaqJsonLd faqs={pianoFaqs} />
+      <Breadcrumbs
+        items={[
+          { name: "Nos cours", href: "/cours/piano" },
+          { name: "Piano", href: "/cours/piano" },
+        ]}
+      />
+      <section className="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8 lg:pt-16">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Cours
         </p>
@@ -127,6 +160,60 @@ export default function PianoPage() {
           </Link>
         </div>
       </section>
+
+      <section className="mx-auto max-w-4xl px-4 pb-12 sm:px-6 lg:px-8">
+        <h2 className="font-serif text-2xl text-[var(--primary)]">
+          Questions fréquentes sur les cours de piano
+        </h2>
+        <div className="mt-5 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+          {pianoFaqs.map((f) => (
+            <details key={f.question} className="group py-4">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-medium text-[var(--primary)]">
+                <span>{f.question}</span>
+                <svg
+                  aria-hidden
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  className="mt-1 shrink-0 text-[var(--accent)] transition group-open:rotate-180"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink)]/80">
+                {f.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "/cours/solfege",
+            title: "Cours de solfège",
+            description:
+              "Un complément essentiel pour progresser vite au piano, en petit groupe et dans la bonne humeur.",
+          },
+          {
+            href: "/professeur",
+            title: "Le professeur",
+            description:
+              "Le parcours de Bérénice Lecardeur — diplômes, expériences, philosophie pédagogique.",
+          },
+          {
+            href: "/tarifs",
+            title: "Tarifs & modalités",
+            description:
+              "Les formules individuelles, binôme et trimestrielles proposées.",
+          },
+        ]}
+      />
     </>
   );
 }

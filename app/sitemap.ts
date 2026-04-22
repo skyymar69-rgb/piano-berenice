@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/plan-acces",
     "/contact",
     "/inscription",
+    "/faq",
     "/carte-de-visite",
     "/mentions-legales",
     "/cgu",

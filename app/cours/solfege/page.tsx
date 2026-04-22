@@ -1,7 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CourseJsonLd } from "@/components/JsonLd";
+import { CourseJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { Picture } from "@/components/Picture";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
+
+const solfegeFaqs = [
+  {
+    question: "Le solfège est-il obligatoire quand on fait du piano ?",
+    answer:
+      "Très fortement recommandé. Savoir lire une partition permet d'avancer deux fois plus vite à l'instrument et d'être autonome dans son travail personnel.",
+  },
+  {
+    question: "Peut-on faire du solfège sans faire de piano ?",
+    answer:
+      "Oui. Les cours de solfège sont ouverts aux guitaristes, batteurs, chanteurs et à tout instrumentiste souhaitant consolider ses bases théoriques.",
+  },
+  {
+    question: "Les cours de solfège sont-ils collectifs ?",
+    answer:
+      "Oui, en petits groupes. L'émulation et le travail de l'oreille sont bien plus efficaces à plusieurs qu'en face-à-face.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Cours de solfège à Nice — Académie de piano Bérénice",
@@ -14,11 +34,19 @@ export default function SolfegePage() {
   return (
     <>
       <CourseJsonLd
+        slug="/cours/solfege"
         name="Cours de solfège à Nice"
         description="Cours de solfège en groupe pour enfants, adolescents et adultes à Nice Cimiez."
         audience="enfants, adolescents, adultes"
       />
-      <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
+      <FaqJsonLd faqs={solfegeFaqs} />
+      <Breadcrumbs
+        items={[
+          { name: "Nos cours", href: "/cours/piano" },
+          { name: "Solfège", href: "/cours/solfege" },
+        ]}
+      />
+      <section className="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8 lg:pt-16">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Cours
         </p>
@@ -120,6 +148,29 @@ export default function SolfegePage() {
           </Link>
         </div>
       </section>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "/cours/piano",
+            title: "Cours de piano",
+            description:
+              "Le solfège et le piano vont de pair — voyez comment nous articulons les deux.",
+          },
+          {
+            href: "/cours/eveil-musical",
+            title: "Éveil musical",
+            description:
+              "Pour les plus jeunes : la musique en s'amusant, dès 5 ans.",
+          },
+          {
+            href: "/faq",
+            title: "Foire aux questions",
+            description:
+              "Plus de réponses sur l'école, les inscriptions et les formats de cours.",
+          },
+        ]}
+      />
     </>
   );
 }

@@ -1,6 +1,42 @@
 import Link from "next/link";
 import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
+import { QuoteCard } from "@/components/QuoteCard";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { WebSiteJsonLd, FaqJsonLd } from "@/components/JsonLd";
+
+const homeFaqs = [
+  {
+    question: "Où se trouve l'Académie de piano Bérénice ?",
+    answer:
+      "L'Académie est située au 59 boulevard de Cimiez, 06000 Nice, dans le quartier résidentiel de Cimiez, avec entrée dans l'impasse. Accès en bus via les lignes 5 (arrêt Prince de Galles), 33, 40 et 70 (arrêt Victoria).",
+  },
+  {
+    question: "Quels cours propose l'Académie de piano Bérénice ?",
+    answer:
+      "Trois disciplines : cours de piano (individuels ou en binôme, pour enfants, adolescents et adultes), cours de solfège (en groupe, ouverts aux pianistes comme aux autres instrumentistes) et éveil musical et instrumental à partir de 5 ans.",
+  },
+  {
+    question: "Depuis combien d'années l'école existe-t-elle ?",
+    answer:
+      "L'Académie de piano Bérénice est ouverte depuis novembre 1994, soit plus de trente ans d'enseignement du piano, du solfège et de l'éveil musical à Nice.",
+  },
+  {
+    question: "Qui est la professeure ?",
+    answer:
+      "Bérénice Lecardeur, Médaille d'Or de piano de l'Académie de Musique Prince Rainier III de Monaco et Prix de perfectionnement du Conservatoire National de Région de Nice. Elle a été professeure agréée de la fonction publique recrutée sur concours national.",
+  },
+  {
+    question: "Peut-on commencer le piano adulte ?",
+    answer:
+      "Oui, on peut commencer le piano à tout âge. Les méthodes actuelles permettent à un adulte débutant de trouver du plaisir dès les premiers cours. Les cours adultes sont individuels.",
+  },
+  {
+    question: "Comment prendre un cours d'essai ?",
+    answer:
+      "Remplissez le formulaire en ligne sur la page inscription. Bérénice vous recontacte personnellement sous 48 heures ouvrées pour convenir d'un premier rendez-vous, sans engagement.",
+  },
+];
 
 const offers = [
   {
@@ -48,6 +84,8 @@ const steps = [
 export default function HomePage() {
   return (
     <>
+      <WebSiteJsonLd />
+      <FaqJsonLd faqs={homeFaqs} />
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--muted-bg)] via-[var(--background)] to-[var(--background)]" />
@@ -156,6 +194,19 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* EN BREF — answer-first / GEO quotable */}
+      <QuoteCard
+        intro="L'Académie de piano Bérénice est une école de musique indépendante située au 59 boulevard de Cimiez à Nice, fondée en 1994 par Bérénice Lecardeur, Médaille d'Or du Conservatoire Prince Rainier III de Monaco. Elle enseigne le piano, le solfège et l'éveil musical aux enfants dès 5 ans, aux adolescents et aux adultes de tous niveaux."
+        facts={[
+          { term: "Adresse", value: "59 bd de Cimiez, 06000 Nice" },
+          { term: "Téléphone", value: "06 81 84 27 23" },
+          { term: "Fondée en", value: "1994" },
+          { term: "Disciplines", value: "Piano · Solfège · Éveil musical" },
+          { term: "Âge minimum", value: "5 ans" },
+          { term: "Format", value: "Individuel, binôme ou groupe" },
+        ]}
+      />
 
       {/* OFFRES */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -362,6 +413,68 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ — questions fréquentes */}
+      <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+          Questions fréquentes
+        </p>
+        <h2 className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+          Vos questions, nos réponses
+        </h2>
+        <div className="mt-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+          {homeFaqs.map((f) => (
+            <details
+              key={f.question}
+              className="group py-4"
+            >
+              <summary className="flex cursor-pointer items-start justify-between gap-4 py-1 font-serif text-lg text-[var(--primary)] marker:hidden">
+                <span>{f.question}</span>
+                <svg
+                  aria-hidden
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  className="mt-1 shrink-0 text-[var(--accent)] transition group-open:rotate-180"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </summary>
+              <p className="mt-3 text-base leading-relaxed text-[var(--ink)]/80">
+                {f.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* RELATED — maillage interne */}
+      <RelatedLinks
+        links={[
+          {
+            href: "/professeur",
+            title: "Le professeur",
+            description:
+              "Découvrez le parcours de Bérénice Lecardeur — diplômes, expérience et philosophie pédagogique.",
+          },
+          {
+            href: "/cours/piano",
+            title: "Cours de piano",
+            description:
+              "Cours individuels ou en binôme pour enfants, ados et adultes — méthode individualisée.",
+          },
+          {
+            href: "/plan-acces",
+            title: "Plan d'accès",
+            description:
+              "59 boulevard de Cimiez, Nice — accès en bus, repères et plan détaillé.",
+          },
+        ]}
+      />
 
       {/* CTA final */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">

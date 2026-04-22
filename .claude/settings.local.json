@@ -60,7 +60,14 @@
       "Bash(node scripts/optimize-stock.mjs)",
       "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: mega-menu, mini-lecteur autoplay, footer sitemap, 5 photos libres de droit *)",
       "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: page 404 custom avec clé de sol, plan du site et retour accueil *)",
-      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: bandeau cookies conforme CNIL/RGPD *)"
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: bandeau cookies conforme CNIL/RGPD *)",
+      "Read(//d/1x/**)",
+      "Bash(command -v unrar)",
+      "Bash(command -v 7z)",
+      "Bash(unzip -l \"/c/Users/Maison/Downloads/marketingskills-main.zip\")",
+      "Bash(mkdir -p /tmp/skills)",
+      "Bash(unzip -q \"/c/Users/Maison/Downloads/marketingskills-main.zip\")",
+      "Bash(\"/c/Program Files/7-Zip/7z.exe\" x -y \"D:\\\\1x\\\\seo-geo-claude-skills-main.rar\" -o\"/tmp/skills/\")"
     ]
   }
 }

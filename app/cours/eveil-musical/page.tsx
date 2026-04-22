@@ -1,7 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CourseJsonLd } from "@/components/JsonLd";
+import { CourseJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { Picture } from "@/components/Picture";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
+
+const eveilFaqs = [
+  {
+    question: "À partir de quel âge l'éveil musical ?",
+    answer:
+      "Dès 5 ans. Les jeunes enfants jouent du piano dès le premier cours et choisissent eux-mêmes les musiques qu'ils veulent explorer.",
+  },
+  {
+    question: "Combien de temps dure un cours d'éveil musical ?",
+    answer:
+      "40 minutes hebdomadaires, en petit groupe, du lundi au vendredi hors vacances scolaires.",
+  },
+  {
+    question: "Faut-il un piano à la maison pour inscrire mon enfant ?",
+    answer:
+      "Non, ce n'est pas nécessaire à la rentrée. L'éveil instrumental permet de découvrir le piano à l'école d'abord.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Éveil musical et instrumental à Nice — dès 5 ans",
@@ -14,11 +34,19 @@ export default function EveilPage() {
   return (
     <>
       <CourseJsonLd
+        slug="/cours/eveil-musical"
         name="Éveil musical et instrumental à Nice"
         description="Éveil musical et instrumental pour enfants à partir de 5 ans à Nice Cimiez."
         audience="enfants"
       />
-      <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
+      <FaqJsonLd faqs={eveilFaqs} />
+      <Breadcrumbs
+        items={[
+          { name: "Nos cours", href: "/cours/piano" },
+          { name: "Éveil musical", href: "/cours/eveil-musical" },
+        ]}
+      />
+      <section className="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8 lg:pt-16">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Cours
         </p>
@@ -140,6 +168,29 @@ export default function EveilPage() {
           </Link>
         </div>
       </section>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "/cours/piano",
+            title: "Cours de piano",
+            description:
+              "Quand l'enfant est prêt, le piano prend le relais — dans la même école, avec la même professeure.",
+          },
+          {
+            href: "/cours/solfege",
+            title: "Cours de solfège",
+            description:
+              "Pour lire et comprendre la musique, en petit groupe dès que l'enfant sait lire.",
+          },
+          {
+            href: "/plan-acces",
+            title: "Plan d'accès",
+            description:
+              "Repérer l'Académie avant la rentrée — 59 bd de Cimiez, entrée dans l'impasse.",
+          },
+        ]}
+      />
     </>
   );
 }

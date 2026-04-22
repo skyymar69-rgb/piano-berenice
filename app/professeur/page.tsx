@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { QuoteCard } from "@/components/QuoteCard";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { PersonJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Bérénice Lecardeur — Professeure de piano à Nice",
@@ -13,7 +17,9 @@ export const metadata: Metadata = {
 export default function ProfesseurPage() {
   return (
     <>
-      <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
+      <PersonJsonLd />
+      <Breadcrumbs items={[{ name: "Le professeur", href: "/professeur" }]} />
+      <section className="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8 lg:pt-16">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Le professeur
         </p>
@@ -24,6 +30,19 @@ export default function ProfesseurPage() {
           {school.teacher.title}
         </p>
       </section>
+
+      <QuoteCard
+        title="Fiche professeure"
+        intro="Bérénice Lecardeur est professeure de piano et de solfège à Nice (Cimiez) depuis 1994. Médaille d'Or de piano de l'Académie de Musique Prince Rainier III de Monaco et Prix de perfectionnement du Conservatoire National de Région de Nice, elle a exercé comme professeure de piano agréée de la fonction publique, recrutée sur concours national, avant de fonder son académie."
+        facts={[
+          { term: "Nom complet", value: school.teacher.fullName },
+          { term: "Fonction", value: school.teacher.title },
+          { term: "Activité depuis", value: "1994" },
+          { term: "Médaille d'Or", value: "Académie Prince Rainier III, Monaco" },
+          { term: "Prix de perfectionnement", value: "CNR de Nice" },
+          { term: "Statut", value: "Ancienne professeure agréée de la fonction publique" },
+        ]}
+      />
 
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-5 lg:px-8 lg:py-16">
         <div className="lg:col-span-2">
@@ -103,6 +122,28 @@ export default function ProfesseurPage() {
         </div>
       </section>
 
+      <RelatedLinks
+        links={[
+          {
+            href: "/cours/piano",
+            title: "Cours de piano",
+            description:
+              "Cours individuels ou en binôme pour enfants, ados et adultes, avec préparation au bac option musique.",
+          },
+          {
+            href: "/cours/solfege",
+            title: "Cours de solfège",
+            description:
+              "Cours en groupe ouverts à tous les instrumentistes — un accélérateur pour progresser vite.",
+          },
+          {
+            href: "/inscription",
+            title: "Cours d'essai",
+            description:
+              "Rencontrez Bérénice lors d'un cours d'essai offert — réponse sous 48 h ouvrées.",
+          },
+        ]}
+      />
     </>
   );
 }
