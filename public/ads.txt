@@ -1,0 +1,4 @@
+# ads.txt — piano-berenice.com
+# Ce site ne diffuse aucune publicité programmatique.
+# Aucun revendeur autorisé.
+contact=contact@kayzen-lyon.fr

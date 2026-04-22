@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/inscription",
     "/faq",
+    "/partitions",
     "/carte-de-visite",
     "/mentions-legales",
     "/cgu",

@@ -55,6 +55,7 @@ const sections: Section[] = [
         hint: "Bérénice Lecardeur",
       },
       { href: "/tarifs", label: "Tarifs & modalités" },
+      { href: "/partitions", label: "Partitions libres", hint: "Bibliothèque gratuite" },
       { href: "/faq", label: "FAQ — questions fréquentes" },
     ],
   },

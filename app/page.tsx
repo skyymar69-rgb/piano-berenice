@@ -4,7 +4,6 @@ import { Picture } from "@/components/Picture";
 import { QuoteCard } from "@/components/QuoteCard";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { WebSiteJsonLd, FaqJsonLd } from "@/components/JsonLd";
-import { FlatPartition } from "@/components/FlatPartition";
 import { StatusBadge } from "@/components/StatusBadge";
 import { SocialProof } from "@/components/SocialProof";
 import { Counter } from "@/components/Counter";
@@ -326,44 +325,6 @@ export default function HomePage() {
             </li>
           ))}
         </ol>
-      </section>
-
-      {/* PARTITION FLAT.IO — L'Alba in Sol maggiore */}
-      <section
-        aria-labelledby="partition-title"
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
-      >
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-              Un hommage musical
-            </p>
-            <h2
-              id="partition-title"
-              className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl"
-            >
-              L'Alba in Sol maggiore
-            </h2>
-            <p className="mt-2 max-w-2xl text-[var(--ink)]/80">
-              Pièce pour piano composée par{" "}
-              <strong>Victoria Sol</strong> et dédiée à sa mère Bérénice —
-              un matin en sol majeur. Suivez la partition, elle est jouée en
-              arrière-plan par le lecteur en bas à droite de votre écran.
-            </p>
-          </div>
-          <p className="rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-4 py-2 text-xs text-[var(--muted)]">
-            Tempo ralenti à 50 % pour faciliter la lecture
-          </p>
-        </div>
-        <div className="mt-8 overflow-hidden rounded-3xl border border-[var(--border)] bg-white shadow-[var(--shadow)]">
-          <FlatPartition
-            scoreId="69e86f75b81e95150a74c5fd"
-            sharingKey="dade953a0b0ce773847ed90c3f9f95be7319e9da36b00ebbb5ac70613f7d83ec9a34d58446d996c877dd832f588e279676e6dd8aff5492a1de473e7d9335555d"
-            parts="f0195fc6-fe3e-5d0d-8cf3-11057ac39610"
-            playbackSpeed={0.5}
-            title="Partition — L'Alba in Sol maggiore par Victoria Sol, dédié à Bérénice Lecardeur"
-          />
-        </div>
       </section>
 
       {/* GALERIE LIEUX */}

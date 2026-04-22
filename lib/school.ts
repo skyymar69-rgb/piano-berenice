@@ -71,23 +71,42 @@ export const school = {
     _confirmed: false,
   },
   seo: {
-    defaultTitle: "Académie de piano Bérénice · Cours de piano à Nice Cimiez",
+    defaultTitle:
+      "Cours de piano et solfège à Nice · Académie Bérénice — Côte d'Azur",
     defaultDescription:
-      "Depuis 1994, l'Académie de piano Bérénice enseigne le piano, le solfège et l'éveil musical à Nice (Cimiez). Enfants, adolescents, adultes — cours d'essai offert.",
+      "N°1 des cours de piano et solfège à Nice et sur la Côte d'Azur depuis 1994. Académie dirigée par Bérénice Lecardeur, Médaille d'Or Monaco et Prix du Conservatoire de Nice. Éveil musical dès 5 ans, cours enfants, ados, adultes. Cours d'essai offert à Cimiez.",
     keywords: [
+      // Tier 1 — cibles prioritaires
       "cours de piano Nice",
+      "cours de piano Côte d'Azur",
+      "cours de solfège Nice",
+      "cours de solfège Côte d'Azur",
       "école de piano Nice",
+      "école de musique Nice",
+      "académie de piano Nice",
       "professeur de piano Nice",
       "cours de piano Cimiez",
-      "cours de solfège Nice",
-      "éveil musical Nice",
-      "éveil instrumental Nice",
+      // Tier 2 — audiences
       "cours piano enfant Nice",
       "cours piano adulte Nice",
+      "cours piano adolescent Nice",
       "cours piano débutant Nice",
-      "académie de piano Nice",
-      "école de musique Nice",
+      "éveil musical Nice",
+      "éveil musical 5 ans Nice",
+      "éveil instrumental Nice",
+      // Tier 3 — long tail
       "préparation bac option musique piano Nice",
+      "cours de piano Nice 06000",
+      "école piano Alpes-Maritimes",
+      "leçons piano Nice Cimiez",
+      "professeur piano diplômé Nice",
+      "cours piano individuel Nice",
+      "piano solfège combiné Nice",
+      // Côte d'Azur régionales
+      "cours piano Côte d'Azur",
+      "académie musique Côte d'Azur",
+      "professeur piano Côte d'Azur",
+      "école piano PACA",
     ],
   },
 } as const;

@@ -22,6 +22,7 @@ const sitemap: {
       { href: "/cours/eveil-musical", label: "Éveil musical" },
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/inscription", label: "S'inscrire — cours d'essai" },
+      { href: "/partitions", label: "Partitions libres de droit" },
       { href: "/faq", label: "Questions fréquentes" },
     ],
   },
