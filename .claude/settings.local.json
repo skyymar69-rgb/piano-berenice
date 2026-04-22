@@ -39,7 +39,10 @@
       "Bash(node -e \"console.log\\(require\\('sharp/package.json'\\).version\\)\")",
       "Bash(node scripts/optimize-images.mjs)",
       "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: photos, dark theme, logo clé de sol, a11y widget, share menu, vCard dropdown, landline *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(vercel --prod --yes)",
+      "Bash(node scripts/optimize-logo.mjs)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: logo officiel + audio Victoria→Bérénice *)"
     ]
   }
 }

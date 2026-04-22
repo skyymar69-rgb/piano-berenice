@@ -1,7 +1,7 @@
 import Link from "next/link";
 import QRCode from "qrcode";
 import { school } from "@/lib/school";
-import { SolClefLogo } from "./SolClefLogo";
+import { BrandLogo } from "./BrandLogo";
 import { ThemeToggle } from "./ThemeToggle";
 import { ShareMenu } from "./ShareMenu";
 import { VCardMenu } from "./VCardMenu";
@@ -31,9 +31,9 @@ export async function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-3"
-          aria-label="Retour à l'accueil"
+          aria-label="Retour à l'accueil — Académie de piano Bérénice"
         >
-          <SolClefLogo size={32} />
+          <BrandLogo size={48} priority className="drop-shadow-sm" />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg font-semibold text-[var(--primary)] sm:text-xl">
               {school.brand.name}

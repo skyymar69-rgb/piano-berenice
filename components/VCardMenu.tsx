@@ -64,15 +64,28 @@ export function VCardMenu({ qrDataUrl }: Props) {
           aria-label="Carte de visite numérique"
           className="absolute right-0 top-11 z-50 w-80 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-2xl"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-            {school.brand.shortName}
-          </p>
-          <p className="mt-1 font-serif text-lg text-[var(--primary)]">
-            {school.teacher.fullName}
-          </p>
-          <p className="text-xs text-[var(--muted)]">
-            {school.teacher.title}
-          </p>
+          <div className="flex items-start gap-3">
+            <img
+              src="/logo.webp"
+              alt={`Logo ${school.brand.name}`}
+              width="56"
+              height="56"
+              loading="lazy"
+              decoding="async"
+              className="size-14 shrink-0 rounded-xl border border-[var(--border)] bg-white p-1"
+            />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                {school.brand.shortName}
+              </p>
+              <p className="mt-1 font-serif text-lg leading-tight text-[var(--primary)]">
+                {school.teacher.fullName}
+              </p>
+              <p className="text-xs text-[var(--muted)]">
+                {school.teacher.title}
+              </p>
+            </div>
+          </div>
 
           <div className="mt-4 flex justify-center">
             <img

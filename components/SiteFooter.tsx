@@ -7,6 +7,15 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-[var(--border)] bg-[var(--primary)] text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
+          <img
+            src="/logo.webp"
+            alt={`Logo ${school.brand.name}`}
+            width="64"
+            height="64"
+            loading="lazy"
+            decoding="async"
+            className="mb-4 h-16 w-16 rounded-xl bg-white/5 p-1 ring-1 ring-white/10"
+          />
           <p className="font-serif text-xl">{school.brand.name}</p>
           <p className="mt-2 text-sm text-white/70">
             Depuis {school.brand.foundedYear} à Nice · Cimiez

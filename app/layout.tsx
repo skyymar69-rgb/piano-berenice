@@ -36,11 +36,25 @@ export const metadata: Metadata = {
     siteName: school.brand.name,
     title: school.seo.defaultTitle,
     description: school.seo.defaultDescription,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `Logo ${school.brand.name}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: school.seo.defaultTitle,
     description: school.seo.defaultDescription,
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "32x32" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+    shortcut: "/logo.png",
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },

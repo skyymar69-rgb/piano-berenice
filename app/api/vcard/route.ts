@@ -1,4 +1,5 @@
 import { school } from "@/lib/school";
+import { logoVcardBase64 } from "@/lib/logo-vcard-base64";
 
 export const dynamic = "force-static";
 
@@ -10,10 +11,23 @@ function escapeVcard(v: string) {
   return v.replace(/\\/g, "\\\\").replace(/,/g, "\\,").replace(/;/g, "\\;");
 }
 
+// Plie les lignes vCard > 75 octets (RFC 6350)
+function foldLine(line: string): string {
+  if (line.length <= 75) return line;
+  let out = line.slice(0, 75);
+  let rest = line.slice(75);
+  while (rest.length > 74) {
+    out += "\r\n " + rest.slice(0, 74);
+    rest = rest.slice(74);
+  }
+  if (rest.length) out += "\r\n " + rest;
+  return out;
+}
+
 export async function GET() {
   const phone = school.contact.phone.replace(/\s+/g, "");
   const addr = school.contact.address;
-  const body = [
+  const lines = [
     "BEGIN:VCARD",
     "VERSION:3.0",
     `N:${escapeVcard(school.teacher.lastName)};${escapeVcard(school.teacher.firstName)};;;`,
@@ -27,11 +41,14 @@ export async function GET() {
     `URL:https://piano-berenice.com`,
     vcardLine(`URL;TYPE=Facebook:`, school.contact.facebook),
     `GEO:${addr.latitude};${addr.longitude}`,
-    `NOTE:${escapeVcard("École de piano à Nice Cimiez depuis 1994.")}`,
+    `PHOTO;ENCODING=b;TYPE=JPEG:${logoVcardBase64}`,
+    `NOTE:${escapeVcard("École de piano à Nice Cimiez depuis 1994 — piano, solfège, éveil musical.")}`,
     `REV:${new Date().toISOString()}`,
     "END:VCARD",
     "",
-  ].join("\r\n");
+  ].map(foldLine);
+
+  const body = lines.join("\r\n");
 
   return new Response(body, {
     headers: {

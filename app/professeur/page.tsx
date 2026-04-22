@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
+import { AudioFeature } from "@/components/AudioFeature";
 
 export const metadata: Metadata = {
   title: "Bérénice Lecardeur — Professeure de piano à Nice",
@@ -102,6 +103,8 @@ export default function ProfesseurPage() {
           </div>
         </div>
       </section>
+
+      <AudioFeature />
     </>
   );
 }

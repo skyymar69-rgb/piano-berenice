@@ -32,7 +32,14 @@ export default function CarteDeVisitePage() {
       </section>
 
       <section className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[2fr,3fr] lg:px-8 lg:py-16">
-        <div className="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-[var(--muted-bg)] to-white p-8">
+        <div className="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-[var(--muted-bg)] to-[var(--surface)] p-8">
+          <img
+            src="/logo.webp"
+            alt={`Logo ${school.brand.name}`}
+            width="96"
+            height="96"
+            className="mb-5 h-24 w-24 rounded-xl border border-[var(--border)] bg-white p-2 shadow-sm"
+          />
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
             {school.brand.shortName}
           </p>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
+import { AudioFeature } from "@/components/AudioFeature";
 
 const offers = [
   {
@@ -259,6 +260,9 @@ export default function HomePage() {
           ))}
         </ol>
       </section>
+
+      {/* AUDIO */}
+      <AudioFeature />
 
       {/* GALERIE LIEUX */}
       <section className="bg-[var(--muted-bg)]/60">
