@@ -42,7 +42,23 @@
       "Bash(git push *)",
       "Bash(vercel --prod --yes)",
       "Bash(node scripts/optimize-logo.mjs)",
-      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: logo officiel + audio Victoria→Bérénice *)"
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: logo officiel + audio Victoria→Bérénice *)",
+      "Bash(curl -sI https://piano-berenice.vercel.app/logo.webp)",
+      "Bash(curl -sI https://piano-berenice.vercel.app/audio/victoria-a-berenice-lalba-in-sol-maggiore.mp3)",
+      "Bash(mkdir -p /tmp/stock)",
+      "Bash(curl -sL -o sheet-music-closeup.jpg \"https://images.pexels.com/photos/164935/pexels-photo-164935.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(curl -sL -o piano-keys-closeup.jpg \"https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(curl -sL -o child-piano.jpg \"https://images.pexels.com/photos/4708912/pexels-photo-4708912.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(curl -sL -o hands-piano.jpg \"https://images.pexels.com/photos/534283/pexels-photo-534283.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(rm grand-piano.jpg music-notes.jpg metronome.jpg sheet-music-pen.jpg)",
+      "Bash(curl -sL -o grand-piano.jpg \"https://images.pexels.com/photos/1246437/pexels-photo-1246437.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(curl -sL -o child-playing-piano.jpg \"https://images.pexels.com/photos/3728557/pexels-photo-3728557.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(curl -sL -o metronome.jpg \"https://images.pexels.com/photos/4088009/pexels-photo-4088009.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(curl -sL -o concert-stage.jpg \"https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1600\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(rm concert-stage.jpg notes-book.jpg metronome.jpg child-playing-piano.jpg)",
+      "Read(//d/tmp/**)",
+      "Bash(node scripts/optimize-stock.mjs)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'feat: mega-menu, mini-lecteur autoplay, footer sitemap, 5 photos libres de droit *)"
     ]
   }
 }

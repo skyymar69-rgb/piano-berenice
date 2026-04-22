@@ -81,6 +81,41 @@ export const images = {
     width: 900,
     height: 1200,
   },
+  stockPartitionSolfege: {
+    slug: "stock-partition-solfege-piano",
+    alt: "Partition de solfège posée sur un piano, gros plan sur les notes et les clés — symbole de l'enseignement du solfège",
+    title: "Cours de solfège — lecture de partition",
+    width: 1600,
+    height: 1067,
+  },
+  stockTouchesPiano: {
+    slug: "stock-touches-piano-gros-plan",
+    alt: "Gros plan sur les touches noires et blanches d'un piano — symbole des cours de piano pour enfants et adultes",
+    title: "Touches de piano",
+    width: 1600,
+    height: 900,
+  },
+  stockElevePartition: {
+    slug: "stock-eleve-partition-lecture",
+    alt: "Élève lisant une partition musicale, ambiance d'apprentissage à l'éveil musical",
+    title: "Jeune élève lisant une partition",
+    width: 1067,
+    height: 1600,
+  },
+  stockMainsPiano: {
+    slug: "stock-mains-piano-partition",
+    alt: "Mains d'une pianiste jouant sur un piano droit, partition ouverte au-dessus du clavier",
+    title: "Jouer au piano avec partition",
+    width: 1067,
+    height: 1600,
+  },
+  stockMainsPianoBois: {
+    slug: "stock-mains-pianiste-piano-droit",
+    alt: "Mains féminines posées sur les touches d'un piano droit ancien en bois — ambiance cours de piano",
+    title: "Pianiste au piano droit",
+    width: 1600,
+    height: 1067,
+  },
 } satisfies Record<string, StaticImage>;
 
 export const imageSrcSet = (slug: string) =>

@@ -34,13 +34,25 @@ export default function PianoPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
-        <figure className="aspect-[16/7] overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
-          <Picture
-            image="pianoYamahaPartition"
-            priority
-            sizes="(min-width:1024px) 1100px, 100vw"
-          />
-        </figure>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)] sm:col-span-2">
+            <div className="aspect-[4/3]">
+              <Picture
+                image="stockMainsPianoBois"
+                priority
+                sizes="(min-width:1024px) 700px, 100vw"
+              />
+            </div>
+          </figure>
+          <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <div className="aspect-[4/3] sm:aspect-auto sm:h-full">
+              <Picture
+                image="sallePianoDecor"
+                sizes="(min-width:1024px) 350px, 100vw"
+              />
+            </div>
+          </figure>
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8 lg:py-16">

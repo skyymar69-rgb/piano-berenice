@@ -5,19 +5,19 @@ import { BrandLogo } from "./BrandLogo";
 import { ThemeToggle } from "./ThemeToggle";
 import { ShareMenu } from "./ShareMenu";
 import { VCardMenu } from "./VCardMenu";
+import { MegaMenu } from "./MegaMenu";
 
-const nav = [
-  { href: "/professeur", label: "Le professeur" },
+const mobileNav = [
   { href: "/cours/piano", label: "Piano" },
   { href: "/cours/solfege", label: "Solfège" },
   { href: "/cours/eveil-musical", label: "Éveil musical" },
+  { href: "/professeur", label: "Professeur" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/plan-acces", label: "Plan d'accès" },
   { href: "/contact", label: "Contact" },
 ];
 
 export async function SiteHeader() {
-  // QR code encodant directement la vCard (URL) — scanné depuis un tel
   const qr = await QRCode.toDataURL("https://piano-berenice.com/api/vcard", {
     width: 320,
     margin: 1,
@@ -33,31 +33,18 @@ export async function SiteHeader() {
           className="flex items-center gap-3"
           aria-label="Retour à l'accueil — Académie de piano Bérénice"
         >
-          <BrandLogo size={48} priority className="drop-shadow-sm" />
+          <BrandLogo size={44} priority className="drop-shadow-sm" />
           <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg font-semibold text-[var(--primary)] sm:text-xl">
+            <span className="font-serif text-base font-semibold text-[var(--primary)] sm:text-lg">
               {school.brand.name}
             </span>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+            <span className="hidden text-[10px] uppercase tracking-[0.18em] text-[var(--muted)] sm:inline">
               Nice · Cimiez · depuis {school.brand.foundedYear}
             </span>
           </span>
         </Link>
 
-        <nav aria-label="Navigation principale" className="hidden lg:block">
-          <ul className="flex items-center gap-5 text-sm text-[var(--ink)]">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="transition hover:text-[var(--accent)]"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <MegaMenu />
 
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">
@@ -83,7 +70,7 @@ export async function SiteHeader() {
         </div>
         <nav aria-label="Navigation mobile">
           <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto border-t border-[var(--border)] px-4 py-2 text-sm text-[var(--muted)]">
-            {nav.map((item) => (
+            {mobileNav.map((item) => (
               <li key={item.href} className="snap-start shrink-0">
                 <Link
                   href={item.href}

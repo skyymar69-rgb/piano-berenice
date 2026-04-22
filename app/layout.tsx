@@ -7,6 +7,7 @@ import { OrganizationJsonLd } from "@/components/JsonLd";
 import { CookieBanner } from "@/components/CookieBanner";
 import { ThemeInit } from "@/components/ThemeInit";
 import { AccessibilityWidget } from "@/components/AccessibilityWidget";
+import { MiniPlayer } from "@/components/MiniPlayer";
 import { school } from "@/lib/school";
 
 const inter = Inter({
@@ -88,6 +89,7 @@ export default function RootLayout({
         <SiteFooter />
         <CookieBanner />
         <AccessibilityWidget />
+        <MiniPlayer />
         <OrganizationJsonLd />
       </body>
     </html>

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
-import { AudioFeature } from "@/components/AudioFeature";
 
 const offers = [
   {
@@ -52,17 +51,17 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--muted-bg)] via-[var(--background)] to-[var(--background)]" />
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[3fr,2fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
-          <div>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.3fr,1fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
+          <div className="flex flex-col justify-center">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               Depuis {school.brand.foundedYear} · Nice · Cimiez
             </p>
-            <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.05] text-[var(--primary)] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-serif text-4xl leading-[1.05] text-[var(--primary)] sm:text-5xl lg:text-6xl">
               Le piano s'apprend avec méthode,
               <br />
               <span className="text-[var(--accent)]">et avec plaisir.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-[var(--ink)]/80">
+            <p className="mt-6 max-w-xl text-lg text-[var(--ink)]/80">
               L'Académie de piano Bérénice accueille enfants, adolescents et
               adultes à Nice Cimiez pour des cours de piano, de solfège et
               d'éveil musical. Une école à taille humaine, tenue depuis plus
@@ -109,22 +108,33 @@ export default function HomePage() {
               </div>
             </dl>
           </div>
-          <div className="relative">
-            <div className="aspect-[3/4] overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
+          {/* Mosaïque — composition équilibrée, portrait discret */}
+          <div className="relative grid grid-cols-6 grid-rows-6 gap-3 sm:gap-4">
+            <figure className="col-span-4 row-span-4 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <Picture
+                image="stockTouchesPiano"
+                priority
+                sizes="(min-width:1024px) 320px, 66vw"
+              />
+            </figure>
+            <figure className="col-span-2 row-span-3 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <Picture
+                image="stockPartitionSolfege"
+                sizes="(min-width:1024px) 160px, 33vw"
+              />
+            </figure>
+            <figure className="col-span-2 row-span-3 overflow-hidden rounded-2xl border border-2 border-[var(--accent)] shadow-[var(--shadow)]">
               <Picture
                 image="berenicePortrait"
-                priority
-                sizes="(min-width: 1024px) 480px, 100vw"
+                sizes="(min-width:1024px) 160px, 33vw"
               />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden w-56 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)] lg:block">
-              <div className="aspect-[4/3]">
-                <Picture
-                  image="partitionRose"
-                  sizes="220px"
-                />
-              </div>
-            </div>
+            </figure>
+            <figure className="col-span-6 row-span-2 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+              <Picture
+                image="partitionRose"
+                sizes="(min-width:1024px) 480px, 100vw"
+              />
+            </figure>
           </div>
         </div>
       </section>
@@ -260,9 +270,6 @@ export default function HomePage() {
           ))}
         </ol>
       </section>
-
-      {/* AUDIO */}
-      <AudioFeature />
 
       {/* GALERIE LIEUX */}
       <section className="bg-[var(--muted-bg)]/60">

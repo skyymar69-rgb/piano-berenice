@@ -34,13 +34,42 @@ export default function SolfegePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
-        <figure className="aspect-[16/9] overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
-          <Picture
-            image="salleSolfege"
-            priority
-            sizes="(min-width:1024px) 1100px, 100vw"
-          />
+        <figure className="overflow-hidden rounded-3xl border border-[var(--border)] shadow-[var(--shadow)]">
+          <div className="aspect-[16/9]">
+            <Picture
+              image="stockPartitionSolfege"
+              priority
+              sizes="(min-width:1024px) 1100px, 100vw"
+            />
+          </div>
+          <figcaption className="bg-[var(--surface)] px-5 py-3 text-xs text-[var(--muted)]">
+            Gros plan sur une partition — lire une partition, c'est la clé pour
+            progresser rapidement à l'instrument.
+          </figcaption>
         </figure>
+      </section>
+      <section className="mx-auto max-w-6xl px-4 pt-10 sm:px-6 lg:px-8">
+        <div className="grid gap-5 sm:grid-cols-2">
+          <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <div className="aspect-[4/3]">
+              <Picture
+                image="stockElevePartition"
+                sizes="(min-width:1024px) 500px, 100vw"
+              />
+            </div>
+          </figure>
+          <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <div className="aspect-[4/3]">
+              <Picture
+                image="salleSolfege"
+                sizes="(min-width:1024px) 500px, 100vw"
+              />
+            </div>
+            <figcaption className="bg-[var(--surface)] px-4 py-3 text-xs text-[var(--muted)]">
+              La salle de solfège de l'Académie, aménagée en petit groupe.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8 lg:py-16">
