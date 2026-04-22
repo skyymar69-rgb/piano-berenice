@@ -1,0 +1,15 @@
+export const kayzen = {
+  raisonSociale: "KAYZEN LYON",
+  formeJuridique: "SASU",
+  siren: "999 418 346",
+  siret: "999 418 346 000 14",
+  rcs: "Lyon — 999 418 346",
+  tvaIntracom: "FR85 999 418 346",
+  codeApe: "4791B",
+  siegeSocial: "6 rue Pierre Termier, 69009 Lyon",
+  telephone: "+33 (0)4 87 77 68 61",
+  telephoneDisplay: "04 87 77 68 61",
+  email: "contact@kayzen-lyon.fr",
+  site: "https://internet.kayzen-lyon.fr",
+  brandWeb: "Kayzen Web",
+} as const;

@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.piano-berenice.com)",
+      "WebFetch(domain:fr-fr.facebook.com)",
+      "WebSearch",
+      "Bash(curl -skL --max-time 20 -A \"Mozilla/5.0 \\(iPhone; CPU iPhone OS 16_0 like Mac OS X\\) AppleWebKit/605.1.15\" \"https://mbasic.facebook.com/AcademieDePianoBerenice\" -o fb-mbasic.html -w \"HTTP %{http_code} | %{size_download} bytes\\\\n\")",
+      "Bash(curl -sL --max-time 30 \"https://web.archive.org/web/2024/https://www.facebook.com/AcademieDePianoBerenice\" -o fb-wayback.html -w \"HTTP %{http_code} | %{size_download} bytes\\\\n\")",
+      "Bash(curl -sL --max-time 20 \"https://recherche-entreprises.api.gouv.fr/search?q=Lecardeur+Berenice&code_postal=06000\" -o sirene-lecardeur.json -w \"HTTP %{http_code}\\\\n\")",
+      "Bash(curl -sL --max-time 20 \"https://recherche-entreprises.api.gouv.fr/search?q=academie+piano+berenice&code_postal=06000\" -o sirene-academie.json -w \"HTTP %{http_code}\\\\n\")",
+      "WebFetch(domain:www.pagesjaunes.fr)",
+      "WebFetch(domain:www.spectable.com)",
+      "WebFetch(domain:fr.mappy.com)",
+      "Bash(curl -sL --max-time 20 \"https://recherche-entreprises.api.gouv.fr/search?q=Sol+Berenice&code_postal=06000\" -o sirene-sol.json -w \"HTTP %{http_code}\\\\n\")",
+      "Bash(curl -sL --max-time 20 \"https://recherche-entreprises.api.gouv.fr/search?q=piano&activite_principale=85.52Z&code_postal=06000\" -o sirene-piano-nice.json -w \"HTTP %{http_code}\\\\n\")",
+      "Bash(curl -sL --max-time 20 \"https://recherche-entreprises.api.gouv.fr/search?q=Lecardeur&activite_principale=85.52Z\" -o sirene-lecardeur-85.json -w \"HTTP %{http_code}\\\\n\")",
+      "Bash(curl -sL --max-time 20 \"https://recherche-entreprises.api.gouv.fr/search?q=piano+berenice&departement=06\" -o sirene-addr.json -w \"HTTP %{http_code}\\\\n\")",
+      "WebFetch(domain:www.artcetera.fr)",
+      "WebFetch(domain:www.wiplaymusic.com)",
+      "WebFetch(domain:fasiladom.fr)",
+      "WebFetch(domain:www.pappers.fr)",
+      "Bash(pnpm -v)",
+      "Bash(npm -v)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(vercel --version)",
+      "Bash(git --version)",
+      "Bash(vercel whoami *)",
+      "Bash(npx --yes create-next-app@latest . --ts --tailwind --app --no-eslint --no-src-dir --import-alias \"@/*\" --no-turbo --use-npm --skip-install --yes)",
+      "Bash(npx --yes create-next-app@latest . --ts --tailwind --app --eslint --no-src-dir --import-alias \"@/*\" --no-turbo --use-npm --yes)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.email=\"noreply@anthropic.com\" -c user.name=\"Claude\" commit -m \"Initial commit — site vitrine Académie de piano Bérénice\")"
+    ]
+  }
+}
