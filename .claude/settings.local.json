@@ -80,7 +80,8 @@
       "Bash(curl -sI https://piano-berenice.vercel.app/partitions)",
       "Bash(curl -sI https://piano-berenice.vercel.app/og-image.png)",
       "Bash(node scripts/generate-notice-pdf.mjs)",
-      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'docs: notice technique livrée à la cliente \\(PDF + Markdown\\) *)"
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'docs: notice technique livrée à la cliente \\(PDF + Markdown\\) *)",
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'chore: retire PDF notice du site public *)"
     ]
   }
 }
