@@ -5,8 +5,7 @@ export function ThemeInit() {
     try {
       var d = document.documentElement;
       var t = localStorage.getItem('apb-theme');
-      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var theme = t === 'dark' || t === 'light' ? t : (systemDark ? 'dark' : 'light');
+      var theme = t === 'light' ? 'light' : 'dark';
       d.dataset.theme = theme;
       var a11y = localStorage.getItem('apb-a11y');
       if (a11y) {

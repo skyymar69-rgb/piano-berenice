@@ -70,7 +70,7 @@ export function SiteFooter() {
     <footer
       id="footer"
       role="contentinfo"
-      className="bg-[var(--primary)] text-white"
+      className="bg-[var(--footer-bg)] text-[var(--footer-fg)]"
     >
       {/* Bandeau contact */}
       <div className="border-b border-white/10">
@@ -93,7 +93,7 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--footer-accent)]">
               Adresse
             </p>
             <address className="mt-2 text-sm not-italic text-white/85">
@@ -108,7 +108,7 @@ export function SiteFooter() {
             </address>
           </div>
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--footer-accent)]">
               Contact
             </p>
             <ul className="mt-2 space-y-1 text-sm text-white/85">
@@ -141,7 +141,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--footer-accent)]">
               Suivez-nous
             </p>
             <div className="mt-3 flex gap-2">
@@ -150,7 +150,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Page Facebook de l'Académie"
-                className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-[var(--accent)]"
+                className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-[var(--footer-accent)]"
               >
                 <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5 3.66 9.16 8.44 9.93v-7.02H7.9v-2.9h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.77l-.44 2.9h-2.33V22c4.78-.77 8.44-4.93 8.44-9.93z" />
@@ -161,7 +161,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Ouvrir l'itinéraire vers l'Académie"
-                className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-[var(--accent)]"
+                className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-[var(--footer-accent)]"
               >
                 <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22s-8-6.5-8-12a8 8 0 0 1 16 0c0 5.5-8 12-8 12z" />
@@ -171,7 +171,7 @@ export function SiteFooter() {
               <Link
                 href="/carte-de-visite"
                 aria-label="Carte de visite numérique"
-                className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-[var(--accent)]"
+                className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-[var(--footer-accent)]"
               >
                 <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="3" y="3" width="7" height="7" rx="1" />
@@ -190,7 +190,7 @@ export function SiteFooter() {
         <div className="flex items-center gap-3">
           <span
             aria-hidden
-            className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 text-[var(--accent)] ring-1 ring-white/10"
+            className="inline-flex size-10 items-center justify-center rounded-full bg-white/5 text-[var(--footer-accent)] ring-1 ring-white/10"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="1" />
@@ -200,7 +200,7 @@ export function SiteFooter() {
             </svg>
           </span>
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--footer-accent)]">
               Plan du site
             </p>
             <h2 className="font-serif text-xl text-white">
@@ -212,7 +212,7 @@ export function SiteFooter() {
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {sitemap.map((col) => (
             <div key={col.title}>
-              <div className="flex items-center gap-2 text-[var(--accent)]">
+              <div className="flex items-center gap-2 text-[var(--footer-accent)]">
                 {col.icon}
                 <h3 className="font-serif text-base text-white">
                   {col.title}
@@ -223,7 +223,7 @@ export function SiteFooter() {
                   <li key={l.href}>
                     <Link
                       href={l.href}
-                      className="inline-flex items-center gap-1 transition hover:text-[var(--accent)]"
+                      className="inline-flex items-center gap-1 transition hover:text-[var(--footer-accent)]"
                     >
                       <svg
                         aria-hidden
@@ -254,7 +254,7 @@ export function SiteFooter() {
             href="https://internet.kayzen-lyon.fr"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-white/80 underline-offset-2 hover:text-[var(--accent)] hover:underline"
+            className="font-medium text-white/80 underline-offset-2 hover:text-[var(--footer-accent)] hover:underline"
           >
             Kayzen Web
           </a>
