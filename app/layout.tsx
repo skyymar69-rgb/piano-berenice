@@ -12,6 +12,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingDock, BackToTopDock } from "@/components/FloatingDock";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { MagneticEffect } from "@/components/MagneticEffect";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { school } from "@/lib/school";
 
 const inter = Inter({
@@ -208,6 +209,7 @@ export default function RootLayout({
           Aller au pied de page
         </a>
         <ScrollProgress />
+        <ScrollToTop />
         <MagneticEffect />
         <SiteHeader />
         <main id="main" className="flex-1">

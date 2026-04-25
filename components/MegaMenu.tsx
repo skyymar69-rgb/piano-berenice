@@ -40,6 +40,7 @@ const sections: Section[] = [
       { href: "/professeur", label: "Le professeur", hint: "Bérénice Lecardeur" },
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/partitions", label: "Partitions libres", hint: "Bibliothèque gratuite" },
+      { href: "/blog", label: "Blog", hint: "Conseils et histoire de la musique" },
       { href: "/faq", label: "FAQ — questions fréquentes" },
     ],
   },
@@ -178,12 +179,13 @@ export function MegaMenu() {
       </div>
 
       {/* Backdrop overlay (subtil, hors menu) */}
-      <div
-        aria-hidden
-        className={`pointer-events-none fixed inset-0 top-[var(--header-h,4.5rem)] z-30 bg-[var(--primary)]/15 transition-opacity duration-300 ${
-          open !== null ? "opacity-100" : "opacity-0"
-        }`}
-      />
+      {open !== null && (
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 top-[var(--header-h,4.5rem)] z-30 bg-[var(--primary)]/15"
+          style={{ animation: "fade-in 200ms ease-out forwards" }}
+        />
+      )}
 
       {/* Panneau fixe, opaque, plein largeur sous le header */}
       <div
@@ -192,11 +194,8 @@ export function MegaMenu() {
         aria-hidden={open === null}
         onMouseEnter={cancelClose}
         onMouseLeave={scheduleClose}
-        className={`fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40 hidden lg:block ${
-          open !== null
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "-translate-y-2 opacity-0 pointer-events-none"
-        } transition duration-300 ease-out`}
+        style={{ display: open === null ? "none" : "block" }}
+        className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40"
       >
         <div className="mx-auto max-w-6xl px-6">
           <div className="mt-2 overflow-hidden rounded-b-3xl border-x border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.35)]">

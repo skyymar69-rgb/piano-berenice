@@ -9,8 +9,13 @@ type Props = {
 };
 
 /**
- * Mini-lecteur "vinyle" : disque rotatif quand playing, équaliseur 3 barres,
- * pill élégant. Autoplay-friendly (fallback first-gesture).
+ * Lecteur audio flottant discret. Par défaut : un simple bouton circulaire
+ * "vinyle" avec note de musique. Au clic, déploiement en pill compact
+ * avec play/pause/fermer.
+ *
+ * L'audio démarre tout seul (autoplay-friendly + fallback first-gesture),
+ * ce qui rend le lecteur "presque invisible" — exactement ce que la cliente
+ * souhaite : ambiance sans l'appareillage visible.
  */
 export function MiniPlayer({
   src = "/audio/victoria-a-berenice-lalba-in-sol-maggiore.mp3",
@@ -36,7 +41,7 @@ export function MiniPlayer({
     if (closed) return;
     const a = audioRef.current;
     if (!a) return;
-    a.volume = 0.45;
+    a.volume = 0.42;
 
     let cleanup = () => {};
 
@@ -96,6 +101,62 @@ export function MiniPlayer({
 
   if (closed) return null;
 
+  // Mode discret : un petit bouton vinyle qui tourne quand ça joue
+  if (!expanded) {
+    return (
+      <>
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          aria-label="Ouvrir le lecteur audio"
+          data-tooltip="Lecteur · L'Alba in Sol maggiore"
+          className={`fab-tooltip relative inline-flex size-12 items-center justify-center overflow-hidden rounded-full border border-[var(--border)] bg-[var(--primary)] text-[var(--primary-contrast)] shadow-lg transition hover:bg-[var(--primary-hover)] ${
+            playing ? "vinyl-spinning" : ""
+          }`}
+        >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-full"
+            style={{
+              background:
+                "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06) 0 1px, transparent 1px 4px)",
+            }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0_3px,transparent_3px_4px)]"
+          />
+          {playing ? (
+            <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          ) : (
+            <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          )}
+          {playing && (
+            <span
+              aria-hidden
+              className="absolute -bottom-1 left-1/2 inline-flex -translate-x-1/2 items-end gap-[2px]"
+            >
+              <span className="equalizer">
+                <span />
+                <span />
+                <span />
+              </span>
+            </span>
+          )}
+        </button>
+        <audio ref={audioRef} preload="auto" loop={false}>
+          <source src={src} type="audio/mpeg" />
+        </audio>
+      </>
+    );
+  }
+
   return (
     <div
       role="region"
@@ -110,13 +171,12 @@ export function MiniPlayer({
           playing ? "vinyl-spinning" : ""
         }`}
       >
-        {/* Disque vinyle : sillons concentriques */}
         <span
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-full"
           style={{
             background:
-              "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0 1px, transparent 1px 3px)",
+              "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06) 0 1px, transparent 1px 3px)",
           }}
         />
         <span
@@ -135,17 +195,7 @@ export function MiniPlayer({
         )}
       </button>
 
-      <button
-        type="button"
-        onClick={() => setExpanded((e) => !e)}
-        aria-expanded={expanded}
-        aria-label={
-          expanded
-            ? "Masquer les détails du morceau"
-            : "Afficher les détails du morceau"
-        }
-        className="flex min-w-0 flex-col items-start text-left"
-      >
+      <div className="flex min-w-0 flex-col items-start text-left">
         <span className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
           {playing ? (
             <span aria-hidden className="equalizer">
@@ -158,23 +208,29 @@ export function MiniPlayer({
           )}
           En écoute
         </span>
-        {expanded && (
-          <>
-            <span className="mt-0.5 truncate text-xs font-medium text-[var(--primary)]">
-              {title}
-            </span>
-            <span className="truncate text-[11px] text-[var(--muted)]">
-              {subtitle}
-            </span>
-          </>
-        )}
-      </button>
+        <span className="mt-0.5 max-w-[160px] truncate text-xs font-medium text-[var(--primary)]">
+          {title}
+        </span>
+        <span className="max-w-[160px] truncate text-[11px] text-[var(--muted)]">
+          {subtitle}
+        </span>
+      </div>
 
+      <button
+        type="button"
+        onClick={() => setExpanded(false)}
+        aria-label="Réduire le lecteur"
+        className="ml-1 inline-flex size-7 items-center justify-center rounded-full text-[var(--muted)] transition hover:bg-[var(--muted-bg)] hover:text-[var(--primary)]"
+      >
+        <svg aria-hidden width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="M5 12h14" />
+        </svg>
+      </button>
       <button
         type="button"
         onClick={close}
         aria-label="Fermer le lecteur"
-        className="ml-1 inline-flex size-7 items-center justify-center rounded-full text-[var(--muted)] transition hover:bg-[var(--muted-bg)] hover:text-[var(--primary)]"
+        className="inline-flex size-7 items-center justify-center rounded-full text-[var(--muted)] transition hover:bg-[var(--muted-bg)] hover:text-[var(--primary)]"
       >
         <svg aria-hidden width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
           <path d="M6 6l12 12M18 6L6 18" />
