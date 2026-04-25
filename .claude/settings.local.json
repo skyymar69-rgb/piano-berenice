@@ -86,7 +86,9 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(git commit -m ' *)",
       "mcp__4ce49431-28e2-43ec-9333-64a59dbd14a4__deploy_to_vercel",
-      "Bash(npx vercel *)"
+      "Bash(npx vercel *)",
+      "Bash(identify \"/c/Users/Maison/Desktop/Hotel/Berenice piano.webp\")",
+      "Bash(node -e ' *)"
     ]
   }
 }
