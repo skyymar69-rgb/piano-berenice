@@ -11,9 +11,13 @@ const securityHeaders = [
   {
     key: "Permissions-Policy",
     value:
-      "accelerometer=(), autoplay=(self), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
+      "accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
   },
   { key: "X-DNS-Prefetch-Control", value: "on" },
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
+  { key: "X-XSS-Protection", value: "1; mode=block" },
+  { key: "Origin-Agent-Cluster", value: "?1" },
 ];
 
 const nextConfig: NextConfig = {
@@ -35,10 +39,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/audio/:path*",
+        source: "/(robots.txt|sitemap.xml|sitemap.ts|sitemap-images.xml|sitemap-news.xml|llms.txt|llms-full.txt)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=604800" },
-          { key: "Accept-Ranges", value: "bytes" },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, must-revalidate",
+          },
         ],
       },
     ];

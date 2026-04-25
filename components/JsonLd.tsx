@@ -290,6 +290,39 @@ export function HomePageJsonLd() {
   );
 }
 
+/**
+ * SiteNavigationElement : aide les moteurs à comprendre la structure
+ * principale de navigation (sitelinks Google).
+ */
+export function SiteNavigationJsonLd() {
+  const links = [
+    { name: "Cours de piano", url: `${SITE_URL}/cours/piano` },
+    { name: "Cours de solfège", url: `${SITE_URL}/cours/solfege` },
+    { name: "Éveil musical", url: `${SITE_URL}/cours/eveil-musical` },
+    { name: "Le professeur", url: `${SITE_URL}/professeur` },
+    { name: "Tarifs", url: `${SITE_URL}/tarifs` },
+    { name: "S'inscrire", url: `${SITE_URL}/inscription` },
+    { name: "Plan d'accès", url: `${SITE_URL}/plan-acces` },
+    { name: "Contact", url: `${SITE_URL}/contact` },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: "Concerts & auditions", url: `${SITE_URL}/concerts` },
+  ];
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": links.map((l) => ({
+      "@type": "SiteNavigationElement",
+      name: l.name,
+      url: l.url,
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export function WebSiteJsonLd() {
   const data = {
     "@context": "https://schema.org",

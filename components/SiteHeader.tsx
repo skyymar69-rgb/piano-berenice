@@ -6,16 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { ShareMenu } from "./ShareMenu";
 import { VCardMenu } from "./VCardMenu";
 import { MegaMenu } from "./MegaMenu";
-
-const mobileNav = [
-  { href: "/cours/piano", label: "Piano" },
-  { href: "/cours/solfege", label: "Solfège" },
-  { href: "/cours/eveil-musical", label: "Éveil musical" },
-  { href: "/professeur", label: "Professeur" },
-  { href: "/tarifs", label: "Tarifs" },
-  { href: "/plan-acces", label: "Plan d'accès" },
-  { href: "/contact", label: "Contact" },
-];
+import { MobileNav } from "./MobileNav";
 
 export async function SiteHeader() {
   const qr = await QRCode.toDataURL("https://piano-berenice.com/api/vcard", {
@@ -26,7 +17,7 @@ export async function SiteHeader() {
   });
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur">
+    <header className="site-header sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -54,34 +45,15 @@ export async function SiteHeader() {
           </div>
           <Link
             href="/inscription"
-            className="rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
+            className="hidden rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)] md:inline-flex"
           >
             S'inscrire
           </Link>
+          {/* Burger : tablette / mobile uniquement */}
+          <div className="lg:hidden">
+            <MobileNav />
+          </div>
         </div>
-      </div>
-
-      {/* nav mobile + utilitaires */}
-      <div className="lg:hidden">
-        <div className="flex items-center justify-end gap-2 border-t border-[var(--border)] px-4 py-2 sm:hidden">
-          <ShareMenu />
-          <VCardMenu qrDataUrl={qr} />
-          <ThemeToggle />
-        </div>
-        <nav aria-label="Navigation mobile">
-          <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto border-t border-[var(--border)] px-4 py-2 text-sm text-[var(--muted)]">
-            {mobileNav.map((item) => (
-              <li key={item.href} className="snap-start shrink-0">
-                <Link
-                  href={item.href}
-                  className="whitespace-nowrap hover:text-[var(--accent)]"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </div>
     </header>
   );

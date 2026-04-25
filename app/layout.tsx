@@ -3,17 +3,16 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { OrganizationJsonLd } from "@/components/JsonLd";
+import { OrganizationJsonLd, SiteNavigationJsonLd } from "@/components/JsonLd";
 import { CookieBanner } from "@/components/CookieBanner";
 import { ThemeInit } from "@/components/ThemeInit";
 import { AccessibilityWidget } from "@/components/AccessibilityWidget";
-import { MiniPlayer } from "@/components/MiniPlayer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingDock, BackToTopDock } from "@/components/FloatingDock";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { MagneticEffect } from "@/components/MagneticEffect";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SeasonAccent } from "@/components/SeasonAccent";
+import { CursorOrb } from "@/components/CursorOrb";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { school } from "@/lib/school";
@@ -215,6 +214,7 @@ export default function RootLayout({
         <ScrollToTop />
         <SeasonAccent />
         <MagneticEffect />
+        <CursorOrb />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}
@@ -223,11 +223,10 @@ export default function RootLayout({
         <CookieBanner />
         <AccessibilityWidget />
         <FloatingDock>
-          <MiniPlayer />
           <BackToTopDock />
-          <WhatsAppFab />
         </FloatingDock>
         <OrganizationJsonLd />
+        <SiteNavigationJsonLd />
         <Analytics />
         <SpeedInsights />
       </body>

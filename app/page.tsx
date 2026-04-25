@@ -260,7 +260,7 @@ export default function HomePage() {
             <Link
               key={o.href}
               href={o.href}
-              className="group flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-6 transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10"
+              className="card-lift group flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-6 hover:border-[var(--accent)]"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
                 {o.tag}
@@ -528,7 +528,7 @@ export default function HomePage() {
           ].map((o) => (
             <div
               key={o.title}
-              className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:border-[var(--accent)]"
+              className="card-lift rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 hover:border-[var(--accent)]"
             >
               <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
                 {o.level}

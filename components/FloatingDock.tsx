@@ -4,11 +4,7 @@ import { useEffect, useState } from "react";
 
 /**
  * Conteneur "dock" unique pour les FAB du coin bas-droit.
- * Empile verticalement : MiniPlayer → BackToTop → WhatsApp.
  * L'AccessibilityWidget reste à gauche.
- *
- * Les enfants sont placés en `position: relative` au sein d'un container
- * `position: fixed` global pour un comportement cohérent.
  */
 export function FloatingDock({ children }: { children: React.ReactNode }) {
   return (
