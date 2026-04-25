@@ -21,7 +21,7 @@ const sitemap: {
       { href: "/cours/solfege", label: "Cours de solfège", hint: "En groupe" },
       { href: "/cours/eveil-musical", label: "Éveil musical", hint: "Dès 5 ans" },
       { href: "/tarifs", label: "Tarifs & modalités" },
-      { href: "/inscription", label: "S'inscrire — cours d'essai" },
+      { href: "/inscription", label: "S'inscrire pour la rentrée" },
     ],
   },
   {

@@ -6,6 +6,52 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { QuoteCard } from "@/components/QuoteCard";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { PersonJsonLd } from "@/components/JsonLd";
+import { Timeline } from "@/components/Timeline";
+
+const journey = [
+  {
+    year: "Années de formation",
+    title: "Académie Prince Rainier III, Monaco",
+    description:
+      "Médaille d'Or de piano de l'Académie de Musique Prince Rainier III de Monaco — l'institution musicale phare de la Principauté.",
+  },
+  {
+    year: "Perfectionnement",
+    title: "Conservatoire National de Région de Nice",
+    description:
+      "Prix de perfectionnement obtenu au CNR de Nice, qui prolonge la formation au plus haut niveau régional.",
+  },
+  {
+    year: "Concours national",
+    title: "Professeure agréée de la fonction publique",
+    description:
+      "Recrutement par concours national. Enseignement du piano dans le cadre public, avant l'ouverture de l'Académie.",
+  },
+  {
+    year: "Avant 1994",
+    title: "École Départementale de Musique des Alpes-Maritimes",
+    description:
+      "Professeure de piano au sein de l'école départementale ; expérience de l'enseignement structuré, en groupe et en individuel.",
+  },
+  {
+    year: "Avant 1994",
+    title: "Éveil musical à Sainte Marthe & Régina Coeli",
+    description:
+      "Professeure d'éveil musical au jardin d'enfants Sainte Marthe et à l'école Régina Coeli (Nice). Naissance d'une pédagogie pour les tout-petits.",
+  },
+  {
+    year: "1994",
+    title: "Fondation de l'Académie de piano Bérénice",
+    description:
+      "Ouverture au 59 boulevard de Cimiez : trois salles dédiées, un piano à queue, et le projet d'une école à taille humaine, indépendante.",
+  },
+  {
+    year: "Aujourd'hui",
+    title: "Plus de trente ans d'enseignement",
+    description:
+      "Bérénice continue de transmettre le piano, le solfège et l'éveil musical à une centaine d'élèves chaque année — enfants, adolescents et adultes.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Bérénice Lecardeur — Professeure de piano à Nice",
@@ -66,7 +112,7 @@ export default function ProfesseurPage() {
           <h2 className="mt-10 font-serif text-2xl text-[var(--primary)]">
             Un parcours au service de l'enseignement
           </h2>
-          <p>
+          <p className="drop-cap">
             Bérénice Lecardeur tient son académie au 59 boulevard de Cimiez,
             à Nice, depuis plus de trente ans. Formée dans les institutions les
             plus exigeantes de la Côte d'Azur et de la Principauté, elle a
@@ -110,7 +156,7 @@ export default function ProfesseurPage() {
               href="/inscription"
               className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
             >
-              Prendre un cours d'essai
+              S'inscrire pour la rentrée
             </Link>
             <Link
               href="/contact"
@@ -119,6 +165,22 @@ export default function ProfesseurPage() {
               Poser une question
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--muted-bg)]/60">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+            Le parcours
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+            Trente ans d'enseignement, étape par étape
+          </h2>
+          <p className="mt-3 max-w-2xl text-[var(--ink)]/80">
+            De Monaco au boulevard de Cimiez, une trajectoire entièrement
+            consacrée à l'enseignement du piano et de la musique.
+          </p>
+          <Timeline events={journey} />
         </div>
       </section>
 
@@ -138,9 +200,9 @@ export default function ProfesseurPage() {
           },
           {
             href: "/inscription",
-            title: "Cours d'essai",
+            title: "Inscription rentrée 2026 – 2027",
             description:
-              "Rencontrez Bérénice lors d'un cours d'essai offert — réponse sous 48 h ouvrées.",
+              "Réservez votre place pour la rentrée. Réponse personnalisée sous 48 h ouvrées.",
           },
         ]}
       />

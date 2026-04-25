@@ -84,16 +84,16 @@ const sections: Section[] = [
     href: "/inscription",
     featured: {
       href: "/inscription",
-      label: "Cours d'essai offert",
-      tag: "Sans engagement",
+      label: "Rentrée 2026 – 2027",
+      tag: "Inscriptions ouvertes",
       description:
-        "Remplissez le formulaire en ligne. Bérénice vous recontactera personnellement sous 48 h ouvrées.",
+        "Réservez votre place pour la prochaine rentrée. Bérénice vous recontactera personnellement sous 48 h ouvrées.",
       imgSlug: "stock-mains-piano-partition",
       imgAlt:
         "Mains d'une pianiste sur un piano droit, partition ouverte — s'inscrire à l'Académie",
     },
     links: [
-      { href: "/inscription", label: "Demander un cours d'essai" },
+      { href: "/inscription", label: "S'inscrire pour la rentrée" },
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/contact", label: "Poser une question" },
     ],

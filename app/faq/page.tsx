@@ -6,7 +6,7 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 export const metadata: Metadata = {
   title: "FAQ — Questions fréquentes sur les cours de piano à Nice",
   description:
-    "Tout savoir sur l'Académie de piano Bérénice à Nice Cimiez : âges accueillis, cours d'essai, tarifs, modalités, rentrée, éveil musical, solfège, bac option musique.",
+    "Tout savoir sur l'Académie de piano Bérénice à Nice Cimiez : âges accueillis, inscription, tarifs, modalités, rentrée 2026 – 2027, éveil musical, solfège, bac option musique.",
   alternates: { canonical: "/faq" },
 };
 
@@ -37,22 +37,22 @@ const categories = [
     ],
   },
   {
-    title: "Cours d'essai et inscription",
+    title: "Inscription rentrée 2026 – 2027",
     faqs: [
       {
-        question: "Comment demander un cours d'essai ?",
+        question: "Comment s'inscrire pour la rentrée prochaine ?",
         answer:
-          "Remplissez le formulaire en ligne sur la page inscription. Bérénice vous recontacte personnellement sous 48 heures ouvrées pour convenir d'un rendez-vous — sans engagement.",
+          "Remplissez le formulaire en ligne sur la page inscription. Bérénice vous recontacte personnellement sous 48 heures ouvrées pour convenir d'un rendez-vous et finaliser l'inscription pour la saison 2026 – 2027.",
       },
       {
-        question: "Le cours d'essai est-il gratuit ?",
+        question: "Quand ont lieu les permanences d'inscription ?",
         answer:
-          "Oui, le premier cours d'essai est offert. Il permet de découvrir la méthode, rencontrer le professeur et évaluer si le format convient avant toute inscription.",
+          "Les inscriptions ouvrent début septembre. Pour la rentrée 2026 – 2027, les permanences ont lieu le mercredi 2 septembre et le vendredi 4 septembre 2026 de 16h30 à 19h. En dehors de ces dates, prenez rendez-vous par mail ou téléphone.",
       },
       {
-        question: "Quand ont lieu les inscriptions pour l'année en cours ?",
+        question: "Quand est la reprise des cours ?",
         answer:
-          "Les inscriptions ouvrent début septembre. Pour la rentrée 2025-2026, les permanences ont lieu le mercredi 3 septembre et le vendredi 5 septembre de 16h30 à 19h. En dehors de ces dates, prenez rendez-vous par mail ou téléphone.",
+          "La reprise des cours est prévue le mardi 8 septembre 2026 pour l'année 2026 – 2027.",
       },
       {
         question: "Puis-je m'inscrire en cours d'année ?",
@@ -132,7 +132,7 @@ const categories = [
       {
         question: "Y a-t-il des frais d'inscription ?",
         answer:
-          "Les conditions d'inscription précises sont remises lors de la signature du contrat d'inscription. Aucun paiement n'est demandé avant le cours d'essai.",
+          "Les conditions d'inscription précises sont remises lors de la signature du contrat d'inscription. Aucun paiement n'est demandé avant la rencontre avec Bérénice.",
       },
     ],
   },
@@ -218,9 +218,9 @@ export default function FaqPage() {
         links={[
           {
             href: "/inscription",
-            title: "Cours d'essai",
+            title: "Inscription rentrée 2026 – 2027",
             description:
-              "Demander un cours d'essai en ligne. Réponse personnalisée sous 48 h.",
+              "S'inscrire en ligne pour la prochaine rentrée. Réponse personnalisée sous 48 h.",
           },
           {
             href: "/tarifs",

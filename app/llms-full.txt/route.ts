@@ -68,21 +68,21 @@ Exigence technique et bienveillance vont de pair. Chaque élève progresse à so
 - **Éveil musical** : cours hebdomadaire de 40 minutes, en petit groupe. Les enfants découvrent la musique par le jeu, l'écoute, le chant, le rythme. Ils jouent du piano dès le premier cours et choisissent eux-mêmes les musiques qu'ils explorent.
 - **Éveil instrumental** : complément réservé aux élèves déjà inscrits en éveil musical ou ayant fait 1 an d'éveil musical. Cours de 30 minutes. Piano non requis à la maison.
 
-## Calendrier 2025-2026
+## Calendrier 2026 – 2027
 
-- **Rentrée** : mardi 9 septembre 2025
-- **Inscriptions** : mercredi 3 septembre et vendredi 5 septembre 2025, de 16h30 à 19h
+- **Rentrée** : mardi 8 septembre 2026
+- **Inscriptions** : mercredi 2 septembre et vendredi 4 septembre 2026, de 16h30 à 19h
 - **Été** : renseignements par email ou rendez-vous
 - **Cours** : lun-ven, 16h-19h, hors vacances scolaires
 - **Audition annuelle** : date communiquée en cours d'année
 
 ## Tarifs et modalités
 
-Les tarifs dépendent du cours choisi, du format (individuel, binôme, groupe) et de la durée. Communiqués sur demande via le formulaire de contact. Paiements acceptés : chèque, espèces, virement. Modalités annuelle ou trimestrielle possibles. Aucun paiement n'est demandé avant le cours d'essai.
+Les tarifs dépendent du cours choisi, du format (individuel, binôme, groupe) et de la durée. Communiqués sur demande via le formulaire de contact. Paiements acceptés : chèque, espèces, virement. Modalités annuelle ou trimestrielle possibles. Aucun paiement n'est demandé avant la rencontre avec Bérénice.
 
-## Inscription et cours d'essai
+## Inscription rentrée 2026 – 2027
 
-- **Cours d'essai offert**, sans engagement.
+- **Inscriptions ouvertes** pour la prochaine saison.
 - **Formulaire en ligne** disponible sur /inscription.
 - **Délai de réponse** : 48 heures ouvrées.
 - **Numéro de suivi** : APB-XXXX attribué à chaque demande.

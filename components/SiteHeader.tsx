@@ -56,7 +56,7 @@ export async function SiteHeader() {
             href="/inscription"
             className="rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
           >
-            Cours d'essai
+            S'inscrire
           </Link>
         </div>
       </div>

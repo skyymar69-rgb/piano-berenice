@@ -301,9 +301,9 @@ export default function PartitionsPage() {
           },
           {
             href: "/inscription",
-            title: "Cours d'essai",
+            title: "Inscription rentrée 2026 – 2027",
             description:
-              "Venir jouer une de ces pièces ensemble, sans engagement.",
+              "Venir jouer une de ces pièces ensemble dès la prochaine rentrée.",
           },
         ]}
       />

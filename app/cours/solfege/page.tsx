@@ -138,7 +138,7 @@ export default function SolfegePage() {
             href="/inscription"
             className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
           >
-            Demander un cours d'essai
+            S'inscrire pour la rentrée
           </Link>
           <Link
             href="/cours/piano"

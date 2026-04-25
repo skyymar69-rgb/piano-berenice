@@ -48,11 +48,11 @@ export const school = {
     facebook: "https://fr-fr.facebook.com/AcademieDePianoBerenice",
   },
   academicYear: {
-    label: "2025 – 2026",
-    startDate: "2025-09-09",
+    label: "2026 – 2027",
+    startDate: "2026-09-08",
     registrationDates: [
-      "Mercredi 3 septembre 2025, 16 h 30 – 19 h",
-      "Vendredi 5 septembre 2025, 16 h 30 – 19 h",
+      "Mercredi 2 septembre 2026, 16 h 30 – 19 h",
+      "Vendredi 4 septembre 2026, 16 h 30 – 19 h",
     ],
   },
   legal: {
@@ -74,7 +74,7 @@ export const school = {
     defaultTitle:
       "Cours de piano et solfège à Nice · Académie Bérénice — Côte d'Azur",
     defaultDescription:
-      "N°1 des cours de piano et solfège à Nice et sur la Côte d'Azur depuis 1994. Académie dirigée par Bérénice Lecardeur, Médaille d'Or Monaco et Prix du Conservatoire de Nice. Éveil musical dès 5 ans, cours enfants, ados, adultes. Cours d'essai offert à Cimiez.",
+      "N°1 des cours de piano et solfège à Nice et sur la Côte d'Azur depuis 1994. Académie dirigée par Bérénice Lecardeur, Médaille d'Or Monaco et Prix du Conservatoire de Nice. Éveil musical dès 5 ans, cours enfants, ados, adultes. Inscriptions ouvertes pour la rentrée 2026 – 2027 à Cimiez.",
     keywords: [
       // Tier 1 — cibles prioritaires
       "cours de piano Nice",

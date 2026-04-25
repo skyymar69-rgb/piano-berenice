@@ -8,7 +8,7 @@ export default function Loading() {
       className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-4 text-center"
     >
       <div className="animate-[pulse_1.6s_ease-in-out_infinite]">
-        <SolClefLogo size={64} />
+        <SolClefLogo size={64} animated />
       </div>
       <p className="font-serif text-sm text-[var(--muted)]">
         Préparation de la partition…

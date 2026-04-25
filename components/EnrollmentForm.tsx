@@ -199,15 +199,6 @@ export function EnrollmentForm() {
               className="mt-1.5 w-full rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/30"
             />
           </label>
-          <label className="flex items-center gap-3 text-sm">
-            <input
-              type="checkbox"
-              name="wantsTrial"
-              defaultChecked
-              className="size-4 rounded border-[var(--border)] accent-[var(--primary)]"
-            />
-            <span>Je souhaite réserver un cours d'essai</span>
-          </label>
         </div>
       </fieldset>
 

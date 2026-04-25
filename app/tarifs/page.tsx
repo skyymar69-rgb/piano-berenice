@@ -29,7 +29,7 @@ export default function TarifsPage() {
       <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="rounded-2xl border border-[var(--accent)]/30 bg-[var(--muted-bg)] p-8">
           <p className="font-serif text-2xl text-[var(--primary)]">
-            Tarifs 2025 – 2026 communiqués sur demande
+            Tarifs 2026 – 2027 communiqués sur demande
           </p>
           <p className="mt-4 text-sm leading-relaxed text-[var(--ink)]/85">
             Pour obtenir la grille tarifaire à jour, précisez-nous simplement

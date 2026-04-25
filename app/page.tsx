@@ -8,6 +8,8 @@ import { StatusBadge } from "@/components/StatusBadge";
 import { SocialProof } from "@/components/SocialProof";
 import { Counter } from "@/components/Counter";
 import { Reveal } from "@/components/Reveal";
+import { SolClefLogo } from "@/components/SolClefLogo";
+import { MiniKeyboard } from "@/components/MiniKeyboard";
 
 const homeFaqs = [
   {
@@ -36,9 +38,9 @@ const homeFaqs = [
       "Oui, on peut commencer le piano à tout âge. Les méthodes actuelles permettent à un adulte débutant de trouver du plaisir dès les premiers cours. Les cours adultes sont individuels.",
   },
   {
-    question: "Comment prendre un cours d'essai ?",
+    question: "Comment s'inscrire pour la rentrée prochaine ?",
     answer:
-      "Remplissez le formulaire en ligne sur la page inscription. Bérénice vous recontacte personnellement sous 48 heures ouvrées pour convenir d'un premier rendez-vous, sans engagement.",
+      "Remplissez le formulaire en ligne sur la page inscription. Bérénice vous recontacte personnellement sous 48 heures ouvrées pour convenir d'un premier rendez-vous et finaliser l'inscription pour la saison 2026 – 2027.",
   },
 ];
 
@@ -72,12 +74,12 @@ const steps = [
     text: "Vous remplissez le formulaire en ligne ou nous téléphonez. Réponse personnalisée sous 48 h ouvrées.",
   },
   {
-    title: "Cours d'essai",
-    text: "On se rencontre à l'Académie pour un cours d'essai. Vous découvrez la méthode, l'élève rencontre son futur professeur.",
+    title: "Rendez-vous à l'Académie",
+    text: "On se rencontre au 59 boulevard de Cimiez pour discuter de votre projet musical, visiter les salles et fixer les créneaux.",
   },
   {
-    title: "Inscription",
-    text: "Si le courant passe, on fixe les créneaux hebdomadaires et on démarre. Sinon, aucun engagement.",
+    title: "Inscription pour la rentrée",
+    text: "On formalise l'inscription pour l'année 2026 – 2027 et on planifie les cours hebdomadaires dès la première semaine de septembre.",
   },
   {
     title: "Audition annuelle",
@@ -93,8 +95,14 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--muted-bg)] via-[var(--background)] to-[var(--background)]" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-6 top-8 hidden opacity-[0.07] sm:block lg:left-2 lg:top-12"
+        >
+          <SolClefLogo size={220} animated title="" />
+        </div>
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.3fr,1fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
-          <div className="flex flex-col justify-center">
+          <div className="relative flex flex-col justify-center">
             <StatusBadge />
             <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               Depuis {school.brand.foundedYear} · Nice · Cimiez
@@ -104,7 +112,7 @@ export default function HomePage() {
               <br />
               <span className="text-[var(--accent)]">et avec plaisir.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-[var(--ink)]/80">
+            <p className="drop-cap mt-6 max-w-xl text-lg text-[var(--ink)]/80">
               L'Académie de piano Bérénice accueille enfants, adolescents et
               adultes à Nice Cimiez pour des cours de piano, de solfège et
               d'éveil musical. Une école à taille humaine, tenue depuis plus
@@ -115,7 +123,7 @@ export default function HomePage() {
                 href="/inscription"
                 className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
               >
-                Demander un cours d'essai
+                S'inscrire pour la rentrée
               </Link>
               <Link
                 href="/cours/piano"
@@ -151,33 +159,39 @@ export default function HomePage() {
               </div>
             </dl>
           </div>
-          {/* Mosaïque — composition équilibrée, portrait discret */}
-          <div className="relative grid grid-cols-6 grid-rows-6 gap-3 sm:gap-4">
-            <figure className="col-span-4 row-span-4 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+          {/* Planche d'artiste — clichés cadrés, légèrement penchés, tampon doré */}
+          <div className="relative grid grid-cols-6 grid-rows-6 gap-4 sm:gap-5">
+            <figure className="artboard-tilt-l col-span-4 row-span-4 overflow-hidden rounded-md salon-frame">
               <Picture
                 image="stockTouchesPiano"
                 priority
                 sizes="(min-width:1024px) 320px, 66vw"
               />
             </figure>
-            <figure className="col-span-2 row-span-3 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <figure className="artboard-tilt-r col-span-2 row-span-3 overflow-hidden rounded-md salon-frame">
               <Picture
                 image="stockPartitionSolfege"
                 sizes="(min-width:1024px) 160px, 33vw"
               />
             </figure>
-            <figure className="col-span-2 row-span-3 overflow-hidden rounded-2xl border border-2 border-[var(--accent)] shadow-[var(--shadow)]">
+            <figure className="artboard-tilt-l col-span-2 row-span-3 overflow-hidden rounded-md salon-frame">
               <Picture
                 image="berenicePortrait"
                 sizes="(min-width:1024px) 160px, 33vw"
               />
             </figure>
-            <figure className="col-span-6 row-span-2 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
+            <figure className="artboard-tilt-r col-span-6 row-span-2 overflow-hidden rounded-md salon-frame">
               <Picture
                 image="partitionRose"
                 sizes="(min-width:1024px) 480px, 100vw"
               />
             </figure>
+            <span
+              aria-hidden
+              className="wax-stamp pointer-events-none absolute -right-3 -top-3 z-10 hidden sm:inline-block"
+            >
+              Depuis {school.brand.foundedYear}
+            </span>
           </div>
         </div>
       </section>
@@ -188,7 +202,7 @@ export default function HomePage() {
           <p className="text-sm">
             <span className="font-semibold text-[var(--accent)]">Rentrée {school.academicYear.label}</span>{" "}
             · Reprise des cours le{" "}
-            <time dateTime={school.academicYear.startDate}>9 septembre 2025</time>.
+            <time dateTime={school.academicYear.startDate}>mardi 8 septembre 2026</time>.
             Inscriptions : {school.academicYear.registrationDates.join(" · ")}.
           </p>
           <Link
@@ -341,28 +355,28 @@ export default function HomePage() {
             d'éveil musical et d'audition, et une salle de solfège en groupe.
             Tout se passe dans le même lieu, au 59 boulevard de Cimiez.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <figure className="group overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
-              <div className="aspect-[4/3] transition duration-500 group-hover:scale-105">
+          <div className="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            <figure className="group salon-frame">
+              <div className="aspect-[4/3] overflow-hidden">
                 <Picture image="sallePianoDecor" sizes="(min-width:1024px) 380px, 100vw" />
               </div>
-              <figcaption className="bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)]/85">
+              <figcaption className="mt-3 px-1 pb-1 text-center font-serif text-sm italic text-[var(--ink)]/85">
                 Salle de cours de piano avec piano à queue
               </figcaption>
             </figure>
-            <figure className="group overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
-              <div className="aspect-[4/3] transition duration-500 group-hover:scale-105">
+            <figure className="group salon-frame">
+              <div className="aspect-[4/3] overflow-hidden">
                 <Picture image="salleAudition" sizes="(min-width:1024px) 380px, 100vw" />
               </div>
-              <figcaption className="bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)]/85">
+              <figcaption className="mt-3 px-1 pb-1 text-center font-serif text-sm italic text-[var(--ink)]/85">
                 Salle d'éveil musical et d'audition
               </figcaption>
             </figure>
-            <figure className="group overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
-              <div className="aspect-[4/3] transition duration-500 group-hover:scale-105">
+            <figure className="group salon-frame">
+              <div className="aspect-[4/3] overflow-hidden">
                 <Picture image="salleSolfege" sizes="(min-width:1024px) 380px, 100vw" />
               </div>
-              <figcaption className="bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)]/85">
+              <figcaption className="mt-3 px-1 pb-1 text-center font-serif text-sm italic text-[var(--ink)]/85">
                 Salle de solfège en groupe
               </figcaption>
             </figure>
@@ -484,21 +498,39 @@ export default function HomePage() {
         ]}
       />
 
+      {/* Mini-clavier — invitation à toucher la note */}
+      <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+          La première note
+        </p>
+        <h2 className="mx-auto mt-3 max-w-xl text-center font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+          Avant tout, le plaisir du son
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-center text-[var(--ink)]/80">
+          Posez le doigt sur une touche. La méthode pédagogique de Bérénice
+          commence ici : le geste, l'écoute, puis la lecture.
+        </p>
+        <div className="mt-8">
+          <MiniKeyboard />
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-[var(--muted-bg)] to-white px-8 py-14 text-center">
           <h2 className="mx-auto max-w-2xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
-            On commence quand vous voulez.
+            La rentrée 2026 – 2027 commence ici.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-[var(--ink)]/80">
-            Remplissez le formulaire en ligne — vous serez rappelé(e) sous 48 h
-            ouvrées par Bérénice pour convenir d'un premier rendez-vous.
+            Réservez votre place dès maintenant. Bérénice vous rappelle sous
+            48 h ouvrées pour convenir d'un premier rendez-vous et finaliser
+            l'inscription.
           </p>
           <Link
             href="/inscription"
             className="mt-8 inline-flex rounded-full bg-[var(--primary)] px-7 py-3.5 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
           >
-            Demander un cours d'essai
+            S'inscrire pour la rentrée
           </Link>
         </div>
       </section>

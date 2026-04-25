@@ -53,8 +53,8 @@ export default function CgvPage() {
             Article 3 — Inscription
           </h2>
           <p>
-            L'inscription est effective après : (i) un premier rendez-vous ou
-            cours d'essai ; (ii) remise d'un dossier d'inscription complet ;
+            L'inscription est effective après : (i) un premier rendez-vous
+            avec Bérénice ; (ii) remise d'un dossier d'inscription complet ;
             (iii) règlement des sommes dues selon les modalités convenues.
             L'inscription vaut acceptation des présentes CGV et du règlement
             intérieur de l'école remis lors de l'inscription.

@@ -61,7 +61,6 @@ export async function submitEnrollment(
   const availability = String(formData.get("availability") || "").trim();
   const experience = String(formData.get("experience") || "").trim();
   const motivation = String(formData.get("motivation") || "").trim();
-  const wantsTrial = formData.get("wantsTrial") === "on";
   const consent = formData.get("consent") === "on";
   const consentMinor = formData.get("consentMinor") === "on";
 
@@ -112,7 +111,6 @@ export async function submitEnrollment(
     availability ? `Disponibilités : ${availability}` : "",
     experience ? `Expérience : ${experience}` : "",
     motivation ? `Motivation : ${motivation}` : "",
-    wantsTrial ? "✔ Souhaite un cours d'essai" : "",
     "",
     `Consentement RGPD : oui`,
     `Consentement mineur : ${consentMinor ? "oui" : "n/a"}`,

@@ -55,7 +55,7 @@ export default function CguPage() {
           <p>
             Le Site présente les services d'enseignement musical proposés par
             l'Académie de piano Bérénice et permet, via un formulaire
-            dédié, de demander un cours d'essai ou de prendre contact. Les
+            dédié, de demander une inscription ou de prendre contact. Les
             demandes transmises via le formulaire n'engagent aucune des deux
             parties avant un échange personnalisé et la signature éventuelle
             d'un contrat d'inscription distinct.

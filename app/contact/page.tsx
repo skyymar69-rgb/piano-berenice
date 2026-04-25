@@ -21,8 +21,8 @@ export default function ContactPage() {
           Nous contacter
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--ink)]/80">
-          Pour une inscription, un cours d'essai ou une simple question —
-          choisissez le canal qui vous convient.
+          Pour une inscription à la rentrée 2026 – 2027 ou une simple
+          question — choisissez le canal qui vous convient.
         </p>
       </section>
 
@@ -101,8 +101,8 @@ export default function ContactPage() {
             Formulaire
           </h2>
           <p className="mt-2 text-sm text-[var(--ink)]/80">
-            Une question précise ? Utilisez ce formulaire. Pour demander un
-            cours d'essai, préférez le{" "}
+            Une question précise ? Utilisez ce formulaire. Pour vous inscrire
+            à la rentrée 2026 – 2027, préférez le{" "}
             <Link
               href="/inscription"
               className="font-medium text-[var(--primary)] underline underline-offset-2 hover:text-[var(--accent)]"

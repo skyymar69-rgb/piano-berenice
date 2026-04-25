@@ -25,7 +25,7 @@ export function GET() {
 
 ## Pages principales
 
-- [Accueil](https://piano-berenice.com): présentation générale, trois disciplines, CTA cours d'essai, galerie des salles, localisation
+- [Accueil](https://piano-berenice.com): présentation générale, trois disciplines, CTA inscription rentrée 2026 – 2027, galerie des salles, localisation
 - [Le professeur](https://piano-berenice.com/professeur): biographie complète de Bérénice Lecardeur — diplômes, parcours, philosophie pédagogique
 - [Cours de piano](https://piano-berenice.com/cours/piano): cours individuels ou en binôme, pour enfants, adolescents et adultes, tous niveaux, préparation au bac option musique
 - [Cours de solfège](https://piano-berenice.com/cours/solfege): cours en groupe, ouverts aux pianistes comme aux guitaristes, batteurs, chanteurs
@@ -34,7 +34,7 @@ export function GET() {
 - [FAQ](https://piano-berenice.com/faq): 26 questions fréquentes classées par thème
 - [Plan d'accès](https://piano-berenice.com/plan-acces): localisation précise et transports
 - [Contact](https://piano-berenice.com/contact): téléphone, email, formulaire
-- [Inscription](https://piano-berenice.com/inscription): formulaire de demande de cours d'essai offert, réponse sous 48 h ouvrées
+- [Inscription](https://piano-berenice.com/inscription): formulaire d'inscription pour la rentrée 2026 – 2027, réponse sous 48 h ouvrées
 - [Carte de visite numérique](https://piano-berenice.com/carte-de-visite): vCard téléchargeable et QR codes
 
 ## Informations légales

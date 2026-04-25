@@ -2,12 +2,14 @@ type Props = {
   className?: string;
   title?: string;
   size?: number;
+  animated?: boolean;
 };
 
 export function SolClefLogo({
   className,
   title = "Clé de sol",
   size = 28,
+  animated = false,
 }: Props) {
   return (
     <svg
@@ -17,7 +19,7 @@ export function SolClefLogo({
       height={size * (72 / 48)}
       role="img"
       aria-label={title}
-      className={className}
+      className={`${animated ? "solclef-animated" : ""} ${className ?? ""}`}
     >
       <title>{title}</title>
       <defs>

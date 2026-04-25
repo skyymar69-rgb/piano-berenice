@@ -31,7 +31,7 @@ const pianoFaqs = [
 export const metadata: Metadata = {
   title: "Cours de piano à Nice (enfants, ados, adultes) — Académie Bérénice",
   description:
-    "Cours de piano individuels à Nice Cimiez pour enfants, adolescents et adultes. Méthode individualisée, préparation à l'épreuve piano du bac option musique. Cours d'essai offert.",
+    "Cours de piano individuels à Nice Cimiez pour enfants, adolescents et adultes. Méthode individualisée, préparation à l'épreuve piano du bac option musique. Inscriptions ouvertes pour la rentrée 2026 – 2027.",
   alternates: { canonical: "/cours/piano" },
 };
 
@@ -150,7 +150,7 @@ export default function PianoPage() {
             href="/inscription"
             className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
           >
-            Demander un cours d'essai
+            S'inscrire pour la rentrée
           </Link>
           <Link
             href="/tarifs"
