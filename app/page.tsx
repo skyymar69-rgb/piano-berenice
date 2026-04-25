@@ -10,6 +10,7 @@ import { Counter } from "@/components/Counter";
 import { Reveal } from "@/components/Reveal";
 import { MiniKeyboard } from "@/components/MiniKeyboard";
 import { Lightbox } from "@/components/Lightbox";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 const homeFaqs = [
   {
@@ -422,17 +423,19 @@ export default function HomePage() {
           </div>
           <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
             <iframe
-              title="Carte — Académie de piano Bérénice"
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${
-                school.contact.address.longitude - 0.005
-              }%2C${school.contact.address.latitude - 0.003}%2C${
-                school.contact.address.longitude + 0.005
-              }%2C${
-                school.contact.address.latitude + 0.003
-              }&layer=mapnik&marker=${school.contact.address.latitude}%2C${school.contact.address.longitude}`}
+              title="Carte Google Maps — Académie de piano Bérénice"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                "Académie de piano Bérénice, " +
+                  school.contact.address.street +
+                  ", " +
+                  school.contact.address.postalCode +
+                  " " +
+                  school.contact.address.city,
+              )}&output=embed&hl=fr`}
               className="h-full w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
           </div>
         </div>
@@ -475,6 +478,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* AVIS GOOGLE VÉRIFIÉS */}
+      <GoogleReviews />
 
       {/* PROOF — présence sur annuaires externes */}
       <SocialProof />
