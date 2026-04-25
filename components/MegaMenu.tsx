@@ -41,6 +41,7 @@ const sections: Section[] = [
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/inscription", label: "S'inscrire pour la rentrée" },
       { href: "/partitions", label: "Partitions libres de droit" },
+      { href: "/partitions/jouer", label: "Coin partitions interactives", hint: "Écouter Bach, Mozart, Chopin…" },
       { href: "/faq", label: "FAQ — questions fréquentes" },
     ],
   },
