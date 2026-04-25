@@ -9,13 +9,10 @@ type Props = {
 };
 
 /**
- * Lecteur audio flottant discret. Par défaut : un simple bouton circulaire
- * "vinyle" avec note de musique. Au clic, déploiement en pill compact
- * avec play/pause/fermer.
- *
- * L'audio démarre tout seul (autoplay-friendly + fallback first-gesture),
- * ce qui rend le lecteur "presque invisible" — exactement ce que la cliente
- * souhaite : ambiance sans l'appareillage visible.
+ * Lecteur audio flottant. Disque "vinyle" qui tourne quand ça joue.
+ * - Clic sur le disque = play/pause directement (le contrôle est évident)
+ * - Croix au coin = ferme totalement
+ * - Tooltip à gauche au hover (titre du morceau)
  */
 export function MiniPlayer({
   src = "/audio/victoria-a-berenice-lalba-in-sol-maggiore.mp3",
@@ -25,17 +22,9 @@ export function MiniPlayer({
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [closed, setClosed] = useState(false);
-  const [expanded, setExpanded] = useState(false);
 
-  useEffect(() => {
-    try {
-      if (localStorage.getItem("apb-mini-player-closed") === "1") {
-        setClosed(true);
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
+  // ⚠ Pas de persistance "fermé" : la cliente veut toujours voir le bouton
+  // quand on revient sur le site. Le close ne masque que pour cette session.
 
   useEffect(() => {
     if (closed) return;
@@ -69,175 +58,103 @@ export function MiniPlayer({
       });
 
     const onEnd = () => setPlaying(false);
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
     a.addEventListener("ended", onEnd);
+    a.addEventListener("play", onPlay);
+    a.addEventListener("pause", onPause);
     return () => {
       cleanup();
       a.removeEventListener("ended", onEnd);
+      a.removeEventListener("play", onPlay);
+      a.removeEventListener("pause", onPause);
     };
   }, [closed]);
 
-  const toggle = () => {
+  const togglePlay = () => {
     const a = audioRef.current;
     if (!a) return;
     if (a.paused) {
-      a.play()
-        .then(() => setPlaying(true))
-        .catch(() => {});
+      a.play().catch(() => {});
     } else {
       a.pause();
-      setPlaying(false);
     }
   };
 
   const close = () => {
     audioRef.current?.pause();
     setClosed(true);
-    try {
-      localStorage.setItem("apb-mini-player-closed", "1");
-    } catch {
-      /* ignore */
-    }
   };
 
   if (closed) return null;
 
-  // Mode discret : un petit bouton vinyle qui tourne quand ça joue
-  if (!expanded) {
-    return (
-      <>
-        <button
-          type="button"
-          onClick={() => setExpanded(true)}
-          aria-label="Ouvrir le lecteur audio"
-          data-tooltip="Lecteur · L'Alba in Sol maggiore"
-          className={`fab-tooltip relative inline-flex size-12 items-center justify-center overflow-hidden rounded-full border border-[var(--border)] bg-[var(--primary)] text-[var(--primary-contrast)] shadow-lg transition hover:bg-[var(--primary-hover)] ${
-            playing ? "vinyl-spinning" : ""
-          }`}
-        >
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-full"
-            style={{
-              background:
-                "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06) 0 1px, transparent 1px 4px)",
-            }}
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0_3px,transparent_3px_4px)]"
-          />
-          {playing ? (
-            <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M9 18V5l12-2v13" />
-              <circle cx="6" cy="18" r="3" />
-              <circle cx="18" cy="16" r="3" />
-            </svg>
-          ) : (
-            <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          )}
-          {playing && (
-            <span
-              aria-hidden
-              className="absolute -bottom-1 left-1/2 inline-flex -translate-x-1/2 items-end gap-[2px]"
-            >
-              <span className="equalizer">
-                <span />
-                <span />
-                <span />
-              </span>
-            </span>
-          )}
-        </button>
-        <audio ref={audioRef} preload="auto" loop={false}>
-          <source src={src} type="audio/mpeg" />
-        </audio>
-      </>
-    );
-  }
-
   return (
-    <div
-      role="region"
-      aria-label="Lecteur audio — extrait musical"
-      className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] py-1.5 pl-1.5 pr-3 shadow-lg"
-    >
+    <div className="relative inline-block">
       <button
         type="button"
-        onClick={toggle}
+        onClick={togglePlay}
         aria-label={playing ? "Mettre en pause" : "Lancer la lecture"}
-        className={`relative inline-flex size-10 items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)] ${
+        data-tooltip={`${playing ? "Pause" : "Play"} · ${title}`}
+        className={`fab-tooltip relative inline-flex size-12 items-center justify-center overflow-hidden rounded-full border border-[var(--border)] bg-[var(--primary)] text-[var(--primary-contrast)] shadow-lg transition hover:bg-[var(--primary-hover)] ${
           playing ? "vinyl-spinning" : ""
         }`}
       >
+        {/* Sillons concentriques du vinyle */}
         <span
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-full"
           style={{
             background:
-              "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06) 0 1px, transparent 1px 3px)",
+              "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0 1px, transparent 1px 4px)",
           }}
         />
+        {/* Étiquette centrale */}
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0_2px,transparent_2px_3px)]"
+          className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0_5px,transparent_5px_6px)]"
         />
-        {playing ? (
-          <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="6" y="5" width="4" height="14" rx="1" />
-            <rect x="14" y="5" width="4" height="14" rx="1" />
-          </svg>
-        ) : (
-          <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        )}
-      </button>
-
-      <div className="flex min-w-0 flex-col items-start text-left">
-        <span className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+        {/* Icône play/pause au centre */}
+        <span className="relative z-10 inline-flex size-6 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--primary)]">
           {playing ? (
-            <span aria-hidden className="equalizer">
-              <span />
-              <span />
-              <span />
-            </span>
+            <svg aria-hidden width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="5" width="4" height="14" rx="1" />
+              <rect x="14" y="5" width="4" height="14" rx="1" />
+            </svg>
           ) : (
-            <span aria-hidden className="size-1.5 rounded-full bg-[var(--muted)]" />
+            <svg aria-hidden width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
           )}
-          En écoute
         </span>
-        <span className="mt-0.5 max-w-[160px] truncate text-xs font-medium text-[var(--primary)]">
-          {title}
-        </span>
-        <span className="max-w-[160px] truncate text-[11px] text-[var(--muted)]">
-          {subtitle}
-        </span>
-      </div>
-
-      <button
-        type="button"
-        onClick={() => setExpanded(false)}
-        aria-label="Réduire le lecteur"
-        className="ml-1 inline-flex size-7 items-center justify-center rounded-full text-[var(--muted)] transition hover:bg-[var(--muted-bg)] hover:text-[var(--primary)]"
-      >
-        <svg aria-hidden width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-          <path d="M5 12h14" />
-        </svg>
       </button>
+
+      {/* Croix de fermeture définitive (au coin haut-droit) */}
       <button
         type="button"
         onClick={close}
-        aria-label="Fermer le lecteur"
-        className="inline-flex size-7 items-center justify-center rounded-full text-[var(--muted)] transition hover:bg-[var(--muted-bg)] hover:text-[var(--primary)]"
+        aria-label="Fermer le lecteur audio"
+        className="absolute -right-1 -top-1 inline-flex size-5 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] shadow-sm transition hover:border-[var(--accent)] hover:text-[var(--primary)]"
       >
-        <svg aria-hidden width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <svg aria-hidden width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
           <path d="M6 6l12 12M18 6L6 18" />
         </svg>
       </button>
 
-      <audio ref={audioRef} preload="auto" loop={false}>
+      {/* Équaliseur en bas, indicateur de lecture */}
+      {playing && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2"
+        >
+          <span className="equalizer">
+            <span />
+            <span />
+            <span />
+          </span>
+        </span>
+      )}
+
+      <audio ref={audioRef} preload="auto" loop={false} aria-label={`${title} — ${subtitle}`}>
         <source src={src} type="audio/mpeg" />
       </audio>
     </div>

@@ -121,7 +121,7 @@ La lecture de partition s'acquiert d'autant plus vite avec un professeur qui ada
     category: "Pratique",
     publishedAt: "2026-04-04",
     readingMinutes: 8,
-    imageSlug: "berenicePiano",
+    imageSlug: "berenice-jouant-piano-queue-salle-vitraux",
     imageAlt: "Piano à queue en bois verni avec partitions ouvertes",
     tags: ["instrument", "piano", "achat", "matériel"],
     excerpt:
@@ -209,7 +209,7 @@ Si vous débutez et hésitez sur l'achat, parlez-en lors de votre rendez-vous : 
     category: "Histoire",
     publishedAt: "2026-04-08",
     readingMinutes: 9,
-    imageSlug: "berenicePortrait",
+    imageSlug: "berenice-lecardeur-portrait-piano-queue",
     imageAlt: "Bérénice Lecardeur au piano à queue dans son académie",
     tags: ["histoire", "piano", "musique classique"],
     excerpt:
@@ -286,7 +286,7 @@ Connaître l'histoire de son instrument, c'est mieux comprendre ce qu'on en atte
     category: "Histoire",
     publishedAt: "2026-04-11",
     readingMinutes: 8,
-    imageSlug: "stockPartitionSolfege",
+    imageSlug: "stock-partition-solfege-piano",
     imageAlt: "Partition de solfège ouverte avec annotations",
     tags: ["histoire", "solfège", "Guido d'Arezzo"],
     excerpt:
@@ -371,7 +371,7 @@ Que vous soyez pianiste débutant, guitariste cherchant à structurer ses bases,
     category: "Pratique",
     publishedAt: "2026-04-15",
     readingMinutes: 8,
-    imageSlug: "stockMainsPianoDroit",
+    imageSlug: "stock-mains-pianiste-piano-droit",
     imageAlt: "Mains d'une pianiste sur un piano droit en bois",
     tags: ["technique", "exercices", "dextérité", "pratique"],
     excerpt:
@@ -479,7 +479,7 @@ Travailler la technique tout seul a ses limites. Un professeur expérimenté **d
     category: "Pratique",
     publishedAt: "2026-04-18",
     readingMinutes: 7,
-    imageSlug: "salleAudition",
+    imageSlug: "salle-audition-piano-academie-nice",
     imageAlt: "Salle d'audition avec piano à queue",
     tags: ["achat", "matériel", "débutant"],
     excerpt:
@@ -581,7 +581,7 @@ Le piano que vous choisirez vous accompagnera 5, 10, 30 ans peut-être. L'achat 
     category: "Théorie",
     publishedAt: "2026-04-22",
     readingMinutes: 7,
-    imageSlug: "stockPartitionSolfege",
+    imageSlug: "stock-partition-solfege-piano",
     imageAlt: "Partition de solfège avec annotations manuscrites",
     tags: ["solfège", "théorie", "progression"],
     excerpt:
@@ -693,7 +693,7 @@ C'est l'investissement le plus rentable de votre carrière de musicien amateur. 
     category: "Apprendre",
     publishedAt: "2026-04-25",
     readingMinutes: 7,
-    imageSlug: "stockMainsPianoDroit",
+    imageSlug: "stock-mains-pianiste-piano-droit",
     imageAlt: "Mains d'un adulte pianiste sur le clavier",
     tags: ["adulte", "débutant", "méthode"],
     excerpt:
@@ -811,7 +811,7 @@ Le piano est un instrument **infini**. À 30 ans comme à 70, il y a toujours de
     category: "Apprendre",
     publishedAt: "2026-04-28",
     readingMinutes: 7,
-    imageSlug: "salleAudition",
+    imageSlug: "salle-audition-piano-academie-nice",
     imageAlt: "Enfants en cours d'éveil musical à l'Académie",
     tags: ["enfant", "éveil musical", "5 ans"],
     excerpt:
@@ -939,7 +939,7 @@ L'**Académie de piano Bérénice** propose des cours d'**éveil musical et inst
     category: "Inspiration",
     publishedAt: "2026-05-02",
     readingMinutes: 9,
-    imageSlug: "berenicePiano",
+    imageSlug: "berenice-jouant-piano-queue-salle-vitraux",
     imageAlt: "Piano à queue dans un salon de musique",
     tags: ["répertoire", "compositeurs", "musique classique"],
     excerpt:

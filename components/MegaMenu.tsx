@@ -34,13 +34,12 @@ const sections: Section[] = [
         "Gros plan sur les touches noires et blanches d'un piano — cours de piano à Nice Cimiez",
     },
     links: [
-      { href: "/cours/piano", label: "Piano", hint: "Individuel ou en binôme" },
-      { href: "/cours/solfege", label: "Solfège", hint: "En groupe, tous instruments" },
+      { href: "/cours/piano", label: "Cours de piano", hint: "Individuel ou en binôme" },
+      { href: "/cours/solfege", label: "Cours de solfège", hint: "En groupe, tous instruments" },
       { href: "/cours/eveil-musical", label: "Éveil musical", hint: "À partir de 5 ans" },
-      { href: "/professeur", label: "Le professeur", hint: "Bérénice Lecardeur" },
       { href: "/tarifs", label: "Tarifs & modalités" },
-      { href: "/partitions", label: "Partitions libres", hint: "Bibliothèque gratuite" },
-      { href: "/blog", label: "Blog", hint: "Conseils et histoire de la musique" },
+      { href: "/inscription", label: "S'inscrire pour la rentrée" },
+      { href: "/partitions", label: "Partitions libres de droit" },
       { href: "/faq", label: "FAQ — questions fréquentes" },
     ],
   },
@@ -58,10 +57,33 @@ const sections: Section[] = [
         "Bérénice Lecardeur, professeure de piano à Nice Cimiez, assise à son piano à queue",
     },
     links: [
-      { href: "/professeur", label: "Le professeur" },
+      { href: "/professeur", label: "Bérénice Lecardeur", hint: "Le professeur" },
       { href: "/plan-acces", label: "Plan d'accès", hint: "59 bd de Cimiez" },
-      { href: "/carte-de-visite", label: "Carte de visite numérique" },
       { href: "/contact", label: "Nous contacter" },
+      { href: "/carte-de-visite", label: "Carte de visite numérique" },
+    ],
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+    featured: {
+      href: "/blog",
+      label: "Conseils & histoires",
+      tag: "10 articles",
+      description:
+        "Comment lire une partition, choisir son piano, l'histoire du solfège, le piano pour adulte… Tous nos guides rédigés par Bérénice.",
+      imgSlug: "stock-eleve-partition-lecture",
+      imgAlt:
+        "Élève lisant une partition musicale — articles du blog de l'Académie",
+    },
+    links: [
+      { href: "/blog/comment-lire-une-partition-de-piano", label: "Comment lire une partition", hint: "9 min · Apprendre" },
+      { href: "/blog/differents-types-de-piano", label: "Les différents types de piano", hint: "8 min · Pratique" },
+      { href: "/blog/histoire-du-piano", label: "L'histoire du piano", hint: "9 min · Histoire" },
+      { href: "/blog/histoire-du-solfege", label: "L'histoire du solfège", hint: "8 min · Histoire" },
+      { href: "/blog/piano-pour-adultes-debutants", label: "Le piano pour adultes débutants", hint: "7 min · Apprendre" },
+      { href: "/blog/eveil-musical-decouverte-piano-5-ans", label: "L'éveil musical dès 5 ans", hint: "7 min · Apprendre" },
+      { href: "/blog", label: "Voir tous les articles →", hint: "10 articles" },
     ],
   },
   {
@@ -81,6 +103,11 @@ const sections: Section[] = [
       { href: "/inscription", label: "S'inscrire pour la rentrée" },
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/contact", label: "Poser une question" },
+      { href: "/mentions-legales", label: "Mentions légales", hint: "Informations" },
+      { href: "/cgu", label: "CGU" },
+      { href: "/cgv", label: "CGV" },
+      { href: "/politique-confidentialite", label: "Politique de confidentialité" },
+      { href: "/cookies", label: "Cookies" },
     ],
   },
 ];
@@ -117,7 +144,7 @@ export function MegaMenu() {
 
   const scheduleClose = () => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => setOpen(null), 180);
+    closeTimer.current = window.setTimeout(() => setOpen(null), 220);
   };
   const cancelClose = () => {
     if (closeTimer.current) {
@@ -152,7 +179,7 @@ export function MegaMenu() {
                   aria-haspopup="true"
                   className={`group relative flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${
                     isOpen
-                      ? "text-[var(--primary)]"
+                      ? "bg-[var(--muted-bg)] text-[var(--primary)]"
                       : "text-[var(--ink)] hover:text-[var(--primary)]"
                   }`}
                 >
@@ -178,34 +205,31 @@ export function MegaMenu() {
         </ul>
       </div>
 
-      {/* Backdrop overlay (subtil, hors menu) */}
+      {/* Backdrop */}
       {open !== null && (
         <div
           aria-hidden
           className="pointer-events-none fixed inset-0 top-[var(--header-h,4.5rem)] z-30 bg-[var(--primary)]/15"
-          style={{ animation: "fade-in 200ms ease-out forwards" }}
         />
       )}
 
-      {/* Panneau fixe, opaque, plein largeur sous le header */}
-      <div
-        ref={panelRef}
-        role="menu"
-        aria-hidden={open === null}
-        onMouseEnter={cancelClose}
-        onMouseLeave={scheduleClose}
-        style={{ display: open === null ? "none" : "block" }}
-        className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40"
-      >
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mt-2 overflow-hidden rounded-b-3xl border-x border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.35)]">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
-            {open !== null && (
+      {/* Panneau opaque, plein largeur, fixé sous le header — mount/unmount */}
+      {open !== null && (
+        <div
+          ref={panelRef}
+          role="menu"
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
+          className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40 hidden lg:block"
+        >
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="relative mt-2 overflow-hidden rounded-b-3xl border-x border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.35)]">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
               <div className="grid grid-cols-1 gap-0 p-7 md:grid-cols-[minmax(0,1.05fr),minmax(0,1fr)]">
-                {/* Featured card — large, rich */}
                 <Link
                   href={sections[open].featured.href}
                   role="menuitem"
+                  prefetch
                   onClick={() => setOpen(null)}
                   className="group relative block overflow-hidden rounded-2xl"
                 >
@@ -245,20 +269,19 @@ export function MegaMenu() {
                   </div>
                 </Link>
 
-                {/* Links column */}
                 <div className="md:pl-8">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
                     Tout le rayon
                   </p>
-                  <ul className="mt-3 space-y-1">
+                  <ul className="mt-3 grid grid-cols-1 gap-1">
                     {sections[open].links.map((l) => (
-                      <li key={l.href}>
+                      <li key={l.href + l.label}>
                         <Link
                           href={l.href}
                           role="menuitem"
                           prefetch
                           onClick={() => setOpen(null)}
-                          className="group flex items-start justify-between gap-4 rounded-xl px-4 py-3 transition hover:bg-[var(--muted-bg)]"
+                          className="group flex items-start justify-between gap-4 rounded-xl px-4 py-2.5 transition hover:bg-[var(--muted-bg)]"
                         >
                           <span>
                             <span className="block font-serif text-base text-[var(--primary)] transition group-hover:text-[var(--accent)]">
@@ -272,8 +295,8 @@ export function MegaMenu() {
                           </span>
                           <svg
                             aria-hidden
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -290,10 +313,10 @@ export function MegaMenu() {
                   </ul>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
