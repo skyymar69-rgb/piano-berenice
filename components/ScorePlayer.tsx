@@ -20,7 +20,11 @@ const levelStyles: Record<Props["level"], string> = {
 export function ScorePlayer({ url, title, composer, level, period, note }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const osmdRef = useRef<unknown>(null);
-  const audioRef = useRef<{ piano: unknown; ac: AudioContext } | null>(null);
+  type SmplrPiano = {
+    start: (opts: { note: number; duration: number }) => void;
+    stop?: () => void;
+  };
+  const audioRef = useRef<{ piano: SmplrPiano; ac: AudioContext } | null>(null);
   const playingRef = useRef(false);
 
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("loading");
@@ -49,7 +53,6 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
           cursorsOptions: [
             { type: 0, color: "#d5b07c", alpha: 0.5, follow: true },
           ],
-          // @ts-expect-error - DefaultColorMusic existe au runtime
           defaultColorMusic: "#1a1d29",
         });
 
@@ -59,7 +62,6 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
         osmd.cursor.show();
         osmdRef.current = osmd;
 
-        // @ts-expect-error - typings OSMD ne couvrent pas Sheet
         const sourceBpm = osmd.Sheet?.DefaultStartTempoInBpm || 100;
         setBpm(Math.round(sourceBpm));
 
@@ -92,8 +94,7 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
     const ac = new Ctx();
     if (ac.state === "suspended") await ac.resume();
     const { Soundfont } = await import("smplr");
-    const piano = new Soundfont(ac, { instrument: "acoustic_grand_piano" });
-    // @ts-expect-error - smplr expose .load comme promise-like
+    const piano = new Soundfont(ac, { instrument: "acoustic_grand_piano" }) as unknown as SmplrPiano & { load: Promise<unknown> };
     await piano.load;
     audioRef.current = { piano, ac };
     return audioRef.current;
@@ -106,23 +107,26 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
 
     try {
       const { piano } = await ensureAudio();
-      // @ts-expect-error - typings OSMD partiels
-      const osmd = osmdRef.current;
-      // @ts-expect-error - cursor + Sheet
+      const osmd = osmdRef.current as never as {
+        cursor: {
+          reset: () => void;
+          show: () => void;
+          next: () => void;
+          iterator?: { EndReached?: boolean };
+          NotesUnderCursor: () => Array<{
+            Pitch?: { halfTone: number };
+            Length: { RealValue: number };
+            isRest?: () => boolean;
+          }>;
+        };
+      };
       osmd.cursor.reset();
-      // @ts-expect-error
       osmd.cursor.show();
 
       while (playingRef.current) {
-        // @ts-expect-error
         if (osmd.cursor.iterator?.EndReached) break;
 
-        // @ts-expect-error
-        const notes = osmd.cursor.NotesUnderCursor() as Array<{
-          Pitch?: { halfTone: number };
-          Length: { RealValue: number };
-          isRest?: () => boolean;
-        }>;
+        const notes = osmd.cursor.NotesUnderCursor();
 
         let stepWholes = 1;
         for (const n of notes) {
@@ -136,7 +140,6 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
           }
           const midi = n.Pitch.halfTone + 12;
           const durationSec = (n.Length.RealValue * 240) / bpm / tempo;
-          // @ts-expect-error - smplr typings
           piano.start({ note: midi, duration: durationSec });
           stepWholes = Math.min(stepWholes, n.Length.RealValue);
         }
@@ -144,7 +147,6 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
         const stepMs = ((stepWholes * 240) / bpm / tempo) * 1000;
         await new Promise((r) => setTimeout(r, stepMs));
         if (!playingRef.current) break;
-        // @ts-expect-error
         osmd.cursor.next();
       }
     } finally {
@@ -157,7 +159,6 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
     playingRef.current = false;
     setPlaying(false);
     try {
-      // @ts-expect-error - smplr stop
       audioRef.current?.piano?.stop?.();
     } catch {
       /* noop */
@@ -167,8 +168,7 @@ export function ScorePlayer({ url, title, composer, level, period, note }: Props
   function reset() {
     stop();
     try {
-      // @ts-expect-error
-      osmdRef.current?.cursor?.reset?.();
+      (osmdRef.current as { cursor?: { reset?: () => void } } | null)?.cursor?.reset?.();
     } catch {
       /* noop */
     }
