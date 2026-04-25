@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { school } from "@/lib/school";
-import { kayzen } from "@/lib/kayzen";
 
 const sitemap: {
   title: string;
@@ -71,7 +70,7 @@ export function SiteFooter() {
     <footer
       id="footer"
       role="contentinfo"
-      className="mt-24 bg-[var(--primary)] text-white"
+      className="bg-[var(--primary)] text-white"
     >
       {/* Bandeau contact */}
       <div className="border-b border-white/10">
@@ -252,12 +251,12 @@ export function SiteFooter() {
         <p className="mt-1">
           Fièrement réalisé par{" "}
           <a
-            href={kayzen.site}
+            href="https://internet.kayzen-lyon.fr"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-white/80 underline-offset-2 hover:text-[var(--accent)] hover:underline"
           >
-            {kayzen.brandWeb}
+            Kayzen Web
           </a>
           .
         </p>

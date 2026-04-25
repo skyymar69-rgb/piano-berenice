@@ -10,6 +10,7 @@ import { Counter } from "@/components/Counter";
 import { Reveal } from "@/components/Reveal";
 import { MiniKeyboard } from "@/components/MiniKeyboard";
 import { Lightbox } from "@/components/Lightbox";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 const homeFaqs = [
   {
@@ -260,7 +261,7 @@ export default function HomePage() {
             <Link
               key={o.href}
               href={o.href}
-              className="group flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-6 transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10"
+              className="card-lift group flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-6 hover:border-[var(--accent)]"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
                 {o.tag}
@@ -391,49 +392,87 @@ export default function HomePage() {
 
       {/* LOCALISATION */}
       <section className="bg-[var(--primary)] text-[var(--primary-contrast)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-              Où nous trouver
-            </p>
-            <h2 className="heading-bar mt-3 font-serif text-3xl sm:text-4xl">
-              Au cœur de Cimiez, à deux pas des arènes
-            </h2>
-            <p className="mt-5 text-base text-white/80">
-              L'Académie se trouve au {school.contact.address.street}, à Nice.{" "}
-              <strong>Entrée dans l'impasse.</strong> Plusieurs lignes de bus
-              desservent le quartier, et la station Prince de Galles est à
-              quelques minutes à pied.
-            </p>
-            <ul className="mt-6 space-y-2 text-sm text-white/85">
-              {school.contact.transit.map((t) => (
-                <li key={t} className="flex gap-3">
-                  <span className="mt-1 inline-block size-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/plan-acces"
-              className="mt-8 inline-flex rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[var(--accent)]"
-            >
-              Plan d'accès détaillé →
-            </Link>
-          </div>
-          <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
-            <iframe
-              title="Carte — Académie de piano Bérénice"
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${
-                school.contact.address.longitude - 0.005
-              }%2C${school.contact.address.latitude - 0.003}%2C${
-                school.contact.address.longitude + 0.005
-              }%2C${
-                school.contact.address.latitude + 0.003
-              }&layer=mapnik&marker=${school.contact.address.latitude}%2C${school.contact.address.longitude}`}
-              className="h-full w-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                Où nous trouver
+              </p>
+              <h2 className="heading-bar mt-3 font-serif text-3xl sm:text-4xl">
+                Au cœur de Cimiez, à deux pas des arènes
+              </h2>
+              <p className="mt-5 text-base text-white/80">
+                L'Académie occupe un{" "}
+                <strong className="text-white">hôtel particulier</strong> au{" "}
+                {school.contact.address.street}, à Nice.{" "}
+                <strong>Entrée dans l'impasse.</strong> Plusieurs lignes de bus
+                desservent le quartier, et la station Prince de Galles est à
+                quelques minutes à pied.
+              </p>
+              <p className="mt-4 text-base text-white/80">
+                <strong className="text-white">
+                  L'enseignement a lieu du lundi au vendredi
+                </strong>
+                , en dehors des vacances scolaires. Pour toute question sur les
+                horaires ou les tarifs, le plus chaleureux reste de venir nous
+                rencontrer : nous vous accueillons à l'Académie en semaine, de{" "}
+                <strong>16 h à 19 h</strong> (hors vacances scolaires).
+              </p>
+              <ul className="mt-6 space-y-2 text-sm text-white/85">
+                {school.contact.transit.map((t) => (
+                  <li key={t} className="flex gap-3">
+                    <span className="mt-1 inline-block size-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/plan-acces"
+                  className="inline-flex rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[var(--accent)]"
+                >
+                  Plan d'accès détaillé →
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-[var(--primary)] transition hover:bg-[var(--accent-hover)]"
+                >
+                  Nous contacter
+                </Link>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              <figure className="overflow-hidden rounded-2xl border border-white/10">
+                <div className="aspect-[4/3]">
+                  <Picture
+                    image="hotelParticulier"
+                    sizes="(min-width:1024px) 540px, 100vw"
+                    rounded={false}
+                  />
+                </div>
+                <figcaption className="bg-[var(--primary-hover)]/40 px-4 py-3 text-xs text-white/80">
+                  L'hôtel particulier de l'Académie — {school.contact.address.street},
+                  06000 Nice. Entrée dans l'impasse.
+                </figcaption>
+              </figure>
+              <div className="aspect-[16/9] overflow-hidden rounded-2xl border border-white/10">
+                <iframe
+                  title="Carte Google Maps — Académie de piano Bérénice"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(
+                    "Académie de piano Bérénice, " +
+                      school.contact.address.street +
+                      ", " +
+                      school.contact.address.postalCode +
+                      " " +
+                      school.contact.address.city,
+                  )}&output=embed&hl=fr`}
+                  className="h-full w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -475,6 +514,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* AVIS GOOGLE VÉRIFIÉS */}
+      <GoogleReviews />
 
       {/* PROOF — présence sur annuaires externes */}
       <SocialProof />
@@ -528,7 +570,7 @@ export default function HomePage() {
           ].map((o) => (
             <div
               key={o.title}
-              className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:border-[var(--accent)]"
+              className="card-lift rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 hover:border-[var(--accent)]"
             >
               <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
                 {o.level}

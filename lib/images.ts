@@ -116,6 +116,22 @@ export const images = {
     width: 1600,
     height: 1067,
   },
+  hotelParticulier: {
+    slug: "hotel-particulier-cours-piano-cimiez",
+    alt: "Façade de l'hôtel particulier où Bérénice donne ses cours de piano — 59 boulevard de Cimiez, 06000 Nice. Bâtiment ancien aux pierres claires, entrée dans l'impasse, cadre calme et résidentiel.",
+    title: "Hôtel particulier — Académie de piano Bérénice, 59 bd de Cimiez, Nice",
+    width: 1897,
+    height: 1641,
+    caption:
+      "L'hôtel particulier où Bérénice Lecardeur donne ses cours de piano, de solfège et d'éveil musical depuis 1994 — 59 boulevard de Cimiez, 06000 Nice.",
+  },
+  pianoQueueLibreDroit: {
+    slug: "piano-queue-libre-droit",
+    alt: "Piano à queue noir laqué, couvercle ouvert, vue artistique — illustration des cours de piano à l'Académie",
+    title: "Piano à queue — cours de piano à Nice",
+    width: 1600,
+    height: 1066,
+  },
 } satisfies Record<string, StaticImage>;
 
 export const imageSrcSet = (slug: string) =>

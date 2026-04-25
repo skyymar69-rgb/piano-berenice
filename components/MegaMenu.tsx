@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type FeaturedCard = {
   href: string;
@@ -117,9 +118,14 @@ const sections: Section[] = [
 
 export function MegaMenu() {
   const [open, setOpen] = useState<number | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (open === null) return;
@@ -128,12 +134,9 @@ export function MegaMenu() {
     };
     const onClick = (e: MouseEvent) => {
       const t = e.target as Node;
-      if (
-        navRef.current &&
-        !navRef.current.contains(t) &&
-        panelRef.current &&
-        !panelRef.current.contains(t)
-      ) {
+      const inRoot = rootRef.current?.contains(t);
+      const inPanel = panelRef.current?.contains(t);
+      if (!inRoot && !inPanel) {
         setOpen(null);
       }
     };
@@ -147,7 +150,7 @@ export function MegaMenu() {
 
   const scheduleClose = () => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => setOpen(null), 220);
+    closeTimer.current = window.setTimeout(() => setOpen(null), 280);
   };
   const cancelClose = () => {
     if (closeTimer.current) {
@@ -156,75 +159,71 @@ export function MegaMenu() {
     }
   };
 
+  const isOpen = open !== null;
+  const current = isOpen ? sections[open] : null;
+
   return (
-    <>
-      <div
-        ref={navRef}
-        aria-label="Menu principal"
-        className="hidden lg:block"
-        onMouseLeave={scheduleClose}
-        onMouseEnter={cancelClose}
-      >
-        <ul className="flex items-center gap-1">
-          {sections.map((s, i) => {
-            const isOpen = open === i;
-            return (
-              <li key={s.label} className="relative">
-                <button
-                  type="button"
-                  onMouseEnter={() => {
-                    cancelClose();
-                    setOpen(i);
-                  }}
-                  onFocus={() => setOpen(i)}
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  aria-haspopup="true"
-                  className={`group relative flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${
-                    isOpen
-                      ? "bg-[var(--muted-bg)] text-[var(--primary)]"
-                      : "text-[var(--ink)] hover:text-[var(--primary)]"
-                  }`}
+    <div
+      ref={rootRef}
+      aria-label="Menu principal"
+      className="hidden lg:block"
+      onMouseLeave={scheduleClose}
+      onMouseEnter={cancelClose}
+    >
+      <ul className="relative z-50 flex items-center gap-1">
+        {sections.map((s, i) => {
+          const active = open === i;
+          return (
+            <li key={s.label} className="relative">
+              <button
+                type="button"
+                onMouseEnter={() => {
+                  cancelClose();
+                  setOpen(i);
+                }}
+                onFocus={() => setOpen(i)}
+                onClick={() => setOpen(active ? null : i)}
+                aria-expanded={active}
+                aria-haspopup="true"
+                className={`group relative flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${
+                  active
+                    ? "bg-[var(--muted-bg)] text-[var(--primary)]"
+                    : "text-[var(--ink)] hover:text-[var(--primary)]"
+                }`}
+              >
+                <span className="nav-link-underline">{s.label}</span>
+                <svg
+                  aria-hidden
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform duration-300 ${active ? "rotate-180 text-[var(--accent)]" : ""}`}
                 >
-                  <span className="nav-link-underline">{s.label}</span>
-                  <svg
-                    aria-hidden
-                    width="11"
-                    height="11"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={`transition-transform duration-300 ${isOpen ? "rotate-180 text-[var(--accent)]" : ""}`}
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
 
-      {/* Backdrop sombre sur le reste de la page (sous le panneau) */}
-      {open !== null && (
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-30 bg-[var(--primary)]/35"
-        />
-      )}
-
-      {/* Panneau plein-largeur OPAQUE de bord à bord */}
-      {open !== null && (
-        <div
-          ref={panelRef}
-          role="menu"
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
-          className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40 hidden border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.45)] lg:block"
-        >
+      {/* Backdrop + panneau rendus dans un portail (document.body) pour
+          échapper au containing-block que `backdrop-filter` du header
+          imposerait sinon à `position: fixed`. */}
+      {mounted && isOpen && current && createPortal(
+        <>
+          <div
+            ref={panelRef}
+            role="menu"
+            onMouseEnter={cancelClose}
+            onMouseLeave={scheduleClose}
+            className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-[60] hidden border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.45)] lg:block"
+          >
           {/* Filet doré en haut */}
           <div
             aria-hidden
@@ -232,9 +231,9 @@ export function MegaMenu() {
           />
           <div className="mx-auto max-w-6xl px-6 py-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-[260px_1fr]">
-              {/* Featured compact (~260px) */}
+              {/* Featured compact */}
               <Link
-                href={sections[open].featured.href}
+                href={current.featured.href}
                 role="menuitem"
                 prefetch
                 onClick={() => setOpen(null)}
@@ -244,12 +243,12 @@ export function MegaMenu() {
                   <picture>
                     <source
                       type="image/webp"
-                      srcSet={`/images/${sections[open].featured.imgSlug}-sm.webp 480w, /images/${sections[open].featured.imgSlug}-md.webp 960w`}
+                      srcSet={`/images/${current.featured.imgSlug}-sm.webp 480w, /images/${current.featured.imgSlug}-md.webp 960w`}
                       sizes="(min-width:1024px) 260px, 100vw"
                     />
                     <img
-                      src={`/images/${sections[open].featured.imgSlug}-sm.webp`}
-                      alt={sections[open].featured.imgAlt}
+                      src={`/images/${current.featured.imgSlug}-sm.webp`}
+                      alt={current.featured.imgAlt}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
@@ -258,10 +257,10 @@ export function MegaMenu() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)] via-[var(--primary)]/55 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-3 text-white">
                     <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-                      {sections[open].featured.tag}
+                      {current.featured.tag}
                     </p>
                     <p className="mt-1 font-serif text-base leading-tight">
-                      {sections[open].featured.label}
+                      {current.featured.label}
                     </p>
                   </div>
                 </div>
@@ -270,10 +269,10 @@ export function MegaMenu() {
               {/* Liens en colonnes (2 col) */}
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-                  Tout le rayon · {sections[open].label}
+                  Tout le rayon · {current.label}
                 </p>
                 <ul className="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2">
-                  {sections[open].links.map((l) => (
+                  {current.links.map((l) => (
                     <li key={l.href + l.label}>
                       <Link
                         href={l.href}
@@ -313,8 +312,10 @@ export function MegaMenu() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </>,
+        document.body,
       )}
-    </>
+    </div>
   );
 }

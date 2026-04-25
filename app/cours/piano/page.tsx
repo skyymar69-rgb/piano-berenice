@@ -80,7 +80,7 @@ export default function PianoPage() {
           <figure className="overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow)]">
             <div className="aspect-[4/3] sm:aspect-auto sm:h-full">
               <Picture
-                image="sallePianoDecor"
+                image="pianoQueueLibreDroit"
                 sizes="(min-width:1024px) 350px, 100vw"
               />
             </div>

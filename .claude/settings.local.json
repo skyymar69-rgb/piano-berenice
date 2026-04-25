@@ -81,7 +81,14 @@
       "Bash(curl -sI https://piano-berenice.vercel.app/og-image.png)",
       "Bash(node scripts/generate-notice-pdf.mjs)",
       "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'docs: notice technique livrée à la cliente \\(PDF + Markdown\\) *)",
-      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'chore: retire PDF notice du site public *)"
+      "Bash(git -c user.email=noreply@anthropic.com -c user.name=Claude commit -m 'chore: retire PDF notice du site public *)",
+      "Bash(npx tsc *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git commit -m ' *)",
+      "mcp__4ce49431-28e2-43ec-9333-64a59dbd14a4__deploy_to_vercel",
+      "Bash(npx vercel *)",
+      "Bash(identify \"/c/Users/Maison/Desktop/Hotel/Berenice piano.webp\")",
+      "Bash(node -e ' *)"
     ]
   }
 }
