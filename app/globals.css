@@ -18,6 +18,24 @@
   --a11y-letter-spacing: 0em;
 }
 
+/* Saisons : ajustement subtil de l'accent doré */
+html[data-season="winter"] {
+  --accent: #c9a062;
+  --accent-hover: #b58e54;
+}
+html[data-season="spring"] {
+  --accent: #c9974a;
+  --accent-hover: #b58335;
+}
+html[data-season="summer"] {
+  --accent: #b87440;
+  --accent-hover: #a36331;
+}
+html[data-season="autumn"] {
+  --accent: #b8894a;
+  --accent-hover: #a57835;
+}
+
 html[data-theme="dark"] {
   --background: #0f1320;
   --surface: #171c2e;
@@ -548,6 +566,27 @@ article p {
 @keyframes fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+/* ────────── Mode lecture confortable (article blog) ────────── */
+html[data-reading-mode="on"] {
+  --a11y-font-scale: 1.15;
+  scroll-behavior: smooth;
+}
+html[data-reading-mode="on"] header,
+html[data-reading-mode="on"] [aria-label="Outils flottants"],
+html[data-reading-mode="on"] aside.my-12,
+html[data-reading-mode="on"] section.my-16:last-of-type {
+  display: none;
+}
+html[data-reading-mode="on"] article {
+  max-width: 720px;
+  margin-inline: auto;
+}
+html[data-reading-mode="on"] .prose-warm p,
+html[data-reading-mode="on"] .prose-warm li {
+  font-size: 1.1rem;
+  line-height: 1.85;
 }
 
 /* ────────── Section divider typographique ────────── */

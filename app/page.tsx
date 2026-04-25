@@ -9,6 +9,7 @@ import { SocialProof } from "@/components/SocialProof";
 import { Counter } from "@/components/Counter";
 import { Reveal } from "@/components/Reveal";
 import { MiniKeyboard } from "@/components/MiniKeyboard";
+import { Lightbox } from "@/components/Lightbox";
 
 const homeFaqs = [
   {
@@ -364,31 +365,26 @@ export default function HomePage() {
             d'éveil musical et d'audition, et une salle de solfège en groupe.
             Tout se passe dans le même lieu, au 59 boulevard de Cimiez.
           </p>
-          <div className="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            <figure className="group salon-frame">
-              <div className="aspect-[4/3] overflow-hidden">
-                <Picture image="sallePianoDecor" sizes="(min-width:1024px) 380px, 100vw" />
-              </div>
-              <figcaption className="mt-3 px-1 pb-1 text-center font-serif text-sm italic text-[var(--ink)]/85">
-                Salle de cours de piano avec piano à queue
-              </figcaption>
-            </figure>
-            <figure className="group salon-frame">
-              <div className="aspect-[4/3] overflow-hidden">
-                <Picture image="salleAudition" sizes="(min-width:1024px) 380px, 100vw" />
-              </div>
-              <figcaption className="mt-3 px-1 pb-1 text-center font-serif text-sm italic text-[var(--ink)]/85">
-                Salle d'éveil musical et d'audition
-              </figcaption>
-            </figure>
-            <figure className="group salon-frame">
-              <div className="aspect-[4/3] overflow-hidden">
-                <Picture image="salleSolfege" sizes="(min-width:1024px) 380px, 100vw" />
-              </div>
-              <figcaption className="mt-3 px-1 pb-1 text-center font-serif text-sm italic text-[var(--ink)]/85">
-                Salle de solfège en groupe
-              </figcaption>
-            </figure>
+          <div className="mt-10">
+            <Lightbox
+              images={[
+                {
+                  slug: "salle-cours-piano-queue-decor",
+                  alt: "Salle de cours de piano avec piano à queue",
+                  caption: "Salle de cours de piano avec piano à queue",
+                },
+                {
+                  slug: "salle-audition-piano-academie-nice",
+                  alt: "Salle d'éveil musical et d'audition",
+                  caption: "Salle d'éveil musical et d'audition",
+                },
+                {
+                  slug: "salle-cours-solfege-groupe-academie",
+                  alt: "Salle de solfège en groupe",
+                  caption: "Salle de solfège en groupe",
+                },
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -506,6 +502,47 @@ export default function HomePage() {
           },
         ]}
       />
+
+      {/* Œuvres travaillées cette saison */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+          Au programme
+        </p>
+        <h2 className="heading-bar mt-3 max-w-3xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+          Quelques œuvres travaillées cette saison
+        </h2>
+        <p className="mt-4 max-w-2xl text-[var(--ink)]/80">
+          Le répertoire évolue avec chaque élève. Voici un aperçu des pièces
+          actuellement explorées à l'Académie, du débutant au confirmé.
+        </p>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { composer: "J.-S. Bach", title: "Petits Préludes", level: "Niveau 1" },
+            { composer: "W. A. Mozart", title: "Sonate K. 545", level: "Niveau 2" },
+            { composer: "L. v. Beethoven", title: "Lettre à Élise", level: "Niveau 2" },
+            { composer: "F. Chopin", title: "Préludes op. 28 (sélection)", level: "Niveau 3" },
+            { composer: "C. Debussy", title: "Clair de lune", level: "Niveau 4" },
+            { composer: "E. Satie", title: "Gymnopédie n°1", level: "Niveau 2" },
+            { composer: "F. Schubert", title: "Moment musical n°3", level: "Niveau 3" },
+            { composer: "M. Ravel", title: "Pavane (extraits)", level: "Niveau 4" },
+          ].map((o) => (
+            <div
+              key={o.title}
+              className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:border-[var(--accent)]"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                {o.level}
+              </p>
+              <p className="mt-2 font-serif text-base italic text-[var(--muted)]">
+                {o.composer}
+              </p>
+              <p className="mt-1 font-serif text-lg text-[var(--primary)]">
+                {o.title}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Mini-clavier — invitation à toucher la note */}
       <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8">

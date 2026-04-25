@@ -77,13 +77,13 @@ const sections: Section[] = [
         "Élève lisant une partition musicale — articles du blog de l'Académie",
     },
     links: [
+      { href: "/blog", label: "Tous les articles", hint: "15 articles" },
       { href: "/blog/comment-lire-une-partition-de-piano", label: "Comment lire une partition", hint: "9 min · Apprendre" },
-      { href: "/blog/differents-types-de-piano", label: "Les différents types de piano", hint: "8 min · Pratique" },
       { href: "/blog/histoire-du-piano", label: "L'histoire du piano", hint: "9 min · Histoire" },
-      { href: "/blog/histoire-du-solfege", label: "L'histoire du solfège", hint: "8 min · Histoire" },
-      { href: "/blog/piano-pour-adultes-debutants", label: "Le piano pour adultes débutants", hint: "7 min · Apprendre" },
-      { href: "/blog/eveil-musical-decouverte-piano-5-ans", label: "L'éveil musical dès 5 ans", hint: "7 min · Apprendre" },
-      { href: "/blog", label: "Voir tous les articles →", hint: "10 articles" },
+      { href: "/blog/grands-compositeurs-pour-piano", label: "Les grands compositeurs", hint: "9 min · Inspiration" },
+      { href: "/glossaire", label: "Glossaire musical", hint: "30 termes essentiels" },
+      { href: "/questions", label: "Réponses aux questions Google", hint: "15 questions/réponses" },
+      { href: "/concerts", label: "Concerts & auditions", hint: "Calendrier saison" },
     ],
   },
   {

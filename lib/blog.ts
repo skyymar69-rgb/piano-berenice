@@ -1068,6 +1068,529 @@ Le répertoire pianistique est **inépuisable** : trois siècles de chefs-d'œuv
 
 > *"Jouer Chopin, c'est rentrer chez soi. Jouer Bach, c'est s'élever. Jouer Debussy, c'est rêver. Le piano est la plus belle des bibliothèques sonores."* — Bérénice Lecardeur`,
   },
+
+  // ──────────── 5 articles supplémentaires ────────────
+  {
+    slug: "rythmes-simples-piano",
+    title: "Les rythmes simples au piano : tout comprendre en 10 minutes",
+    description:
+      "Maîtriser les rythmes simples au piano : noires, croches, syncope, point. Méthode ludique d'une professeure diplômée à Nice.",
+    category: "Théorie",
+    publishedAt: "2026-05-05",
+    readingMinutes: 7,
+    imageSlug: "stock-partition-solfege-piano",
+    imageAlt: "Partition avec rythmes croches et noires",
+    tags: ["rythme", "solfège", "débutant"],
+    excerpt:
+      "Le rythme est l'âme de la musique. Pourtant, c'est souvent la plus grande difficulté du débutant. Voici comment l'apprivoiser en 10 minutes par jour.",
+    body: `## Le rythme avant les notes
+
+Beaucoup de débutants se concentrent d'abord sur les **notes** : trouver les bonnes touches sur le clavier. C'est une erreur. Le **rythme** est plus difficile à acquérir que la lecture des notes — et pourtant, il s'apprend en quelques semaines avec la bonne méthode.
+
+À l'Académie de piano Bérénice, nous insistons : avant de jouer un morceau, **on en bat le rythme à voix haute**. Ce travail préliminaire évite 90 % des fausses notes rythmiques qui hantent les exercices de débutant.
+
+## Les valeurs de base
+
+Voici les sept valeurs rythmiques que vous rencontrerez dès la première année :
+
+- **La ronde** (○) : 4 temps. C'est la valeur de référence.
+- **La blanche** (♩ avec hampe vide) : 2 temps.
+- **La noire** (♩ avec hampe pleine) : 1 temps.
+- **La croche** (♪) : ½ temps. Les croches s'écrivent souvent par paires reliées par un trait.
+- **La double-croche** : ¼ temps. Reconnaissable à son **double trait** de liaison.
+- **Le triolet** : trois notes dans le temps de deux. Notation : un "3" au-dessus du groupe.
+- **Le silence** : note silencieuse. Pause (4 temps), demi-pause (2 temps), soupir (1 temps), demi-soupir (½ temps).
+
+## La mesure : le squelette du rythme
+
+Au début de chaque partition, deux chiffres définissent la **mesure** :
+- Le chiffre du haut : combien de temps par mesure
+- Le chiffre du bas : la valeur de référence (4 = noire, 8 = croche, 2 = blanche)
+
+Les mesures les plus courantes :
+
+- **4/4** : 4 temps de noire par mesure (musique pop, rock, classique). C'est la mesure la plus répandue.
+- **3/4** : 3 temps de noire (valse). Cadence "un-deux-trois, un-deux-trois".
+- **2/4** : 2 temps de noire (marche militaire).
+- **6/8** : 6 temps de croche, ressenti binaire. Souvent en barcarolle ou habanera.
+
+Apprendre à reconnaître la mesure d'un morceau dès la première écoute est une compétence essentielle. Frappez la pulsation pendant que le morceau joue : vous trouverez naturellement le 4/4 ou le 3/4.
+
+## La syncope : le piège du débutant
+
+La **syncope** est une note jouée sur un temps **faible** (le 2 ou le 4 dans une mesure 4/4), prolongée sur le temps fort suivant. Elle crée un effet de **décalage** très utilisé en jazz, en musique latine et en variétés.
+
+Exemple : "Cha-cha-cha", "Yesterday" des Beatles, le thème de "Jingle Bells" sur les "Bells".
+
+À jouer : ne précipitez jamais une syncope. Ressentez-la, attendez le bon moment, puis frappez. Le métronome est votre meilleur allié pour intégrer la sensation.
+
+## Le point et la liaison
+
+- **Le point** à droite d'une note prolonge sa durée de la **moitié**. Une noire pointée vaut 1,5 temps. Une blanche pointée vaut 3 temps.
+- **La liaison** entre deux notes de **même hauteur** **additionne** leurs durées. Une noire liée à une noire vaut 2 temps.
+- **Le point d'orgue** (œil au-dessus d'une note) : tenir la note "indéfiniment" — selon le goût de l'interprète.
+
+## Méthode pratique en 5 étapes
+
+1. **Frapper le rythme** dans les mains, à voix haute "ta-ta-ti-ti-ta", avant de toucher le piano.
+2. **Marcher** la pulsation pour sentir le tempo dans tout le corps.
+3. **Métronome lent** : 60 BPM, jouez la main droite seule.
+4. **Augmentation graduelle** : +5 BPM tous les 5 jours.
+5. **Mains ensemble** : seulement quand chaque main est parfaitement maîtrisée seule.
+
+## Erreurs fréquentes
+
+- **Précipiter la fin** d'une mesure pour rejoindre la suivante. La pulsation doit être métronomique.
+- **Ralentir** sur les passages techniques difficiles. Si c'est trop dur, vous travaillez trop vite.
+- **Ignorer les silences** : ils SONT de la musique. Une pause bien tenue vaut une note.
+
+## Pour aller plus loin
+
+À l'**Académie de piano Bérénice**, les cours de **solfège** consacrent une séance par mois exclusivement au rythme : dictées rythmiques, frappes corporelles, polyrythmies à deux voix. C'est l'outil pédagogique le plus efficace pour acquérir une assise rythmique solide.
+
+Si le rythme vous résiste, ne vous découragez pas : c'est l'étape la plus difficile. Une fois passée, tout le reste devient plus facile — promesse.`,
+  },
+  {
+    slug: "la-pedale-forte-piano",
+    title: "La pédale forte au piano : comment et quand l'utiliser",
+    description:
+      "Comprendre et maîtriser la pédale forte du piano : technique, esthétique, erreurs à éviter. Conseils pratiques.",
+    category: "Pratique",
+    publishedAt: "2026-05-08",
+    readingMinutes: 7,
+    imageSlug: "berenice-piano-queue-nappe-rouge",
+    imageAlt: "Piano à queue avec pédales en cuivre",
+    tags: ["pédale", "technique", "expression"],
+    excerpt:
+      "La pédale forte fait la différence entre un pianiste débutant et un musicien expressif. Voici les règles d'or pour bien l'utiliser.",
+    body: `## Pourquoi la pédale forte est cruciale
+
+Sur un piano, **trois pédales** se trouvent sous le clavier (une seule sur les pianos d'étude). La pédale la plus à droite, **la pédale forte**, est de loin la plus utilisée. Elle est souvent appelée "pédale de résonance" car son rôle est de **prolonger les sons** au-delà du moment où le doigt quitte la touche.
+
+Sans pédale, le piano sonne **sec** : chaque note s'arrête net dès que la touche remonte. Avec pédale, les notes **se mêlent**, créant les harmonies riches caractéristiques du répertoire romantique. Chopin, Debussy, Liszt sont **inconcevables** sans pédale.
+
+## Comment fonctionne la pédale forte
+
+Mécaniquement, la pédale forte **lève simultanément tous les étouffoirs** des cordes. Tant que la pédale est enfoncée, les cordes peuvent vibrer librement, même après que la touche est relâchée.
+
+Sur un piano numérique, la pédale produit le même effet par échantillonnage et simulation de résonance sympathique.
+
+## Les trois principes
+
+À l'Académie de piano Bérénice, nous enseignons trois règles d'or de la pédale :
+
+### 1. La pédale syncopée (la règle d'or)
+
+Le principe fondamental : **lever la pédale au moment où on frappe une nouvelle note**, puis la **rabaisser immédiatement** une fraction de seconde après. C'est ce qu'on appelle la **pédale syncopée** ou *legato pedal*.
+
+Geste précis : pied levé sur la note → reposé juste après. Toute la difficulté est dans la **synchronisation** : un quart de seconde de retard et la résonance des accords précédents pollue le nouveau.
+
+### 2. Pédale = harmonie
+
+**On ne change pas la pédale au milieu d'un accord**, sauf effet recherché. Pédale par accord : un changement d'accord = un changement de pédale.
+
+Si Chopin écrit un do-mi-sol pendant deux temps, on garde la pédale enfoncée tout le temps. Au troisième temps, si l'harmonie change pour fa-la-do, on relève et rabaisse.
+
+### 3. Pédale = écoute
+
+**La pédale s'écoute, pas seulement se calcule**. Si la résonance devient brouillée ou désagréable, c'est qu'il faut changer.
+
+## Les erreurs fréquentes du débutant
+
+- **Pédale en permanence** : le débutant garde le pied appuyé toute la pièce, créant un brouillard sonore. À éviter absolument.
+- **Pédale au moment de la touche** : la pédale doit se relever AVANT la nouvelle note, pas en même temps.
+- **Pédale tardive** : si on attend trop, on perd le legato.
+- **Pédale fragmentée** : changer toutes les croches transforme la musique en hachis.
+
+## La méthode d'apprentissage
+
+À l'Académie, voici la progression que nous proposons :
+
+1. **6 premiers mois** : pas de pédale. On apprend à lier les notes avec les **doigts** uniquement (legato digital).
+2. **Mois 6 à 12** : pédale **simple** (appuyée et relâchée à chaque accord, en bloc).
+3. **Mois 12 à 24** : pédale **syncopée** introduite par étapes.
+4. **À partir de la 2e année** : pédale **artistique**, fine, basée sur l'écoute et l'expression.
+
+## Notation de la pédale dans une partition
+
+Dans les partitions classiques, la pédale est indiquée :
+
+- "**Ped.**" : appuyer la pédale à cet endroit.
+- Astérisque "*****" ou "**Ø**" : relever la pédale.
+- "**con sord.**" / "**senza sord.**" : avec ou sans pédale.
+
+Chez les compositeurs modernes (Debussy, Ravel, Messiaen), la notation est plus précise, parfois avec demi-pédale ou quarts de pédale.
+
+## Et les autres pédales ?
+
+- **La pédale tonale** (au milieu sur les pianos à queue) : maintient seulement les notes déjà jouées au moment où la pédale est enfoncée. Effet très subtil, peu courant.
+- **La pédale douce** ou **una corda** (à gauche) : décale légèrement le mécanisme pour adoucir le son. Utile dans les passages pianissimo expressifs.
+
+Sur un piano droit, la pédale du milieu est généralement une **pédale "sourdine"** qui interpose un feutre entre marteaux et cordes, atténuant beaucoup le volume — utile pour pratiquer sans déranger.
+
+## Exemples du répertoire
+
+- **Chopin, Nocturne op. 9 n°2** : pédale changée à chaque accord (mesure binaire 12/8).
+- **Debussy, Clair de lune** : pédale "estompée" pour créer le brouillard impressionniste.
+- **Beethoven, Sonate Pathétique, mouvement lent** : pédale héroïque sur les longs accords.
+- **Bach** : peu ou pas de pédale (musique baroque conçue pour clavecin).
+
+## Pour aller plus loin
+
+À l'**Académie de piano Bérénice**, la pédale forte fait l'objet d'une **pédagogie progressive** : nous l'introduisons au bon moment, ni trop tôt (pour ne pas masquer une mauvaise tenue de notes) ni trop tard (pour libérer l'expression). Bérénice transmet des techniques précises issues de la tradition française du piano, à Nice Cimiez.
+
+> *"La pédale, c'est l'âme du piano. Mal utilisée, elle masque tout. Bien utilisée, elle révèle l'invisible."* — Bérénice Lecardeur`,
+  },
+  {
+    slug: "memoriser-un-morceau-piano",
+    title: "Comment mémoriser un morceau de piano sans paniquer",
+    description:
+      "Méthode pour mémoriser un morceau de piano par cœur : technique segmentée, ancres visuelles, mémoire musculaire. Conseils d'une professeure diplômée.",
+    category: "Pratique",
+    publishedAt: "2026-05-12",
+    readingMinutes: 8,
+    imageSlug: "stock-mains-piano-partition",
+    imageAlt: "Mains de pianiste mémorisant une partition",
+    tags: ["mémoire", "audition", "technique"],
+    excerpt:
+      "Mémoriser un morceau pour l'audition annuelle ou pour le simple plaisir de jouer librement : voici la méthode systématique qui marche.",
+    body: `## Pourquoi mémoriser un morceau ?
+
+À l'Académie de piano Bérénice, nous encourageons la mémorisation pour deux raisons. **Première raison** : mémoriser libère l'attention, qui se reporte sur l'**expression** plutôt que sur la lecture. **Seconde raison** : un morceau mémorisé est un morceau qu'on porte avec soi, qu'on peut jouer partout — chez soi, chez des amis, à l'audition annuelle.
+
+Mais attention : la mémorisation ne s'**improvise pas**. Beaucoup d'élèves apprennent un morceau "par cœur" en le jouant des centaines de fois, et craquent à la première distraction. La méthode ci-dessous est **structurée**, rapide, et solide.
+
+## Les quatre types de mémoire pianistique
+
+Un musicien sollicite simultanément quatre types de mémoire :
+
+1. **Mémoire visuelle** : "voir" la partition dans sa tête (notes sur la portée, doigtés annotés).
+2. **Mémoire auditive** : entendre intérieurement la mélodie avant de la jouer.
+3. **Mémoire kinesthésique** (musculaire) : les doigts "savent" la suite des gestes.
+4. **Mémoire analytique** : comprendre la structure (introduction, thème, modulation, reprise).
+
+**La mémorisation solide combine les quatre.** Si l'une manque, le morceau s'écroule sous le stress.
+
+## La méthode des 6 étapes
+
+### Étape 1 — Lire en bloc
+
+Commencez par **lire le morceau en entier** plusieurs fois. Pas de mémorisation à ce stade : juste comprendre la structure globale, repérer les sections.
+
+### Étape 2 — Découper en sections
+
+Identifiez les **paragraphes musicaux** : généralement 4-8 mesures. Numérotez-les A, B, C... Chaque section est un mini-morceau.
+
+### Étape 3 — Mémoriser section par section
+
+Travaillez **uniquement la section A** jusqu'à pouvoir la jouer **les yeux fermés**, **mains séparées** puis ensemble. Ne passez à B qu'une fois A solide.
+
+Truc : jouez A, fermez les yeux, jouez encore. Si vous trébuchez, c'est que A n'est pas mémorisé. Recommencez le travail visuel.
+
+### Étape 4 — Connecter les sections
+
+Une fois A et B mémorisés séparément, jouez A → B en continu. Puis B → C. C'est ici que beaucoup d'élèves butent : ils savent les sections mais oublient les **transitions**.
+
+Solution : **isoler les transitions** (les 4 dernières mesures de A + les 4 premières de B) et les travailler comme une mini-section.
+
+### Étape 5 — Tester sous stress
+
+Mémoriser au calme, c'est facile. Sous stress, c'est plus dur. Testez :
+- Jouez devant **un ami**.
+- Faites-vous **interrompre** (téléphone, sonnette) en plein morceau, puis reprenez.
+- Jouez **sans regarder** vos mains.
+
+Si vous craquez, c'est que vous **n'avez pas encore mémorisé** — vous avez seulement automatisé.
+
+### Étape 6 — Maintenir dans le temps
+
+Un morceau mémorisé puis abandonné s'**oublie en 3 semaines**. Pour le maintenir, jouez-le **une fois par semaine** au minimum. Cinq minutes suffisent.
+
+## Les ancres mentales
+
+Identifiez dans le morceau **5 à 8 "ancres"** : moments structurellement clairs, faciles à retrouver. Par exemple : "le début du thème B", "l'arrivée du forte", "les trois accords avant la coda".
+
+Si vous bloquez en plein morceau (cela arrive même aux pros), vous pouvez **sauter à l'ancre la plus proche** et reprendre. Le public ne s'en rend généralement pas compte.
+
+## La mémoire musculaire est dangereuse
+
+Beaucoup de pianistes amateurs comptent uniquement sur la **mémoire musculaire** : les doigts savent. Le piège est qu'au moindre stress, les doigts oublient — il ne reste **rien**.
+
+La mémoire musculaire doit être **soutenue** par la mémoire **analytique** : "en mesure 17, la main gauche descend à do mineur". Si vous savez ça, vous retrouvez votre place quel que soit l'état des doigts.
+
+## Cas particulier : l'audition annuelle
+
+À l'Académie, l'**audition annuelle** est un rendez-vous attendu. C'est là que tous les élèves jouent leurs morceaux mémorisés devant proches et amis. Préparation type :
+
+- **2 mois avant** : morceau techniquement maîtrisé, mémorisation entamée.
+- **1 mois avant** : mémorisation finalisée, premières répétitions intégrales.
+- **2 semaines avant** : 1 répétition à blanc tous les 2 jours.
+- **Veille** : jouer le morceau **une seule fois**, puis se reposer.
+- **Jour J** : se concentrer 5 min avant le passage, respirer profondément, et jouer.
+
+Si vous trébuchez le jour J, **continuez**. Le pire est de s'arrêter ou de revenir en arrière. La musique passe, l'erreur s'oublie.
+
+## Erreurs fréquentes
+
+- **Mémoriser trop tôt** : si la technique n'est pas en place, la mémoire fige les erreurs.
+- **Compter sur la mémoire musculaire seule**.
+- **Ne pas chanter la mélodie intérieurement** avant de jouer.
+- **Tester uniquement chez soi** sans simulation de public.
+
+## Pour aller plus loin
+
+À l'**Académie de piano Bérénice**, nous formons les élèves à la mémorisation depuis la **2e année** d'apprentissage. C'est une compétence qui se construit progressivement, et qui devient ensuite un automatisme : plus on mémorise, plus on mémorise vite.
+
+> *"Mémoriser un morceau, c'est l'avoir vraiment. Le sortir de la partition pour le mettre dans son cœur."* — Bérénice Lecardeur`,
+  },
+  {
+    slug: "preparer-bac-musique-piano",
+    title: "Préparer l'épreuve piano du bac option musique : guide complet",
+    description:
+      "Préparer l'épreuve facultative ou obligatoire du bac option musique au piano : programme, méthode, exemples, conseils d'une professeure expérimentée à Nice.",
+    category: "Apprendre",
+    publishedAt: "2026-05-15",
+    readingMinutes: 8,
+    imageSlug: "stock-mains-pianiste-piano-droit",
+    imageAlt: "Pianiste préparant son bac option musique",
+    tags: ["bac", "lycée", "examen", "musique"],
+    excerpt:
+      "Le bac option musique au piano vous fait gagner des points précieux. Voici comment l'aborder, le préparer et le réussir.",
+    body: `## L'option musique au baccalauréat : un atout
+
+L'**option facultative musique** au baccalauréat permet aux lycéens d'intégrer leur pratique instrumentale dans leur examen final. Les **points au-dessus de 10/20** sont **comptabilisés avec coefficient 2** (en option facultative). Une note de 16/20 vous rapporte donc **+12 points** au total — soit un demi-point sur la moyenne générale, parfois suffisant pour une mention.
+
+À l'Académie de piano Bérénice, à Nice Cimiez, nous accompagnons chaque année plusieurs lycéens dans cette préparation. Voici notre méthode.
+
+## L'épreuve : ce qu'il faut savoir
+
+L'épreuve facultative musique se décompose en :
+
+- **Une partie orale** (pratique instrumentale + commentaire critique d'une œuvre du programme).
+- **Pas d'écrit** pour la facultative (l'écrit existe pour la spécialité).
+
+L'épreuve dure environ **30 minutes** : 10 minutes d'interprétation, 10 minutes de questions sur les œuvres au programme, 10 minutes de présentation libre.
+
+L'**option de spécialité** (depuis 2021) comprend une dimension écrite plus large et une approche analytique poussée.
+
+## Le programme
+
+Le programme officiel de l'option musique change tous les **deux ans**. Il comporte généralement :
+
+- **3 œuvres principales** issues de différents siècles (baroque, classique, romantique, contemporain, jazz/musiques actuelles)
+- **Des œuvres complémentaires**
+
+Vous devez **maîtriser le contexte historique**, la forme musicale, les particularités stylistiques, et être capable d'**illustrer au piano** des extraits choisis.
+
+Pour la session 2026-2027, consultez le **bulletin officiel de l'Éducation nationale** pour le programme précis.
+
+## L'épreuve d'interprétation
+
+Le candidat **choisit librement** une œuvre à jouer. L'œuvre doit :
+
+- Durer **3 à 5 minutes** environ.
+- Présenter une **réelle difficulté technique** adaptée au niveau du candidat.
+- Être **mémorisée** (très fortement recommandé, même si pas obligatoire).
+
+Pour le piano, des œuvres typiques au bon niveau :
+
+- **Bach** : Prélude en do du *Clavier bien tempéré*, Inventions à 2 voix
+- **Mozart** : Sonate K. 545 (un mouvement)
+- **Beethoven** : Lettre à Élise, Bagatelles op. 33
+- **Chopin** : Préludes faciles (op. 28 n°4 ou n°7), Valses posthumes
+- **Debussy** : *Clair de lune*, *La Fille aux cheveux de lin*
+- **Satie** : *Gymnopédie n°1*, *Gnossienne n°1*
+- **Pierre Sancan**, **Maurice Emmanuel** : pièces françaises XXe accessibles
+
+Le choix doit refléter **votre personnalité musicale** — un jury préfère une œuvre simple bien jouée à une œuvre complexe massacrée.
+
+## Le commentaire critique
+
+Le candidat reçoit un **extrait audio** d'une œuvre **non vue** auparavant. Il doit :
+
+- Identifier l'**époque**, le **style**, le **compositeur** possible.
+- Décrire les **éléments musicaux** : forme, harmonies, texture, tempo, instrumentation.
+- Faire des **liens** avec les œuvres du programme étudiées.
+
+Cette épreuve est l'**équivalent du commentaire de texte** en français. Elle exige une **culture musicale** large et la **maîtrise du vocabulaire**.
+
+## La méthode de préparation
+
+### Année de seconde
+
+Initiez-vous au piano si ce n'est déjà fait, et commencez à constituer votre **culture musicale** : écoutez 1-2 œuvres classiques par semaine, en suivant la partition.
+
+### Année de première
+
+Anticipez le programme : **identifiez les œuvres** qui seront au programme du bac (annoncées 2 ans à l'avance pour la session officielle), commencez à les écouter **religieusement**.
+
+### Année de terminale
+
+#### Octobre – Novembre
+- Choisissez votre **œuvre d'interprétation** avec votre professeur.
+- Commencez le **travail technique** dessus.
+
+#### Décembre – Février
+- **Mémorisez** l'œuvre d'interprétation.
+- Approfondissez les œuvres du programme.
+
+#### Mars – Avril
+- **Répétitions à blanc** : vous jouez votre œuvre devant un public restreint (cousins, voisins, autres élèves).
+- Entraînement aux **commentaires d'écoute** : votre professeur vous fait écouter 1-2 extraits par semaine et vous interroge.
+
+#### Mai – Jour J
+- Une **séance de stress positif** la dernière semaine.
+- Bonne nuit la veille.
+- Le jour de l'épreuve : arriver tôt, s'échauffer 10 minutes, respirer.
+
+## Conseils du jury
+
+Les rapports d'inspection révèlent ce que les jurys recherchent :
+
+- **Sincérité** musicale : un élève qui aime ce qu'il joue gagne sur un virtuose froid.
+- **Précision** du vocabulaire : utilisez "modulation", "cadence", "structure ABA" plutôt que "ça change", "ça finit", "il y a une partie".
+- **Curiosité** : faire des liens avec des œuvres hors programme, des films, des musiques actuelles.
+- **Posture** : tenir sa place, parler clairement, regarder l'examinateur.
+
+## Erreurs à éviter
+
+- **Choisir une œuvre trop ambitieuse**.
+- **Réciter** sans comprendre : le jury voit immédiatement si on récite ou si on a compris.
+- **Faire semblant** d'avoir écouté les œuvres.
+- **Abandonner si on trébuche** : continuer comme si de rien n'était.
+
+## Pour aller plus loin
+
+À l'**Académie de piano Bérénice**, nous accompagnons les lycéens **dès la première**, avec un programme adapté : choix de l'œuvre, technique, mémorisation, simulations d'épreuves. Les résultats parlent d'eux-mêmes : la majorité de nos élèves obtiennent **15/20 ou plus** à l'option musique.
+
+L'enjeu va au-delà des points : c'est **valider une passion**, et c'est se prouver qu'on peut réussir un examen exigeant. Une expérience formatrice qui marquera votre année de terminale.`,
+  },
+  {
+    slug: "piano-numerique-vs-acoustique-choisir",
+    title: "Piano numérique vs acoustique : comment choisir en 2026",
+    description:
+      "Faut-il acheter un piano numérique ou acoustique ? Comparaison détaillée du toucher, du son, du prix, de l'entretien. Guide d'une professeure diplômée.",
+    category: "Pratique",
+    publishedAt: "2026-05-19",
+    readingMinutes: 8,
+    imageSlug: "piano-yamaha-partition-cours",
+    imageAlt: "Piano Yamaha avec partition ouverte",
+    tags: ["matériel", "achat", "numérique", "acoustique"],
+    excerpt:
+      "Le débat numérique vs acoustique fait rage chez tout débutant qui s'apprête à acheter son premier piano. Voici la réponse claire en 2026.",
+    body: `## Le débat éternel
+
+Tous les ans, des centaines d'élèves de l'Académie de piano Bérénice posent la même question : "**Numérique ou acoustique ?**". La réponse n'est ni évidente ni universelle. Elle dépend de votre **situation**, de votre **budget**, et de votre **projet musical**.
+
+Voici la comparaison détaillée pour vous aider à décider en 2026.
+
+## Le toucher
+
+### Acoustique
+Le toucher acoustique est l'**original**. Chaque touche commande un mécanisme de marteau-cordes-étouffoir d'une **précision extrême**. La sensation est **physique** : on sent le poids, l'inertie, le rebond.
+
+### Numérique haut de gamme
+Les modèles haut de gamme (Yamaha Clavinova CSP, Roland LX, Kawai CA) reproduisent **très bien** la sensation acoustique. Touches lestées en bois, contrepoids gradués, mécanisme à marteau simulé. Pour un débutant ou amateur avancé, la différence est **minime**.
+
+### Numérique d'entrée de gamme
+Touches plastiques, sensation moins riche. Acceptable pour un débutant, mais **insuffisant** pour quiconque vise un niveau avancé.
+
+### Verdict toucher
+- **Niveau professionnel** : acoustique obligatoire.
+- **Niveau amateur sérieux** : numérique haut de gamme acceptable.
+- **Débutant** : numérique milieu de gamme suffit.
+
+## Le son
+
+### Acoustique
+Le son acoustique vient de **vraies cordes vibrant dans une caisse de résonance**. Il est **riche, complexe, vivant**. Chaque coup de marteau produit un son **légèrement différent**, ce qui donne au piano son caractère "vivant".
+
+### Numérique
+Le son numérique provient d'**échantillons** enregistrés sur de vrais pianos (souvent un Steinway D ou un Yamaha CFX). Reproduction **fidèle**, mais avec une **uniformité** que l'acoustique n'a pas.
+
+Les pianos numériques modernes proposent aussi des **fonctions** que l'acoustique n'a pas : effet de hall (réverbération), choix entre Steinway/Yamaha/Bösendorfer/Bechstein, sons d'orgue, clavecin, cordes…
+
+### Verdict son
+- **Pure musicalité** : acoustique.
+- **Polyvalence et fidélité raisonnable** : numérique haut de gamme.
+
+## Le prix
+
+| Catégorie | Prix |
+|-----------|------|
+| Clavier non lesté (à éviter) | 150 € – 400 € |
+| Numérique entrée de gamme | 600 € – 1 200 € |
+| Numérique milieu de gamme | 1 200 € – 2 500 € |
+| Numérique haut de gamme | 2 500 € – 6 000 € |
+| Piano droit acoustique d'occasion | 1 500 € – 4 000 € |
+| Piano droit acoustique neuf | 4 000 € – 10 000 € |
+| Piano à queue d'occasion | 5 000 € – 25 000 € |
+| Piano à queue neuf | 15 000 € – 100 000 €+ |
+
+À budget équivalent (par exemple 3 000 €), un **piano droit acoustique d'occasion bien expertisé** est généralement **supérieur** à un numérique haut de gamme — sauf si la situation impose le casque audio.
+
+## L'entretien
+
+### Acoustique
+- **Accordage annuel** obligatoire (80-130 € à Nice).
+- Hygrométrie stable (45-60 %).
+- Loin des radiateurs et baies vitrées.
+- Maintenance occasionnelle (regarnissage des marteaux après 15-20 ans).
+
+### Numérique
+- **Aucun entretien**.
+- Insensible à l'hygrométrie.
+- Aucun accordage.
+
+C'est un argument **majeur** pour beaucoup d'urbains : ne plus avoir à faire venir l'accordeur.
+
+## Les contraintes pratiques
+
+### Acoustique
+- **Encombrement** : un droit fait 1,50 m × 0,60 m, un quart-de-queue 1,40 m × 1,50 m.
+- **Poids** : 200-250 kg pour un droit, 300-500 kg pour un à queue.
+- **Mur porteur** nécessaire.
+- **Voisinage** : un acoustique projette le son. Sans isolation, problème en appartement.
+
+### Numérique
+- **Léger** (50-100 kg) et facilement déplaçable.
+- **Casque audio** : on joue la nuit sans déranger.
+- **Connectique** : USB, Bluetooth, MIDI — connexion à un ordinateur, à un casque.
+- **Polyvalence** : enregistrement intégré, métronome, mode duo (deux personnes côte à côte sur le clavier).
+
+## Le facteur pédagogique
+
+À l'**Académie de piano Bérénice**, nous observons une vérité importante : **les élèves qui pratiquent sur un acoustique progressent en moyenne 30 % plus vite** que ceux sur un numérique. Pourquoi ?
+
+- L'acoustique **exige** une touche plus fine (sensibilité dynamique réelle).
+- L'acoustique **récompense** la nuance (un piano-pianissimo bien fait sonne).
+- L'acoustique **punit** la mauvaise technique (les sons "tapés" sont durs).
+
+Néanmoins, un élève motivé sur un bon numérique progresse parfaitement bien. La **régularité** compte plus que la nature de l'instrument.
+
+## Cas pratiques
+
+### "J'habite en appartement, voisins fragiles"
+**Numérique haut de gamme avec casque**. Pas d'autre option. Casio Privia PX-S, Yamaha P-525, Roland FP-30X.
+
+### "J'ai un budget de 3 000 € et une maison"
+**Piano droit acoustique d'occasion** (Yamaha U1 par exemple). C'est le meilleur rapport qualité/expérience pédagogique.
+
+### "Je veux progresser au plus haut niveau"
+**Acoustique impératif**, neuf ou occasion (selon budget). Yamaha U3 (droit) ou C3 (à queue) sont des références.
+
+### "Mon enfant débute, je teste son intérêt"
+**Numérique milieu de gamme** (Yamaha YDP-145, Casio CDP-S360). Si l'intérêt se confirme à 3 ans, on bascule sur acoustique.
+
+### "Je veux composer / produire"
+**Numérique avec MIDI** (Yamaha P-525, Nord Stage 4). Connexion à un DAW.
+
+## Pour aller plus loin
+
+L'achat d'un piano est un **engagement durable**. À l'**Académie de piano Bérénice**, nous discutons de ce choix lors du **premier rendez-vous** avec chaque nouvel élève. C'est l'occasion de partager les retours d'expérience de trente ans d'enseignement à Nice.
+
+Le **bon piano** est celui que vous **utiliserez** chaque jour. Pas forcément le plus prestigieux, mais celui qui vous **fait envie** d'ouvrir le couvercle. Au final, c'est votre **régularité** qui fera la différence — pas la marque.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {

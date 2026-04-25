@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ReadingMode } from "@/components/ReadingMode";
+import { ShareKit } from "@/components/ShareKit";
 import {
   blogArticles,
   getAllArticles,
@@ -204,6 +206,7 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
 
   return (
     <>
+      <ReadingMode />
       <ArticleJsonLd article={article} />
       <Breadcrumbs
         items={[
@@ -261,6 +264,8 @@ export default async function BlogArticlePage({ params }: { params: Params }) {
         )}
 
         <div className="prose-warm">{renderBody(article.body)}</div>
+
+        <ShareKit title={article.title} url={`/blog/${article.slug}`} />
 
         {/* CTA mid-article style "boîte" */}
         <aside className="my-12 rounded-2xl border border-[var(--accent)]/30 bg-[var(--muted-bg)] p-6 sm:p-8">

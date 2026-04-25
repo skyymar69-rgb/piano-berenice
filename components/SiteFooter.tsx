@@ -24,7 +24,10 @@ const sitemap: {
       { href: "/inscription", label: "S'inscrire pour la rentrée" },
       { href: "/partitions", label: "Partitions libres de droit" },
       { href: "/blog", label: "Blog · conseils et histoire" },
-      { href: "/faq", label: "Questions fréquentes" },
+      { href: "/glossaire", label: "Glossaire musical" },
+      { href: "/questions", label: "Questions fréquentes" },
+      { href: "/faq", label: "FAQ — toutes les questions" },
+      { href: "/concerts", label: "Concerts & auditions" },
     ],
   },
   {
@@ -40,6 +43,9 @@ const sitemap: {
       { href: "/plan-acces", label: "Plan d'accès" },
       { href: "/contact", label: "Nous contacter" },
       { href: "/carte-de-visite", label: "Carte de visite numérique" },
+      { href: "/cours-piano-cimiez", label: "Cours à Cimiez" },
+      { href: "/cours-piano-vieux-nice", label: "Cours · Vieux-Nice" },
+      { href: "/cours-piano-mont-boron", label: "Cours · Mont-Boron" },
     ],
   },
   {

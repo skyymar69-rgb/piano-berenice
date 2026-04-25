@@ -13,6 +13,9 @@ import { FloatingDock, BackToTopDock } from "@/components/FloatingDock";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { MagneticEffect } from "@/components/MagneticEffect";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SeasonAccent } from "@/components/SeasonAccent";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { school } from "@/lib/school";
 
 const inter = Inter({
@@ -210,6 +213,7 @@ export default function RootLayout({
         </a>
         <ScrollProgress />
         <ScrollToTop />
+        <SeasonAccent />
         <MagneticEffect />
         <SiteHeader />
         <main id="main" className="flex-1">
@@ -224,6 +228,8 @@ export default function RootLayout({
           <WhatsAppFab />
         </FloatingDock>
         <OrganizationJsonLd />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

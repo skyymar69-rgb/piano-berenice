@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BlogFilters } from "@/components/BlogFilters";
 import { getAllArticles } from "@/lib/blog";
 import { school } from "@/lib/school";
 
@@ -95,71 +96,13 @@ export default function BlogIndexPage() {
         </section>
       )}
 
-      {/* Grille complète */}
+      {/* Grille complète avec filtres + recherche */}
       <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between gap-6">
-          <h2 className="heading-bar font-serif text-2xl text-[var(--primary)] sm:text-3xl">
-            Tous les articles
-          </h2>
-          <span className="text-sm text-[var(--muted)]">
-            {articles.length} article{articles.length > 1 ? "s" : ""}
-          </span>
-        </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((a) => (
-            <article
-              key={a.slug}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] transition hover:border-[var(--accent)] hover:shadow-lg"
-            >
-              <Link href={`/blog/${a.slug}`} prefetch className="block">
-                {a.imageSlug && (
-                  <div className="aspect-[5/3] overflow-hidden">
-                    <picture>
-                      <source
-                        type="image/webp"
-                        srcSet={`/images/${a.imageSlug}-sm.webp 480w, /images/${a.imageSlug}-md.webp 960w`}
-                        sizes="(min-width:1024px) 380px, 100vw"
-                      />
-                      <img
-                        src={`/images/${a.imageSlug}-md.webp`}
-                        alt={a.imageAlt ?? a.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                      />
-                    </picture>
-                  </div>
-                )}
-              </Link>
-              <div className="flex flex-1 flex-col p-5">
-                <p
-                  className="text-[10px] font-semibold uppercase tracking-[0.22em]"
-                  style={{ color: categoryMeta[a.category]?.color || "var(--accent)" }}
-                >
-                  {a.category} · {a.readingMinutes} min
-                </p>
-                <h3 className="mt-2 font-serif text-xl leading-snug text-[var(--primary)]">
-                  <Link
-                    href={`/blog/${a.slug}`}
-                    prefetch
-                    className="transition hover:text-[var(--accent)]"
-                  >
-                    {a.title}
-                  </Link>
-                </h3>
-                <p className="mt-2 line-clamp-3 text-sm text-[var(--ink)]/80">
-                  {a.excerpt}
-                </p>
-                <Link
-                  href={`/blog/${a.slug}`}
-                  prefetch
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--primary)] transition group-hover:text-[var(--accent)]"
-                >
-                  Lire l'article →
-                </Link>
-              </div>
-            </article>
-          ))}
+        <h2 className="heading-bar font-serif text-2xl text-[var(--primary)] sm:text-3xl">
+          Tous les articles
+        </h2>
+        <div className="mt-8">
+          <BlogFilters articles={rest} />
         </div>
       </section>
 
