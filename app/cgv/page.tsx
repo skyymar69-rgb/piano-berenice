@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { school } from "@/lib/school";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Conditions générales de vente",
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 
 export default function CgvPage() {
   return (
+    <>
+    <BreadcrumbJsonLd items={[{ name: "Accueil", href: "/" }, { name: "CGV", href: "/cgv" }]} />
     <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
         Légal
@@ -179,5 +182,6 @@ export default function CgvPage() {
         </section>
       </div>
     </article>
+    </>
   );
 }

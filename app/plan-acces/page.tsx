@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Plan d'accès — 59 boulevard de Cimiez, Nice",
@@ -13,6 +14,7 @@ export default function PlanAccesPage() {
   const { latitude, longitude } = school.contact.address;
   return (
     <>
+      <Breadcrumbs items={[{ name: "Plan d'accès", href: "/plan-acces" }]} />
       <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Accès

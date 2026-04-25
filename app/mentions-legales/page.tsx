@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { school } from "@/lib/school";
 import { kayzen } from "@/lib/kayzen";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 
 export default function MentionsLegalesPage() {
   return (
+    <>
+    <BreadcrumbJsonLd items={[{ name: "Accueil", href: "/" }, { name: "Mentions légales", href: "/mentions-legales" }]} />
     <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
         Légal
@@ -238,5 +241,6 @@ export default function MentionsLegalesPage() {
         </section>
       </div>
     </article>
+    </>
   );
 }

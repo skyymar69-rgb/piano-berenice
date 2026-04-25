@@ -227,6 +227,69 @@ export function FaqJsonLd({
   );
 }
 
+/**
+ * JSON-LD enrichi pour la page d'accueil :
+ * - BreadcrumbList (Accueil)
+ * - WebPage + Article (satisfait l'exigence "CreativeWork ou Article")
+ */
+export function HomePageJsonLd() {
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${SITE_URL}/#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: SITE_URL,
+      },
+    ],
+  };
+
+  const article = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${SITE_URL}/#article`,
+    headline:
+      "Cours de piano, solfège et éveil musical à Nice — Académie Bérénice",
+    description: school.seo.defaultDescription,
+    inLanguage: "fr-FR",
+    datePublished: "1994-11-02",
+    dateModified: new Date().toISOString().slice(0, 10),
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      breadcrumb: { "@id": `${SITE_URL}/#breadcrumb` },
+      about: { "@id": `${SITE_URL}/#organization` },
+    },
+    image: `${SITE_URL}/og-image.png`,
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/professeur#person`,
+      name: school.teacher.fullName,
+    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    articleSection: "École de musique",
+    keywords: [...school.seo.keywords].slice(0, 12).join(", "),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+      />
+    </>
+  );
+}
+
 export function WebSiteJsonLd() {
   const data = {
     "@context": "https://schema.org",

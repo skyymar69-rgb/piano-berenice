@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { school } from "@/lib/school";
 import { ContactForm } from "@/components/ContactForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Contact — Académie de piano Bérénice, Nice",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Contact", href: "/contact" }]} />
       <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Contact

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EnrollmentForm } from "@/components/EnrollmentForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Inscription rentrée 2026 – 2027 — Académie de piano Bérénice",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function InscriptionPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Inscription", href: "/inscription" }]} />
       <section className="mx-auto max-w-3xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Pré-inscription · Rentrée 2026 – 2027

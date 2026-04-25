@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Tarifs — Cours de piano, solfège et éveil musical à Nice",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function TarifsPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Tarifs", href: "/tarifs" }]} />
       <section className="mx-auto max-w-4xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Tarifs

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Politique de gestion des cookies",
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
+    <>
+    <BreadcrumbJsonLd items={[{ name: "Accueil", href: "/" }, { name: "Cookies", href: "/cookies" }]} />
     <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
         Légal
@@ -91,5 +94,6 @@ export default function CookiesPage() {
         </section>
       </div>
     </article>
+    </>
   );
 }

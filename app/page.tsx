@@ -3,7 +3,7 @@ import { school } from "@/lib/school";
 import { Picture } from "@/components/Picture";
 import { QuoteCard } from "@/components/QuoteCard";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { WebSiteJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { WebSiteJsonLd, FaqJsonLd, HomePageJsonLd } from "@/components/JsonLd";
 import { StatusBadge } from "@/components/StatusBadge";
 import { SocialProof } from "@/components/SocialProof";
 import { Counter } from "@/components/Counter";
@@ -90,6 +90,7 @@ export default function HomePage() {
   return (
     <>
       <WebSiteJsonLd />
+      <HomePageJsonLd />
       <FaqJsonLd faqs={homeFaqs} />
       {/* HERO */}
       <section className="relative overflow-hidden">

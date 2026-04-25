@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { school } from "@/lib/school";
 import { QrCode } from "@/components/QrCode";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Carte de visite numérique",
@@ -18,6 +19,7 @@ export default function CarteDeVisitePage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ name: "Carte de visite", href: "/carte-de-visite" }]} />
       <section className="mx-auto max-w-5xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Carte de visite
