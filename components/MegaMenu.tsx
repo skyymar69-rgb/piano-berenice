@@ -61,6 +61,9 @@ const sections: Section[] = [
       { href: "/plan-acces", label: "Plan d'accès", hint: "59 bd de Cimiez" },
       { href: "/contact", label: "Nous contacter" },
       { href: "/carte-de-visite", label: "Carte de visite numérique" },
+      { href: "/cours-piano-cimiez", label: "Cours à Cimiez" },
+      { href: "/cours-piano-vieux-nice", label: "Cours · Vieux-Nice" },
+      { href: "/cours-piano-mont-boron", label: "Cours · Mont-Boron" },
     ],
   },
   {
@@ -69,9 +72,9 @@ const sections: Section[] = [
     featured: {
       href: "/blog",
       label: "Conseils & histoires",
-      tag: "10 articles",
+      tag: "15 articles",
       description:
-        "Comment lire une partition, choisir son piano, l'histoire du solfège, le piano pour adulte… Tous nos guides rédigés par Bérénice.",
+        "Comment lire une partition, choisir son piano, l'histoire du solfège, le piano pour adulte. Tous nos guides rédigés par Bérénice.",
       imgSlug: "stock-eleve-partition-lecture",
       imgAlt:
         "Élève lisant une partition musicale — articles du blog de l'Académie",
@@ -103,7 +106,7 @@ const sections: Section[] = [
       { href: "/inscription", label: "S'inscrire pour la rentrée" },
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/contact", label: "Poser une question" },
-      { href: "/mentions-legales", label: "Mentions légales", hint: "Informations" },
+      { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/cgu", label: "CGU" },
       { href: "/cgv", label: "CGV" },
       { href: "/politique-confidentialite", label: "Politique de confidentialité" },
@@ -205,113 +208,108 @@ export function MegaMenu() {
         </ul>
       </div>
 
-      {/* Backdrop */}
+      {/* Backdrop sombre sur le reste de la page (sous le panneau) */}
       {open !== null && (
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-0 top-[var(--header-h,4.5rem)] z-30 bg-[var(--primary)]/15"
+          className="pointer-events-none fixed inset-0 z-30 bg-[var(--primary)]/35"
         />
       )}
 
-      {/* Panneau opaque, plein largeur, fixé sous le header — mount/unmount */}
+      {/* Panneau plein-largeur OPAQUE de bord à bord */}
       {open !== null && (
         <div
           ref={panelRef}
           role="menu"
           onMouseEnter={cancelClose}
           onMouseLeave={scheduleClose}
-          className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40 hidden lg:block"
+          className="megamenu-panel fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40 hidden border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.45)] lg:block"
         >
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="relative mt-2 overflow-hidden rounded-b-3xl border-x border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.35)]">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
-              <div className="grid grid-cols-1 gap-0 p-7 md:grid-cols-[minmax(0,1.05fr),minmax(0,1fr)]">
-                <Link
-                  href={sections[open].featured.href}
-                  role="menuitem"
-                  prefetch
-                  onClick={() => setOpen(null)}
-                  className="group relative block overflow-hidden rounded-2xl"
-                >
-                  <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-[var(--border)]">
-                    <picture>
-                      <source
-                        type="image/webp"
-                        srcSet={`/images/${sections[open].featured.imgSlug}-sm.webp 480w, /images/${sections[open].featured.imgSlug}-md.webp 960w, /images/${sections[open].featured.imgSlug}-lg.webp 1600w`}
-                        sizes="(min-width:1024px) 540px, 100vw"
-                      />
-                      <img
-                        src={`/images/${sections[open].featured.imgSlug}-md.webp`}
-                        alt={sections[open].featured.imgAlt}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                      />
-                    </picture>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)] via-[var(--primary)]/55 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-                        {sections[open].featured.tag}
-                      </p>
-                      <p className="mt-2 font-serif text-3xl leading-tight">
-                        {sections[open].featured.label}
-                      </p>
-                      <p className="mt-2 line-clamp-2 max-w-md text-sm text-white/85">
-                        {sections[open].featured.description}
-                      </p>
-                      <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-1.5 text-xs font-semibold text-[var(--primary)] transition group-hover:bg-[var(--accent-hover)]">
-                        Découvrir
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+          {/* Filet doré en haut */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent"
+          />
+          <div className="mx-auto max-w-6xl px-6 py-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-[260px_1fr]">
+              {/* Featured compact (~260px) */}
+              <Link
+                href={sections[open].featured.href}
+                role="menuitem"
+                prefetch
+                onClick={() => setOpen(null)}
+                className="group relative block overflow-hidden rounded-xl border border-[var(--border)]"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet={`/images/${sections[open].featured.imgSlug}-sm.webp 480w, /images/${sections[open].featured.imgSlug}-md.webp 960w`}
+                      sizes="(min-width:1024px) 260px, 100vw"
+                    />
+                    <img
+                      src={`/images/${sections[open].featured.imgSlug}-sm.webp`}
+                      alt={sections[open].featured.imgAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </picture>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)] via-[var(--primary)]/55 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                      {sections[open].featured.tag}
+                    </p>
+                    <p className="mt-1 font-serif text-base leading-tight">
+                      {sections[open].featured.label}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Liens en colonnes (2 col) */}
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                  Tout le rayon · {sections[open].label}
+                </p>
+                <ul className="mt-3 grid grid-cols-1 gap-1 sm:grid-cols-2">
+                  {sections[open].links.map((l) => (
+                    <li key={l.href + l.label}>
+                      <Link
+                        href={l.href}
+                        role="menuitem"
+                        prefetch
+                        onClick={() => setOpen(null)}
+                        className="group flex items-start justify-between gap-3 rounded-lg px-3 py-2 transition hover:bg-[var(--muted-bg)]"
+                      >
+                        <span className="min-w-0">
+                          <span className="block truncate font-serif text-base text-[var(--primary)] transition group-hover:text-[var(--accent)]">
+                            {l.label}
+                          </span>
+                          {l.hint && (
+                            <span className="mt-0.5 block truncate text-xs text-[var(--muted)]">
+                              {l.hint}
+                            </span>
+                          )}
+                        </span>
+                        <svg
+                          aria-hidden
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="mt-1.5 shrink-0 text-[var(--muted)] transition group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
+                        >
                           <path d="M5 12h14M13 6l6 6-6 6" />
                         </svg>
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-
-                <div className="md:pl-8">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-                    Tout le rayon
-                  </p>
-                  <ul className="mt-3 grid grid-cols-1 gap-1">
-                    {sections[open].links.map((l) => (
-                      <li key={l.href + l.label}>
-                        <Link
-                          href={l.href}
-                          role="menuitem"
-                          prefetch
-                          onClick={() => setOpen(null)}
-                          className="group flex items-start justify-between gap-4 rounded-xl px-4 py-2.5 transition hover:bg-[var(--muted-bg)]"
-                        >
-                          <span>
-                            <span className="block font-serif text-base text-[var(--primary)] transition group-hover:text-[var(--accent)]">
-                              {l.label}
-                            </span>
-                            {l.hint && (
-                              <span className="mt-0.5 block text-xs text-[var(--muted)]">
-                                {l.hint}
-                              </span>
-                            )}
-                          </span>
-                          <svg
-                            aria-hidden
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="mt-1 shrink-0 text-[var(--muted)] transition group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
-                          >
-                            <path d="M5 12h14M13 6l6 6-6 6" />
-                          </svg>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
