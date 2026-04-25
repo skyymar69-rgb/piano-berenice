@@ -9,11 +9,8 @@ type Props = {
 };
 
 /**
- * Mini-lecteur audio discret en bas à droite. Tente l'autoplay au chargement ;
- * si bloqué par le navigateur (politique autoplay), se déclenche au premier
- * geste utilisateur (click/touch/keydown).
- * L'utilisateur peut mettre en pause, ajuster le son ou fermer.
- * Respecte prefers-reduced-motion et persiste l'état "fermé" en localStorage.
+ * Mini-lecteur "vinyle" : disque rotatif quand playing, équaliseur 3 barres,
+ * pill élégant. Autoplay-friendly (fallback first-gesture).
  */
 export function MiniPlayer({
   src = "/audio/victoria-a-berenice-lalba-in-sol-maggiore.mp3",
@@ -103,21 +100,36 @@ export function MiniPlayer({
     <div
       role="region"
       aria-label="Lecteur audio — extrait musical"
-      className="fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)]/95 py-1.5 pl-1.5 pr-3 shadow-lg backdrop-blur"
+      className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] py-1.5 pl-1.5 pr-3 shadow-lg"
     >
       <button
         type="button"
         onClick={toggle}
         aria-label={playing ? "Mettre en pause" : "Lancer la lecture"}
-        className="inline-flex size-9 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
+        className={`relative inline-flex size-10 items-center justify-center overflow-hidden rounded-full bg-[var(--primary)] text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)] ${
+          playing ? "vinyl-spinning" : ""
+        }`}
       >
+        {/* Disque vinyle : sillons concentriques */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-full"
+          style={{
+            background:
+              "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0 1px, transparent 1px 3px)",
+          }}
+        />
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,var(--accent)_0_2px,transparent_2px_3px)]"
+        />
         {playing ? (
-          <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <rect x="6" y="5" width="4" height="14" rx="1" />
             <rect x="14" y="5" width="4" height="14" rx="1" />
           </svg>
         ) : (
-          <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <svg className="relative" aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z" />
           </svg>
         )}
@@ -134,11 +146,16 @@ export function MiniPlayer({
         }
         className="flex min-w-0 flex-col items-start text-left"
       >
-        <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
-          <span
-            aria-hidden
-            className={`inline-block size-1.5 rounded-full ${playing ? "animate-pulse bg-[var(--accent)]" : "bg-[var(--muted)]"}`}
-          />
+        <span className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+          {playing ? (
+            <span aria-hidden className="equalizer">
+              <span />
+              <span />
+              <span />
+            </span>
+          ) : (
+            <span aria-hidden className="size-1.5 rounded-full bg-[var(--muted)]" />
+          )}
           En écoute
         </span>
         {expanded && (

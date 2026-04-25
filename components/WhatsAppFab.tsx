@@ -12,7 +12,8 @@ export function WhatsAppFab() {
       rel="noopener noreferrer"
       aria-label="Nous écrire sur WhatsApp"
       title="WhatsApp"
-      className="fixed bottom-4 right-[4.5rem] z-30 inline-flex size-12 items-center justify-center rounded-full bg-[#25d366] text-white shadow-lg transition hover:scale-105 hover:bg-[#1ebe5a] sm:right-20"
+      data-tooltip="WhatsApp"
+      className="fab-tooltip inline-flex size-12 items-center justify-center rounded-full bg-[#25d366] text-white shadow-lg transition hover:scale-105 hover:bg-[#1ebe5a]"
     >
       <svg
         aria-hidden

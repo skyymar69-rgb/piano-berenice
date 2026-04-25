@@ -34,26 +34,10 @@ const sections: Section[] = [
         "Gros plan sur les touches noires et blanches d'un piano — cours de piano à Nice Cimiez",
     },
     links: [
-      {
-        href: "/cours/piano",
-        label: "Piano",
-        hint: "Individuel ou en binôme",
-      },
-      {
-        href: "/cours/solfege",
-        label: "Solfège",
-        hint: "En groupe, tous instruments",
-      },
-      {
-        href: "/cours/eveil-musical",
-        label: "Éveil musical",
-        hint: "À partir de 5 ans",
-      },
-      {
-        href: "/professeur",
-        label: "Le professeur",
-        hint: "Bérénice Lecardeur",
-      },
+      { href: "/cours/piano", label: "Piano", hint: "Individuel ou en binôme" },
+      { href: "/cours/solfege", label: "Solfège", hint: "En groupe, tous instruments" },
+      { href: "/cours/eveil-musical", label: "Éveil musical", hint: "À partir de 5 ans" },
+      { href: "/professeur", label: "Le professeur", hint: "Bérénice Lecardeur" },
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/partitions", label: "Partitions libres", hint: "Bibliothèque gratuite" },
       { href: "/faq", label: "FAQ — questions fréquentes" },
@@ -102,33 +86,37 @@ const sections: Section[] = [
 
 export function MegaMenu() {
   const [open, setOpen] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     if (open === null) return;
-    const h = (e: KeyboardEvent) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(null);
     };
-    const c = (e: MouseEvent) => {
+    const onClick = (e: MouseEvent) => {
+      const t = e.target as Node;
       if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
+        navRef.current &&
+        !navRef.current.contains(t) &&
+        panelRef.current &&
+        !panelRef.current.contains(t)
       ) {
         setOpen(null);
       }
     };
-    window.addEventListener("keydown", h);
-    window.addEventListener("mousedown", c);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("mousedown", onClick);
     return () => {
-      window.removeEventListener("keydown", h);
-      window.removeEventListener("mousedown", c);
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("mousedown", onClick);
     };
   }, [open]);
 
   const scheduleClose = () => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => setOpen(null), 150);
+    closeTimer.current = window.setTimeout(() => setOpen(null), 180);
   };
   const cancelClose = () => {
     if (closeTimer.current) {
@@ -138,141 +126,175 @@ export function MegaMenu() {
   };
 
   return (
-    <nav
-      ref={containerRef}
-      aria-label="Menu principal"
-      className="hidden lg:block"
-      onMouseLeave={scheduleClose}
-      onMouseEnter={cancelClose}
-    >
-      <ul className="flex items-center gap-1">
-        {sections.map((s, i) => {
-          const isOpen = open === i;
-          return (
-            <li key={s.label} className="relative">
-              <button
-                type="button"
-                onMouseEnter={() => {
-                  cancelClose();
-                  setOpen(i);
-                }}
-                onFocus={() => setOpen(i)}
-                onClick={() => setOpen(isOpen ? null : i)}
-                aria-expanded={isOpen}
-                aria-haspopup="true"
-                className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm transition ${
-                  isOpen
-                    ? "bg-[var(--muted-bg)] text-[var(--primary)]"
-                    : "text-[var(--ink)] hover:text-[var(--accent)]"
-                }`}
-              >
-                {s.label}
-                <svg
-                  aria-hidden
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={`transition ${isOpen ? "rotate-180" : ""}`}
+    <>
+      <div
+        ref={navRef}
+        aria-label="Menu principal"
+        className="hidden lg:block"
+        onMouseLeave={scheduleClose}
+        onMouseEnter={cancelClose}
+      >
+        <ul className="flex items-center gap-1">
+          {sections.map((s, i) => {
+            const isOpen = open === i;
+            return (
+              <li key={s.label} className="relative">
+                <button
+                  type="button"
+                  onMouseEnter={() => {
+                    cancelClose();
+                    setOpen(i);
+                  }}
+                  onFocus={() => setOpen(i)}
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  aria-haspopup="true"
+                  className={`group relative flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition ${
+                    isOpen
+                      ? "text-[var(--primary)]"
+                      : "text-[var(--ink)] hover:text-[var(--primary)]"
+                  }`}
                 >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+                  <span className="nav-link-underline">{s.label}</span>
+                  <svg
+                    aria-hidden
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`transition-transform duration-300 ${isOpen ? "rotate-180 text-[var(--accent)]" : ""}`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
-      {open !== null && (
-        <div
-          className="absolute left-1/2 top-[calc(100%+4px)] z-40 w-[min(960px,calc(100vw-2rem))] -translate-x-1/2 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl"
-          role="menu"
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
-        >
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr,1.1fr]">
-            <Link
-              href={sections[open].featured.href}
-              role="menuitem"
-              className="group relative block overflow-hidden rounded-2xl"
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={`/images/${sections[open].featured.imgSlug}-sm.webp 480w, /images/${sections[open].featured.imgSlug}-md.webp 960w, /images/${sections[open].featured.imgSlug}-lg.webp 1600w`}
-                    sizes="(min-width:1024px) 440px, 100vw"
-                  />
-                  <img
-                    src={`/images/${sections[open].featured.imgSlug}-md.webp`}
-                    alt={sections[open].featured.imgAlt}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/80 via-[var(--primary)]/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                    {sections[open].featured.tag}
+      {/* Backdrop overlay (subtil, hors menu) */}
+      <div
+        aria-hidden
+        className={`pointer-events-none fixed inset-0 top-[var(--header-h,4.5rem)] z-30 bg-[var(--primary)]/15 transition-opacity duration-300 ${
+          open !== null ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
+      {/* Panneau fixe, opaque, plein largeur sous le header */}
+      <div
+        ref={panelRef}
+        role="menu"
+        aria-hidden={open === null}
+        onMouseEnter={cancelClose}
+        onMouseLeave={scheduleClose}
+        className={`fixed left-0 right-0 top-[var(--header-h,4.5rem)] z-40 hidden lg:block ${
+          open !== null
+            ? "translate-y-0 opacity-100 pointer-events-auto"
+            : "-translate-y-2 opacity-0 pointer-events-none"
+        } transition duration-300 ease-out`}
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mt-2 overflow-hidden rounded-b-3xl border-x border-b border-[var(--border)] bg-[var(--surface)] shadow-[0_24px_60px_-20px_rgba(26,37,64,0.35)]">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
+            {open !== null && (
+              <div className="grid grid-cols-1 gap-0 p-7 md:grid-cols-[minmax(0,1.05fr),minmax(0,1fr)]">
+                {/* Featured card — large, rich */}
+                <Link
+                  href={sections[open].featured.href}
+                  role="menuitem"
+                  onClick={() => setOpen(null)}
+                  className="group relative block overflow-hidden rounded-2xl"
+                >
+                  <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-[var(--border)]">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet={`/images/${sections[open].featured.imgSlug}-sm.webp 480w, /images/${sections[open].featured.imgSlug}-md.webp 960w, /images/${sections[open].featured.imgSlug}-lg.webp 1600w`}
+                        sizes="(min-width:1024px) 540px, 100vw"
+                      />
+                      <img
+                        src={`/images/${sections[open].featured.imgSlug}-md.webp`}
+                        alt={sections[open].featured.imgAlt}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                      />
+                    </picture>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)] via-[var(--primary)]/55 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                        {sections[open].featured.tag}
+                      </p>
+                      <p className="mt-2 font-serif text-3xl leading-tight">
+                        {sections[open].featured.label}
+                      </p>
+                      <p className="mt-2 line-clamp-2 max-w-md text-sm text-white/85">
+                        {sections[open].featured.description}
+                      </p>
+                      <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-1.5 text-xs font-semibold text-[var(--primary)] transition group-hover:bg-[var(--accent-hover)]">
+                        Découvrir
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Links column */}
+                <div className="md:pl-8">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                    Tout le rayon
                   </p>
-                  <p className="mt-1 font-serif text-2xl leading-tight">
-                    {sections[open].featured.label}
-                  </p>
-                  <p className="mt-2 line-clamp-2 text-xs text-white/85">
-                    {sections[open].featured.description}
-                  </p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[var(--accent)]">
-                    En savoir plus →
-                  </span>
+                  <ul className="mt-3 space-y-1">
+                    {sections[open].links.map((l) => (
+                      <li key={l.href}>
+                        <Link
+                          href={l.href}
+                          role="menuitem"
+                          prefetch
+                          onClick={() => setOpen(null)}
+                          className="group flex items-start justify-between gap-4 rounded-xl px-4 py-3 transition hover:bg-[var(--muted-bg)]"
+                        >
+                          <span>
+                            <span className="block font-serif text-base text-[var(--primary)] transition group-hover:text-[var(--accent)]">
+                              {l.label}
+                            </span>
+                            {l.hint && (
+                              <span className="mt-0.5 block text-xs text-[var(--muted)]">
+                                {l.hint}
+                              </span>
+                            )}
+                          </span>
+                          <svg
+                            aria-hidden
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="mt-1 shrink-0 text-[var(--muted)] transition group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
+                          >
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                          </svg>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </Link>
-
-            <ul className="grid grid-cols-1 gap-1 self-start">
-              {sections[open].links.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    role="menuitem"
-                    onClick={() => setOpen(null)}
-                    className="flex items-start justify-between gap-4 rounded-xl px-4 py-3 transition hover:bg-[var(--muted-bg)]"
-                  >
-                    <span>
-                      <span className="block font-serif text-base text-[var(--primary)]">
-                        {l.label}
-                      </span>
-                      {l.hint && (
-                        <span className="block text-xs text-[var(--muted)]">
-                          {l.hint}
-                        </span>
-                      )}
-                    </span>
-                    <svg
-                      aria-hidden
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="mt-1 shrink-0 text-[var(--muted)]"
-                    >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            )}
           </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </>
   );
 }

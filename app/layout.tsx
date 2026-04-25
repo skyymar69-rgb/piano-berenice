@@ -9,8 +9,9 @@ import { ThemeInit } from "@/components/ThemeInit";
 import { AccessibilityWidget } from "@/components/AccessibilityWidget";
 import { MiniPlayer } from "@/components/MiniPlayer";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { BackToTop } from "@/components/BackToTop";
+import { FloatingDock, BackToTopDock } from "@/components/FloatingDock";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { MagneticEffect } from "@/components/MagneticEffect";
 import { school } from "@/lib/school";
 
 const inter = Inter({
@@ -167,6 +168,31 @@ export default function RootLayout({
           fetchPriority="high"
         />
         <meta name="format-detection" content="telephone=no" />
+        {/* Speculation Rules : pré-rendu des routes critiques au survol/clic */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [
+                {
+                  source: "document",
+                  where: {
+                    href_matches: [
+                      "/inscription",
+                      "/cours/piano",
+                      "/cours/solfege",
+                      "/cours/eveil-musical",
+                      "/professeur",
+                      "/tarifs",
+                      "/contact",
+                    ],
+                  },
+                  eagerness: "moderate",
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="flex min-h-full flex-col">
         <a
@@ -182,6 +208,7 @@ export default function RootLayout({
           Aller au pied de page
         </a>
         <ScrollProgress />
+        <MagneticEffect />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}
@@ -189,9 +216,11 @@ export default function RootLayout({
         <SiteFooter />
         <CookieBanner />
         <AccessibilityWidget />
-        <MiniPlayer />
-        <BackToTop />
-        <WhatsAppFab />
+        <FloatingDock>
+          <MiniPlayer />
+          <BackToTopDock />
+          <WhatsAppFab />
+        </FloatingDock>
         <OrganizationJsonLd />
       </body>
     </html>

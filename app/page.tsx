@@ -8,7 +8,6 @@ import { StatusBadge } from "@/components/StatusBadge";
 import { SocialProof } from "@/components/SocialProof";
 import { Counter } from "@/components/Counter";
 import { Reveal } from "@/components/Reveal";
-import { SolClefLogo } from "@/components/SolClefLogo";
 import { MiniKeyboard } from "@/components/MiniKeyboard";
 
 const homeFaqs = [
@@ -95,11 +94,14 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--muted-bg)] via-[var(--background)] to-[var(--background)]" />
+        {/* Portée musicale décorative — discrète, signée */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-6 top-8 hidden opacity-[0.07] sm:block lg:left-2 lg:top-12"
+          className="pointer-events-none absolute inset-x-0 top-32 -z-[5] hidden h-px sm:block"
         >
-          <SolClefLogo size={220} animated title="" />
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="staff-lines" />
+          </div>
         </div>
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.3fr,1fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
           <div className="relative flex flex-col justify-center">
@@ -121,9 +123,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/inscription"
-                className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
+                prefetch
+                className="magnetic-cta inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3.5 text-sm font-medium text-[var(--primary-contrast)] transition hover:bg-[var(--primary-hover)]"
               >
                 S'inscrire pour la rentrée
+                <svg aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
               </Link>
               <Link
                 href="/cours/piano"
@@ -159,36 +165,38 @@ export default function HomePage() {
               </div>
             </dl>
           </div>
-          {/* Planche d'artiste — clichés cadrés, légèrement penchés, tampon doré */}
-          <div className="relative grid grid-cols-6 grid-rows-6 gap-4 sm:gap-5">
-            <figure className="artboard-tilt-l col-span-4 row-span-4 overflow-hidden rounded-md salon-frame">
-              <Picture
-                image="stockTouchesPiano"
-                priority
-                sizes="(min-width:1024px) 320px, 66vw"
-              />
-            </figure>
-            <figure className="artboard-tilt-r col-span-2 row-span-3 overflow-hidden rounded-md salon-frame">
-              <Picture
-                image="stockPartitionSolfege"
-                sizes="(min-width:1024px) 160px, 33vw"
-              />
-            </figure>
-            <figure className="artboard-tilt-l col-span-2 row-span-3 overflow-hidden rounded-md salon-frame">
-              <Picture
-                image="berenicePortrait"
-                sizes="(min-width:1024px) 160px, 33vw"
-              />
-            </figure>
-            <figure className="artboard-tilt-r col-span-6 row-span-2 overflow-hidden rounded-md salon-frame">
-              <Picture
-                image="partitionRose"
-                sizes="(min-width:1024px) 480px, 100vw"
-              />
-            </figure>
+          {/* Composition magazine : 1 visuel principal + 2 verticaux droits */}
+          <div className="relative">
+            <div className="grid grid-cols-12 grid-rows-6 gap-3 sm:gap-4">
+              <figure className="col-span-8 row-span-6 overflow-hidden salon-frame">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <Picture
+                    image="stockTouchesPiano"
+                    priority
+                    sizes="(min-width:1024px) 360px, 66vw"
+                  />
+                </div>
+              </figure>
+              <figure className="col-span-4 row-span-3 overflow-hidden salon-frame">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <Picture
+                    image="berenicePortrait"
+                    sizes="(min-width:1024px) 180px, 33vw"
+                  />
+                </div>
+              </figure>
+              <figure className="col-span-4 row-span-3 overflow-hidden salon-frame">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <Picture
+                    image="partitionRose"
+                    sizes="(min-width:1024px) 180px, 33vw"
+                  />
+                </div>
+              </figure>
+            </div>
             <span
               aria-hidden
-              className="wax-stamp pointer-events-none absolute -right-3 -top-3 z-10 hidden sm:inline-block"
+              className="wax-stamp pointer-events-none absolute -right-2 -top-4 z-10 hidden sm:inline-block"
             >
               Depuis {school.brand.foundedYear}
             </span>
@@ -234,7 +242,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               Nos cours
             </p>
-            <h2 className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+            <h2 className="heading-bar mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
               Trois disciplines, une même exigence
             </h2>
           </div>
@@ -284,7 +292,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               Le professeur
             </p>
-            <h2 className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+            <h2 className="heading-bar mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
               {school.teacher.fullName}
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-[var(--ink)]/85">
@@ -318,7 +326,7 @@ export default function HomePage() {
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Comment ça se passe
         </p>
-        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+        <h2 className="heading-bar mt-3 max-w-3xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
           De votre première question à la scène de l'audition
         </h2>
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -347,7 +355,7 @@ export default function HomePage() {
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
             Le lieu
           </p>
-          <h2 className="mt-3 max-w-3xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+          <h2 className="heading-bar mt-3 max-w-3xl font-serif text-3xl text-[var(--primary)] sm:text-4xl">
             Trois salles dédiées, au cœur de Cimiez
           </h2>
           <p className="mt-4 max-w-2xl text-[var(--ink)]/80">
@@ -391,7 +399,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
               Où nous trouver
             </p>
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+            <h2 className="heading-bar mt-3 font-serif text-3xl sm:text-4xl">
               Au cœur de Cimiez, à deux pas des arènes
             </h2>
             <p className="mt-5 text-base text-white/80">
@@ -438,7 +446,7 @@ export default function HomePage() {
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
           Questions fréquentes
         </p>
-        <h2 className="mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
+        <h2 className="heading-bar mt-3 font-serif text-3xl text-[var(--primary)] sm:text-4xl">
           Vos questions, nos réponses
         </h2>
         <div className="mt-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
@@ -528,9 +536,13 @@ export default function HomePage() {
           </p>
           <Link
             href="/inscription"
-            className="mt-8 inline-flex rounded-full bg-[var(--primary)] px-7 py-3.5 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
+            prefetch
+            className="magnetic-cta mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3.5 text-sm font-medium text-white transition hover:bg-[var(--primary-hover)]"
           >
             S'inscrire pour la rentrée
+            <svg aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </Link>
         </div>
       </section>
