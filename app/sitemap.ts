@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cours-piano-vieux-nice",
     "/cours-piano-mont-boron",
     "/partitions",
+    "/partitions/jouer",
     "/blog",
     "/carte-de-visite",
     "/mentions-legales",

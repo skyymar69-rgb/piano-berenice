@@ -22,6 +22,7 @@ const sitemap: {
       { href: "/tarifs", label: "Tarifs & modalités" },
       { href: "/inscription", label: "S'inscrire pour la rentrée" },
       { href: "/partitions", label: "Partitions libres de droit" },
+      { href: "/partitions/jouer", label: "Coin partitions interactives" },
       { href: "/blog", label: "Blog · conseils et histoire" },
       { href: "/glossaire", label: "Glossaire musical" },
       { href: "/questions", label: "Questions fréquentes" },

@@ -153,6 +153,26 @@ export default function PartitionsPage() {
           </a>
           .
         </p>
+
+        <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-[var(--accent)]/30 bg-[var(--muted-bg)]/60 px-5 py-4">
+          <span aria-hidden className="text-[var(--accent)]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <p className="text-sm text-[var(--ink)]/85">
+            <strong>Nouveau :</strong> notre{" "}
+            <Link
+              href="/partitions/jouer"
+              className="font-semibold text-[var(--accent)] underline underline-offset-2 hover:text-[var(--accent-hover)]"
+            >
+              coin partitions interactives
+            </Link>{" "}
+            — sept classiques à écouter directement, tempo réglable, curseur
+            sur la portée. Open source, sans inscription.
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
